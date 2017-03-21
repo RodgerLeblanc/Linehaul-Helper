@@ -114,6 +114,14 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="dicom_cube_30.png" />
+    <Content Include="dicom_license_plate.jpg" />
+    <Content Include="dicom_logo.png" />
+    <Content Include="dicom_truck_dock.jpg" />
+    <Content Include="headquarters.jpg" />
+    <Content Include="locator_page_icon.png" />
+    <Content Include="message_page_icon.png" />
+    <Content Include="plates_page_icon.png" />
     <Content Include="profile_generic.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="slideout.png" />

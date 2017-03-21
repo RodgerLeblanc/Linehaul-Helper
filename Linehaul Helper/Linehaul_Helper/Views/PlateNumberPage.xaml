@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Linehaul_Helper"
+	xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+	x:Class="Linehaul_Helper.Views.PlateNumberPage">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness"
+        	iOS="0, 20, 0, 0"
+            Android="0, 0, 0, 0"
+            WinPhone="0, 0, 0, 0" />
+	</ContentPage.Padding>
+	
+	<StackLayout
+		HorizontalOptions="Center"
+		VerticalOptions="Center">
+		<Label
+			Text="{Binding PlateNumberPageModel.UnitNumber}"
+			FontSize="{Binding FontSizeLarge}"
+			HorizontalOptions="Center"/>
+		<Label
+			Text="{Binding PlateNumberPageModel.PlateNumber}"
+			FontSize="{Binding FontSizeXLarge}"
+			FontAttributes="Bold"
+			HorizontalOptions="Center"/>
+		<Button
+			Text="{i18n:Translate PlateNumberPageButtonOk}"
+            Command="{Binding DoneCommand}"
+			HorizontalOptions="Center"/>
+		<Button
+			Margin="0, 50, 0 ,0"
+			Text="{i18n:Translate PlateNumberPageButtonReportError}"
+            Command="{Binding ReportErrorCommand}"
+			IsVisible="false"
+			HorizontalOptions="Center"/>
+	</StackLayout>
+</ContentPage>

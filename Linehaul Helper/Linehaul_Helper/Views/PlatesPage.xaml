@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Linehaul_Helper"
+	xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+	x:Class="Linehaul_Helper.Views.PlatesPage"
+	Title="{i18n:Translate PlatesPageTitle}"
+    IsBusy="{Binding IsBusy}">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+			iOS="0, 20, 0, 0"
+			Android="0, 0, 0, 0"
+			WinPhone="0, 0, 0, 0" />
+    </ContentPage.Padding>
+
+    <ScrollView		
+		HorizontalOptions="Center"
+		VerticalOptions="Center">
+        <StackLayout
+    		HorizontalOptions="Center"
+	    	VerticalOptions="Center">
+            <StackLayout
+		    	Orientation="Horizontal"
+			    HorizontalOptions="Center">
+                <Label
+    				Text="{Binding UnitInfoListDateTime, StringFormat={i18n:Translate PlatesPageLastUpdated}}"
+	    			VerticalOptions="Center"/>
+                <Button
+		    		Text="{i18n:Translate PlatesPageUpdateButtonText}"
+			    	VerticalOptions="Center"
+				    IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}"
+				    Command="{Binding UpdateCommand}"/>
+            </StackLayout>
+            <Image
+    			Source="dicom_truck_dock.jpg"
+	    		HorizontalOptions="CenterAndExpand"
+		    	Aspect="AspectFill">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding AddUnitCommand}"
+				    	NumberOfTapsRequired="2" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Entry
+                Keyboard="Numeric"
+		    	Placeholder="{i18n:Translate PlatesPageEntryPlaceholder}"
+			    HorizontalOptions="Center"
+			    WidthRequest="400"
+                Text="{Binding UnitNumber, Mode=TwoWay, Converter={StaticResource StringToUnitConverter}}">
+            </Entry>
+            <Button
+    			x:Name="ButtonGetPlateNumber"
+	    		Text="{i18n:Translate PlatesPageButtonText}"
+		    	IsEnabled="{Binding UnitNumber, Converter={StaticResource UnitNumberValidConverter}}"
+                Command="{Binding FindUnitCommand}"
+			    HorizontalOptions="Center"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Linehaul_Helper.Views.UnitInfoCreationPage">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness"
+        	iOS="0, 20, 0, 0"
+            Android="0, 0, 0, 0"
+            WinPhone="0, 0, 0, 0" />
+	</ContentPage.Padding>
+
+	<StackLayout
+		HorizontalOptions="Center"
+		VerticalOptions="Center">
+		<Entry
+			x:Name="EntryUnitNumber"
+			Placeholder="Unit Number"
+			HorizontalOptions="Center"/>
+		<Entry
+			x:Name="EntryPlateNumber"
+			Placeholder="Plate Number"
+			HorizontalOptions="Center"
+			Completed="Handle_Completed"/>
+		<Button
+			Text="Add"
+			Clicked="Handle_Add_Clicked"/>
+		
+		<Button
+			Margin="0, 50, 0, 0"
+			Text="Done"
+			Clicked="Handle_Done_Clicked"/>
+ 	</StackLayout>
+</ContentPage>

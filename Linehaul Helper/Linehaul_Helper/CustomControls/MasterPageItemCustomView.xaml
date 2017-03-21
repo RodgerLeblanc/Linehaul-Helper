@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout
+	x:Name="masterPageItemCustomView"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Linehaul_Helper.CustomControls.MasterPageItemCustomView"
+	HorizontalOptions="FillAndExpand"
+	Orientation="Horizontal"
+    BackgroundColor="Transparent"
+	Spacing="20">
+    <StackLayout.GestureRecognizers>
+        <TapGestureRecognizer
+            Command="{Binding Command}"
+            CommandParameter="{Binding CommandParameter}"/>
+    </StackLayout.GestureRecognizers>
+    <Image
+		Source="{Binding ImageSource}"
+		HeightRequest="{Binding ImageSize}"
+		Aspect="AspectFit" 
+        IsVisible="{Binding ImageSource, Converter={StaticResource ImageSourceToIsVisibleConverter}}"/>
+    <Label
+		x:Name="label"
+		Text="{Binding Text}"
+		TextColor="{StaticResource LightBackgroundColor}"
+		FontSize="Small"
+		LineBreakMode="NoWrap"
+		VerticalOptions="Center"
+		HorizontalOptions="StartAndExpand" />
+</StackLayout>
