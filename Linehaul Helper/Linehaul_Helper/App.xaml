@@ -25,6 +25,8 @@
             <converter:StringToUnitConverter x:Key="StringToUnitConverter"/>
             <converter:UnitNumberValidConverter x:Key="UnitNumberValidConverter"/>
             <converter:ImageSourceToIsVisibleConverter x:Key="ImageSourceToIsVisibleConverter"/>
+            <converter:TrackingNumberValidConverter x:Key="TrackingNumberValidConverter"/>
+            <converter:IsBusyToOpacityConverter x:Key="IsBusyToOpacityConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

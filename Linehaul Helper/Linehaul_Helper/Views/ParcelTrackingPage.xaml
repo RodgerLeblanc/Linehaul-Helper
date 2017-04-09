@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Linehaul_Helper.ViewModels"
+             xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+             x:Class="Linehaul_Helper.Views.ParcelTrackingPage"
+             Title="{i18n:Translate ParcelTrackingPageTitle}">
+    <ScrollView
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <AbsoluteLayout 
+            Padding="10"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}"
+                Opacity="{Binding IsBusy, Converter={StaticResource IsBusyToOpacityConverter}}">
+                <Entry
+        		    Placeholder="{i18n:Translate ParcelTrackingPageEntryPlaceholder}"
+		        	HorizontalOptions="Center"
+        			WidthRequest="200"
+                    Text="{Binding TrackingNumber, Mode=TwoWay}"/>
+                <Button
+        	    	Text="{i18n:Translate ParcelTrackingPageButtonText}"
+		            IsEnabled="{Binding TrackingNumber, Converter={StaticResource TrackingNumberValidConverter}}"
+                    Command="{Binding TrackCommand}"
+		        	HorizontalOptions="Center"/>
+            </StackLayout>
+            <ActivityIndicator
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                IsVisible="{Binding IsBusy}"
+                IsRunning="{Binding IsBusy}"/>
+        </AbsoluteLayout>
+    </ScrollView>
+</ContentPage>

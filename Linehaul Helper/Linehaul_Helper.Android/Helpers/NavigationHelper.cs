@@ -1,8 +1,8 @@
-using Linehaul_Helper.Droid;
+using Linehaul_Helper.Droid.Helpers;
 using Linehaul_Helper.Interfaces;
 
 [assembly: Xamarin.Forms.Dependency(typeof(NavigationHelper))]
-namespace Linehaul_Helper.Droid
+namespace Linehaul_Helper.Droid.Helpers
 {
     public class NavigationHelper : INavigationHelper
     {

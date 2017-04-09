@@ -43,21 +43,29 @@
     <Compile Include="Converters\ImageSourceToIsVisibleConverter.cs" />
     <Compile Include="Converters\IntToStringConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Converters\IsBusyToOpacityConverter.cs" />
     <Compile Include="Converters\StringToUnitConverter.cs" />
+    <Compile Include="Converters\TrackingNumberValidConverter.cs" />
     <Compile Include="Converters\UnitNumberValidConverter.cs" />
     <Compile Include="CustomControls\CustomViewCell.xaml.cs">
       <DependentUpon>CustomViewCell.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomEventArgs\IsBusyEventArgs.cs" />
     <Compile Include="CustomEventArgs\UnitInfoListDateTimeEventArgs.cs" />
+    <Compile Include="Exceptions\IndeedJobsNotFoundException.cs" />
+    <Compile Include="Exceptions\TrackingNotFoundException.cs" />
     <Compile Include="Helpers\ApiKeys.cs" />
     <Compile Include="Helpers\Commons.cs" />
     <Compile Include="Helpers\MessengingCenterAlert.cs" />
+    <Compile Include="Helpers\NavigationHelper.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
     <Compile Include="Helpers\PCLStorage.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Interfaces\IApplicationInfo.cs" />
+    <Compile Include="Interfaces\IJobsRetrievalService.cs" />
     <Compile Include="Interfaces\INavigationHelper.cs" />
+    <Compile Include="Interfaces\IParcelTrackingService.cs" />
     <Compile Include="Localization\AppResources.fr.Designer.cs">
       <DependentUpon>AppResources.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -72,21 +80,39 @@
     <Compile Include="Localization\PlatformCulture.cs" />
     <Compile Include="Localization\TranslateExtension.cs" />
     <Compile Include="Models\CloudantResponse.cs" />
+    <Compile Include="Models\IndeedJsonModel.cs" />
     <Compile Include="Models\MasterPageItem.cs" />
+    <Compile Include="Models\ParcelTrackingModel.cs" />
     <Compile Include="Models\PlateNumberPageModel.cs" />
     <Compile Include="Models\PlatesPageModel.cs" />
+    <Compile Include="Models\SwitchLocation.cs" />
     <Compile Include="Models\UnitInfo.cs" />
+    <Compile Include="Models\WarehouseLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\DbService.cs" />
-    <Compile Include="Interfaces\IDatabaseService.cs" />
-    <Compile Include="StaticEmptyInitClass.cs" />
+    <Compile Include="Services\JobsRetrievalService.cs" />
+    <Compile Include="Services\ParcelTrackingService.cs" />
+    <Compile Include="Services\PlatesDatabaseService.cs" />
+    <Compile Include="Interfaces\IPlatesDatabaseService.cs" />
+    <Compile Include="ViewModels\AboutPageViewModel.cs" />
+    <Compile Include="ViewModels\JobsPageViewModel.cs" />
     <Compile Include="ViewModels\MainMasterPageViewModel.cs" />
+    <Compile Include="ViewModels\ParcelTrackingPageViewModel.cs" />
     <Compile Include="ViewModels\PlateNumberPageViewModel.cs" />
     <Compile Include="ViewModels\PlatesPageViewModel.cs" />
+    <Compile Include="ViewModels\SwitchLocationPageViewModel.cs" />
     <Compile Include="ViewModels\UnitDefectReportPageViewModel.cs" />
-    <Compile Include="ViewModels\WarehouseLocatorPageViewModel.cs" />
+    <Compile Include="ViewModels\WarehouseLocationPageViewModel.cs" />
+    <Compile Include="Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeMasterDetail.xaml.cs">
       <DependentUpon>HomeMasterDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IndeedJobWebViewPage.xaml.cs">
+      <DependentUpon>IndeedJobWebViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JobsPage.xaml.cs">
+      <DependentUpon>JobsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainMasterPage.xaml.cs">
       <DependentUpon>MainMasterPage.xaml</DependentUpon>
@@ -97,16 +123,24 @@
     <Compile Include="CustomControls\MasterPageItemSeparator.xaml.cs">
       <DependentUpon>MasterPageItemSeparator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ParcelTrackingPage.xaml.cs">
+      <DependentUpon>ParcelTrackingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PlateNumberPage.xaml.cs" />
     <Compile Include="Views\PlatesPage.xaml.cs">
       <DependentUpon>PlatesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SwitchLocationPage.xaml.cs">
+      <DependentUpon>SwitchLocationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UnitDefectReportPage.xaml.cs">
       <DependentUpon>UnitDefectReportPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UnitInfoCreationPage.xaml.cs" />
-    <Compile Include="Views\WarehouseLocatorPage.xaml.cs">
-      <DependentUpon>WarehouseLocatorPage.xaml</DependentUpon>
+    <Compile Include="Views\UnitInfoCreationPage.xaml.cs">
+      <DependentUpon>UnitInfoCreationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WarehouseLocationPage.xaml.cs">
+      <DependentUpon>WarehouseLocationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
@@ -127,9 +161,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlAgilityPack.1.4.9.5\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
@@ -158,19 +194,16 @@
       <HintPath>..\..\packages\Xam.Plugins.XamJam.Screen.1.0.6\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.XamJam.Screen.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.4.224\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Maps, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.Maps.2.3.2.127\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.Maps.2.3.4.224\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.4.224\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.4.224\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -217,14 +250,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UnitInfoCreationPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SwitchLocationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Views\WarehouseLocatorPage.xaml">
+    <EmbeddedResource Include="Views\WarehouseLocationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -241,13 +275,43 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\UnitInfoCreationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ParcelTrackingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\JobsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\IndeedJobWebViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+  <Import Project="..\..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

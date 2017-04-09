@@ -17,7 +17,7 @@ using Linehaul_Helper.CustomEventArgs;
 
 namespace Linehaul_Helper.Services
 {
-    public class DbService : IDatabaseService
+    public class PlatesDatabaseService : IPlatesDatabaseService
     {
         private String _baseCloudantUrl = ApiKeys.FretPlatesDbUrl + ApiKeys.FretPlatesDbName + "/";
         private HttpClient _client = new HttpClient();
@@ -40,7 +40,7 @@ namespace Linehaul_Helper.Services
             private set { _isBusy = value; OnIsBusyChanged(value); }
         }
 
-        public DbService()
+        public PlatesDatabaseService()
         {
             var authData = string.Format($"{ApiKeys.FretPlatesK}:{ApiKeys.FretPlatesP}");
             var authorization = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));

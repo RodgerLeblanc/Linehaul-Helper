@@ -39,18 +39,30 @@
                     Text="{i18n:Translate PlatesPageTitle}"
                     Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
                     CommandParameter="{x:Type views:PlatesPage}"/>
+                <controls:MasterPageItemCustomView
+                    ImageSource="locator_page_icon.png"
+                    ImageSize="60"
+                    Text="{i18n:Translate ParcelTrackingPageTitle}"
+                    Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
+                    CommandParameter="{x:Type views:ParcelTrackingPage}"/>
+                <controls:MasterPageItemCustomView
+                    ImageSource="locator_page_icon.png"
+                    ImageSize="60"
+                    Text="Jobs (unlocalized)"
+                    Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
+                    CommandParameter="{x:Type views:JobsPage}"/>
                 <controls:MasterPageItemCustomView 
                     ImageSource="locator_page_icon.png"
                     ImageSize="60"
-                    Text="{i18n:Translate WarehouseLocatorPageTitle}"
+                    Text="{i18n:Translate WarehouseLocationPageTitle}"
                     Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
-                    CommandParameter="{x:Type views:WarehouseLocatorPage}"/>
+                    CommandParameter="{x:Type views:WarehouseLocationPage}"/>
                 <controls:MasterPageItemCustomView 
-                    ImageSource="message_page_icon.png"
+                    ImageSource="locator_page_icon.png"
                     ImageSize="60"
-                    Text="{i18n:Translate PlatesPageTitle}"
+                    Text="{i18n:Translate SwitchLocationPageTitle}"
                     Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
-                    CommandParameter="{x:Type views:WelcomePage}"/>
+                    CommandParameter="{x:Type views:SwitchLocationPage}"/>
             </StackLayout>
         </ScrollView>
         <StackLayout
@@ -58,11 +70,11 @@
             VerticalOptions="End">
             <controls:MasterPageItemSeparator/>
             <controls:MasterPageItemCustomView 
-                ImageSource="plates_page_icon.png"
+                ImageSource="message_page_icon.png"
                 ImageSize="60"
-                Text="{i18n:Translate PlatesPageTitle}"
+                Text="{i18n:Translate AboutPageTitle}"
                 Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
-                CommandParameter="{x:Type views:PlatesPage}"/>
+                CommandParameter="{x:Type views:AboutPage}"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

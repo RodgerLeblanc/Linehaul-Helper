@@ -1,4 +1,5 @@
 ﻿using Linehaul_Helper.Helpers;
+using Linehaul_Helper.Interfaces;
 using Linehaul_Helper.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -52,25 +53,40 @@ namespace Linehaul_Helper.Views
                     Debug.WriteLine("Exception on trying to save GeneralSettingsObject: " + ex.Message);
                 }
             });
+
+            MessagingCenter.Subscribe<MainMasterPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, async (source, page) =>
+            {
+                await NavigationHelper.NavigationPushAsync(page);
+            });
+
+            MessagingCenter.Subscribe<JobsPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, async (source, page) =>
+            {
+                await NavigationHelper.NavigationPushAsync(page);
+            });
         }
 
         protected override void OnDisappearing()
         {
-            //MessagingCenter.Unsubscribe<MainMasterPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
+            MessagingCenter.Unsubscribe<MainMasterPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
+            MessagingCenter.Unsubscribe<JobsPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
 
             base.OnDisappearing();
         }
 
         protected override bool OnBackButtonPressed()
         {
-            if (Application.Current.MainPage.GetType() == typeof(MasterDetailPage))
+            if (Application.Current.MainPage is MasterDetailPage)
             {
-                var md = Xamarin.Forms.Application.Current.MainPage as MasterDetailPage;
+                var md = Application.Current.MainPage as MasterDetailPage;
                 var isNotNull = (md != null);
-                var cantGoBack = !(md.Detail is NavigationPage) || (((NavigationPage)md.Detail).Navigation.NavigationStack.Count == 1 && ((NavigationPage)md.Detail).Navigation.ModalStack.Count == 0);
+                var cantGoBack = !(md.Detail is NavigationPage) || 
+                                (((NavigationPage)md.Detail).Navigation.NavigationStack.Count == 1 && ((NavigationPage)md.Detail).Navigation.ModalStack.Count == 0);
 
                 if (isNotNull && !md.IsPresented && cantGoBack)
-                    return false;
+                {
+                    DependencyService.Get<INavigationHelper>().NavigateToHomeScreen();
+                    return true;
+                }
             }
 
             return base.OnBackButtonPressed();

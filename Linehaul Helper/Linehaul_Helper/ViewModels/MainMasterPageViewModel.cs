@@ -15,64 +15,25 @@ using Xamarin.Forms;
 
 namespace Linehaul_Helper.ViewModels
 {
-    class MainMasterPageViewModel : INotifyPropertyChanged
+    public class MainMasterPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public MainMasterPageViewModel()
         {
-            LoadPageCommand = new Command<Type>((pageType) =>
-            {
-                var page = (Page)Activator.CreateInstance(pageType);
-                MessagingCenter.Send<MainMasterPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, page);
-            });
-
-            //var itemsSource = new ObservableCollection<MasterPageItem>();
-            //itemsSource.Add(new MasterPageItem()
-            //{
-            //    Title = AppResources.PlatesPageTitle,
-            //    ImageSource = "plates_page_icon.png",
-            //    TargetType = typeof(PlatesPage),
-            //    Command = LoadPageCommand
-            //});
-            //itemsSource.Add(new MasterPageItem()
-            //{
-            //    Title = AppResources.WarehouseLocatorPageTitle,
-            //    ImageSource = "locator_page_icon.png",
-            //    TargetType = typeof(WarehouseLocatorPage),
-            //    Command = LoadPageCommand
-            //});
-            //itemsSource.Add(new MasterPageItem()
-            //{
-            //    Title = AppResources.PlatesPageTitle,
-            //    ImageSource = "message_page_icon.png",
-            //    TargetType = typeof(WelcomePage),
-            //    Command = LoadPageCommand
-            //});
-            //ItemsSource = itemsSource;
-
-            //PlatesPageCommand = new Command(() =>
-            //{
-            //    MessagingCenter.Send<MainMasterPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, new PlatesPage());
-            //});
-
-            //WarehouseLocatorPageCommand = new Command(() =>
-            //{
-            //    MessagingCenter.Send<MainMasterPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, new WarehouseLocatorPage());
-            //});
-
-            //UnitDefectReportPageCommand = new Command(() =>
-            //{
-            //    MessagingCenter.Send<MainMasterPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, new UnitDefectReportPage());
-            //});
         }
 
-        public ICommand LoadPageCommand { get; private set; }
-        public ICommand PlatesPageCommand { get; private set; }
-        public ICommand WarehouseLocatorPageCommand { get; private set; }
-        public ICommand UnitDefectReportPageCommand { get; private set; }
-
-        //public ObservableCollection<MasterPageItem> ItemsSource { get; set; }
+        public ICommand LoadPageCommand
+        {
+            get
+            {
+                return new Command<Type>((pageType) =>
+                {
+                    var page = (Page)Activator.CreateInstance(pageType);
+                    MessagingCenter.Send<MainMasterPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, page);
+                });
+            }
+        }
 
         void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

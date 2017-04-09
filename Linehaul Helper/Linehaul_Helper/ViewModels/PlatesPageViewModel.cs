@@ -20,7 +20,7 @@ namespace Linehaul_Helper.ViewModels
 {
     class PlatesPageViewModel : INotifyPropertyChanged
     {
-        private IDatabaseService _dbService;
+        private IPlatesDatabaseService _dbService;
         private bool _isBusy;
         private List<UnitInfo> _unitInfos;
         private DateTime _unitInfoListDateTime;
@@ -32,7 +32,7 @@ namespace Linehaul_Helper.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public PlatesPageViewModel(IDatabaseService dbService)
+        public PlatesPageViewModel(IPlatesDatabaseService dbService)
         {
             _dbService = dbService ?? throw new ArgumentNullException();
 

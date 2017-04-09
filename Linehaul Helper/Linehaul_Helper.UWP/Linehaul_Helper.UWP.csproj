@@ -103,9 +103,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ApplicationInfo.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\NavigationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +126,7 @@
     <Content Include="plates_page_icon.png" />
     <Content Include="profile_generic.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <Content Include="roger_leblanc.jpg" />
     <Content Include="slideout.png" />
   </ItemGroup>
   <ItemGroup>

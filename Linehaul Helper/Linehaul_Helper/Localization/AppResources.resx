@@ -147,19 +147,34 @@ Contact info@cellninja.ca to add this unit.</value>
   <data name="PlatesPageTitle" xml:space="preserve">
     <value>License Plates</value>
   </data>
-  <data name="SwitchPageTitle" xml:space="preserve">
-    <value>Switch Locator</value>
-  </data>
-  <data name="WarehouseLocatorPageTitle" xml:space="preserve">
-    <value>Warehouse Locator</value>
+  <data name="WarehouseLocationPageTitle" xml:space="preserve">
+    <value>Warehouse Location</value>
   </data>
   <data name="PlatesPageLastUpdated" xml:space="preserve">
     <value>Last updated on {0:d} {0:t}</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="PlatesPageUpdateButtonText" xml:space="preserve">
     <value>Update</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="SwitchLocationPageTitle" xml:space="preserve">
+    <value>Switch Location</value>
+  </data>
+  <data name="UnitInfoCreationPageTitle" xml:space="preserve">
+    <value>Create a new unit</value>
+  </data>
+  <data name="AboutPageTitle" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="ParcelTrackingPageEntryPlaceholder" xml:space="preserve">
+    <value>Enter your tracking number (ie: V58764602)</value>
+  </data>
+  <data name="ParcelTrackingPageButtonText" xml:space="preserve">
+    <value>Track</value>
+  </data>
+  <data name="ParcelTrackingPageTitle" xml:space="preserve">
+    <value>Tracking</value>
   </data>
 </root>

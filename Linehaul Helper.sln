@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linehaul_Helper", "Linehaul Helper\Linehaul_Helper\Linehaul_Helper.csproj", "{338141D1-8BA3-436E-9994-C75441D5A58E}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linehaul_Helper.iOS", "Linehaul Helper\Linehaul_Helper.iOS\Linehaul_Helper.iOS.csproj", "{52B40D02-BFF7-42DC-BD64-CF514ED00D5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linehaul_Helper.UWP", "Linehaul Helper\Linehaul_Helper.UWP\Linehaul_Helper.UWP.csproj", "{AF327370-F5E6-45DF-AB66-535DE9A77227}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linehaul_Helper.UnitTest", "Linehaul_Helper.UnitTest\Linehaul_Helper.UnitTest.csproj", "{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,8 +54,6 @@ Global
 		{338141D1-8BA3-436E-9994-C75441D5A58E}.Release|x86.ActiveCfg = Release|Any CPU
 		{338141D1-8BA3-436E-9994-C75441D5A58E}.Release|x86.Build.0 = Release|Any CPU
 		{DDA46739-C269-468F-ACB9-FE7DD363764C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDA46739-C269-468F-ACB9-FE7DD363764C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDA46739-C269-468F-ACB9-FE7DD363764C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{DDA46739-C269-468F-ACB9-FE7DD363764C}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{DDA46739-C269-468F-ACB9-FE7DD363764C}.Debug|ARM.Build.0 = Debug|Any CPU
 		{DDA46739-C269-468F-ACB9-FE7DD363764C}.Debug|ARM.Deploy.0 = Debug|Any CPU
@@ -129,6 +129,30 @@ Global
 		{AF327370-F5E6-45DF-AB66-535DE9A77227}.Release|x86.ActiveCfg = Release|x86
 		{AF327370-F5E6-45DF-AB66-535DE9A77227}.Release|x86.Build.0 = Release|x86
 		{AF327370-F5E6-45DF-AB66-535DE9A77227}.Release|x86.Deploy.0 = Release|x86
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|x64.Build.0 = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Debug|x86.Build.0 = Debug|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|ARM.Build.0 = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|iPhone.Build.0 = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|x64.ActiveCfg = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|x64.Build.0 = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|x86.ActiveCfg = Release|Any CPU
+		{4AB1F3C5-1051-44B1-9E60-4D87F4A94E1E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

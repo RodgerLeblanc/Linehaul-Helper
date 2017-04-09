@@ -7,6 +7,8 @@ namespace Linehaul_Helper.Droid
     [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        static public MainActivity CurrentActivity;
+
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -16,6 +18,8 @@ namespace Linehaul_Helper.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
+
+            CurrentActivity = this;
 
             LoadApplication(new App());
         }

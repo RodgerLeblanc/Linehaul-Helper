@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Linehaul_Helper.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,27 +11,20 @@ using Xamarin.Forms;
 
 namespace Linehaul_Helper.ViewModels
 {
-    class WarehouseLocatorPageViewModel : INotifyPropertyChanged
+    class WarehouseLocationPageViewModel : INotifyPropertyChanged
     {
-        int count;
-        string countDisplay = "You clicked 0 times.";
+        private IEnumerable<WarehouseLocation> _warehouseLocations;
 
-        public WarehouseLocatorPageViewModel()
+        public WarehouseLocationPageViewModel()
         {
-            IncreaseCountCommand = new Command(() =>
-            {
-                CountDisplay = $"You clicked {++count} times";
-            });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand IncreaseCountCommand { get; }
-
-        public string CountDisplay
+        public IEnumerable<WarehouseLocation> WarehouseLocations
         {
-            get { return countDisplay; }
-            set { countDisplay = value; OnPropertyChanged(); }
+            get { return _warehouseLocations; }
+            set { _warehouseLocations = value; OnPropertyChanged(); }
         }
 
         void OnPropertyChanged([CallerMemberName]string propertyName = "") =>

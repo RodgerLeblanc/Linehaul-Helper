@@ -62,11 +62,47 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string AboutPageTitle {
+            get {
+                return ResourceManager.GetString("AboutPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track.
+        /// </summary>
+        internal static string ParcelTrackingPageButtonText {
+            get {
+                return ResourceManager.GetString("ParcelTrackingPageButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your tracking number (ie: V58764602).
+        /// </summary>
+        internal static string ParcelTrackingPageEntryPlaceholder {
+            get {
+                return ResourceManager.GetString("ParcelTrackingPageEntryPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tracking.
+        /// </summary>
+        internal static string ParcelTrackingPageTitle {
+            get {
+                return ResourceManager.GetString("ParcelTrackingPageTitle", resourceCulture);
             }
         }
         
@@ -172,20 +208,29 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Switch Locator.
+        ///   Looks up a localized string similar to Switch Location.
         /// </summary>
-        internal static string SwitchPageTitle {
+        internal static string SwitchLocationPageTitle {
             get {
-                return ResourceManager.GetString("SwitchPageTitle", resourceCulture);
+                return ResourceManager.GetString("SwitchLocationPageTitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Warehouse Locator.
+        ///   Looks up a localized string similar to Create a new unit.
         /// </summary>
-        internal static string WarehouseLocatorPageTitle {
+        internal static string UnitInfoCreationPageTitle {
             get {
-                return ResourceManager.GetString("WarehouseLocatorPageTitle", resourceCulture);
+                return ResourceManager.GetString("UnitInfoCreationPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warehouse Location.
+        /// </summary>
+        internal static string WarehouseLocationPageTitle {
+            get {
+                return ResourceManager.GetString("WarehouseLocationPageTitle", resourceCulture);
             }
         }
     }

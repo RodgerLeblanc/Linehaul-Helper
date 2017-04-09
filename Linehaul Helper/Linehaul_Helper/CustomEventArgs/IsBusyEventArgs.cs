@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Linehaul_Helper.CustomEventArgs
 {
-    class IsBusyEventArgs : EventArgs
+    public class IsBusyEventArgs : EventArgs
     {
         public bool IsBusy;
     }

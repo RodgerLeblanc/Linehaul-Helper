@@ -5,7 +5,7 @@ using System;
 
 namespace Linehaul_Helper.Interfaces
 {
-    public interface IDatabaseService
+    public interface IPlatesDatabaseService
     {
         event EventHandler UnitInfoListDateTimeChanged;
         event EventHandler IsBusyChanged;

@@ -23,7 +23,7 @@ namespace Linehaul_Helper.Views
         {
             InitializeComponent();
 
-            BindingContext = new PlatesPageViewModel(new DbService());
+            BindingContext = new PlatesPageViewModel(new PlatesDatabaseService());
         }
     }
 }
