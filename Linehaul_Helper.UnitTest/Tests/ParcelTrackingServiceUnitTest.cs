@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Linehaul_Helper.Models;
 using System.Net.Http;
 using HtmlAgilityPack;
+using System.Diagnostics;
 
 namespace Linehaul_Helper.UnitTest.Tests
 {
@@ -56,11 +57,50 @@ namespace Linehaul_Helper.UnitTest.Tests
 
         [TestMethod]
         [ExpectedException(typeof(TrackingNotFoundException))]
+        public void TrackShouldThrowAnExceptionWhenTrackingNumberIsEmpty()
+        {
+            var pts = new ParcelTrackingService();
+            var trackingNumber = "";
+            Task.Run(async () =>
+            {
+                var result = await pts.Track(trackingNumber);
+            }).GetAwaiter().GetResult();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TrackingNotFoundException))]
+        public void TrackShouldThrowAnExceptionWhenTrackingNumberIsWhitespaces()
+        {
+            var pts = new ParcelTrackingService();
+            var trackingNumber = "   ";
+            Task.Run(async () =>
+            {
+                var result = await pts.Track(trackingNumber);
+            }).GetAwaiter().GetResult();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TrackingNotFoundException))]
+        public void TrackShouldThrowAnExceptionWhenTrackingNumberIsNull()
+        {
+            var pts = new ParcelTrackingService();
+            string trackingNumber = null;
+            Task.Run(async () =>
+            {
+                var result = await pts.Track(trackingNumber);
+            }).GetAwaiter().GetResult();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TrackingNotFoundException))]
         public void TrackShouldThrowAnExceptionWhenNotConnected()
         {
             var pts = new NoInternetParcelTrackingService();
             var trackingNumber = "1234567";
-            var result = pts.Track(trackingNumber).Result;
+            Task.Run(async () =>
+            {
+                var result = await pts.Track(trackingNumber);
+            }).GetAwaiter().GetResult();
         }
 
         [TestMethod]
@@ -96,7 +136,7 @@ namespace Linehaul_Helper.UnitTest.Tests
         {
             public event EventHandler IsBusyChanged;
 
-            public Task<ParcelTrackingModel> Track(string trackingNumber)
+            public async Task<ParcelTrackingModel> Track(string trackingNumber)
             {
                 throw new TrackingNotFoundException("No internet");
             }

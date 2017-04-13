@@ -1,8 +1,10 @@
-﻿using Linehaul_Helper.Helpers;
+﻿using Linehaul_Helper.Exceptions;
+using Linehaul_Helper.Helpers;
 using Linehaul_Helper.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,7 +14,7 @@ using Xamarin.Forms;
 
 namespace Linehaul_Helper.ViewModels
 {
-    class PlateNumberPageViewModel : INotifyPropertyChanged
+    public class PlateNumberPageViewModel : INotifyPropertyChanged
     {
         private ICommand _doneCommand;
         private ICommand _reportErrorCommand;
@@ -32,7 +34,18 @@ namespace Linehaul_Helper.ViewModels
 
             DoneCommand = new Command(async () =>
             {
-                await Commons.DetailNavigationPopAsync();
+                try
+                {
+                    await Commons.DetailNavigationPopAsync();
+                }
+                catch (LayoutException le)
+                {
+                    Debug.WriteLine("Layout exception: " + le.Message);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             });
 
             ReportErrorCommand = new Command(() =>
@@ -40,9 +53,16 @@ namespace Linehaul_Helper.ViewModels
                 throw new NotImplementedException();
             });
 
-            var size = Plugin.XamJam.Screen.CrossScreen.Current.Size;
-            FontSizeLarge = (int)(Math.Min(size.Width, size.Height) * 0.1);
-            FontSizeXLarge = (int)(Math.Min(size.Width, size.Height) * 0.15);
+            try
+            {
+                var size = Plugin.XamJam.Screen.CrossScreen.Current.Size;
+                FontSizeLarge = (int)(Math.Min(size.Width, size.Height) * 0.1);
+                FontSizeXLarge = (int)(Math.Min(size.Width, size.Height) * 0.15);
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("XamJam plugin doesn't support your platform. Application might not work properly, ensure you are in a test environment.");
+            }
         }
 
         public ICommand DoneCommand

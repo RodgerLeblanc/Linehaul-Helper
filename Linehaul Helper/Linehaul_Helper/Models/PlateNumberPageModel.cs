@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Linehaul_Helper.Models
 {
-    class PlateNumberPageModel : INotifyPropertyChanged
+    public class PlateNumberPageModel : INotifyPropertyChanged
     {
         public int UnitNumber { get; set; }
         public string PlateNumber { get; set; }

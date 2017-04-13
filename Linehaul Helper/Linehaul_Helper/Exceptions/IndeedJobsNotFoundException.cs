@@ -10,10 +10,6 @@ namespace Linehaul_Helper.Exceptions
     {
         public string HttpPageContent { get; private set; }
 
-        public IndeedJobsNotFoundException()
-        {
-        }
-
         public IndeedJobsNotFoundException(string message)
             : base(message)
         {

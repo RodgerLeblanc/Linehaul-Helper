@@ -80,6 +80,7 @@
     <Compile Include="Tests\ParcelTrackingServiceUnitTest.cs" />
     <Compile Include="Tests\ParcelTrackingViewModelUnitTest.cs" />
     <Compile Include="Tests\JobsPageViewModelUnitTest.cs" />
+    <Compile Include="Tests\PlateNumberPageViewModelUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Linehaul Helper\Linehaul_Helper\Linehaul_Helper.csproj">

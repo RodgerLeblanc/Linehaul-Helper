@@ -53,6 +53,7 @@
     <Compile Include="CustomEventArgs\IsBusyEventArgs.cs" />
     <Compile Include="CustomEventArgs\UnitInfoListDateTimeEventArgs.cs" />
     <Compile Include="Exceptions\IndeedJobsNotFoundException.cs" />
+    <Compile Include="Exceptions\LayoutException.cs" />
     <Compile Include="Exceptions\TrackingNotFoundException.cs" />
     <Compile Include="Helpers\ApiKeys.cs" />
     <Compile Include="Helpers\Commons.cs" />

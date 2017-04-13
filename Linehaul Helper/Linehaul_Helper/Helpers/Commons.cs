@@ -4,6 +4,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using System.Threading.Tasks;
+using Linehaul_Helper.Exceptions;
 
 namespace Linehaul_Helper.Helpers
 {
@@ -37,8 +38,11 @@ namespace Linehaul_Helper.Helpers
             await navPage.PushAsync(page);
         }
 
-        async public static Task DetailNavigationPopAsync()
+        public async static Task DetailNavigationPopAsync()
         {
+            if (!(Application.Current?.MainPage is MasterDetailPage))
+                throw new LayoutException("The application doesn't have a MasterDetailPage");
+
             var masterDetail = Application.Current.MainPage as MasterDetailPage;
             var navPage = masterDetail.Detail as NavigationPage;
             await navPage.PopAsync();

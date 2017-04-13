@@ -31,6 +31,9 @@ namespace Linehaul_Helper.Services
 
         public async Task<ParcelTrackingModel> Track(string trackingNumber)
         {
+            if (String.IsNullOrEmpty(trackingNumber) || (String.IsNullOrWhiteSpace(trackingNumber)))
+                throw new TrackingNotFoundException("Tracking number can't be empty or null");
+
             SetIsBusy(true);
 
             var response = await GetResponseFromServer(trackingNumber);
@@ -85,6 +88,9 @@ namespace Linehaul_Helper.Services
 
         private List<string> ScrapHtmlForTrackingInfos(HtmlDocument doc)
         {
+            if (doc == null)
+                throw new TrackingNotFoundException("Html document received is null", _httpAsString);
+
             try
             {
                 return doc.DocumentNode.Descendants("table").Where(d => d.GetAttributeValue("class", "") == "inlineTable")
