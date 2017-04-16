@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using FFImageLoading.Forms.Droid;
 using Plugin.Permissions;
 
 namespace Linehaul_Helper.Droid
@@ -19,6 +20,8 @@ namespace Linehaul_Helper.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
+            Xamarin.FormsGoogleMaps.Init(this, bundle); // initialize for Xamarin.Forms.GoogleMaps
+            CachedImageRenderer.Init();
 
             CurrentActivity = this;
 

@@ -13,8 +13,9 @@
             <Color x:Key="DarkBackgroundColor">#C0C0C0</Color>
             <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
             <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="DicomWhite">#F9F9F9</Color>
             <Color x:Key="DicomOrange">#F68428</Color>
-            <Color x:Key="DicomBlue">#005DAB</Color>
+            <Color x:Key="DicomBlue">#FF005DAB</Color>
 
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />

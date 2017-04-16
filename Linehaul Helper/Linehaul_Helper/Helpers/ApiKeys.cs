@@ -13,5 +13,6 @@ namespace Linehaul_Helper.Helpers
         public static String FretPlatesP = "e9f63107fe1ce3b2ea4fb0fd4d9d030fdd730309";
         public static String FretPlatesDbUrl = "https://rodgerleblanc.cloudant.com/";
         public static String FretPlatesDbName = "fretplates";
+        public static String GoogleMaps = "AIzaSyBR7pqaFMZqOgnXnmv7CD3Hf7qQoABHOqE";
     }
 }

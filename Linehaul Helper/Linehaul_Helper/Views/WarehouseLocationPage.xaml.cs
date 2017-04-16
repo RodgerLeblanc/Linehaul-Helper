@@ -35,15 +35,15 @@ namespace Linehaul_Helper.Views
 
             _warehouseLocationPageViewModel.WarehouseLocationsChanged += (sender, args) =>
             {
-                //LoadMapPinsFromViewModel();
+                LoadMapPinsFromViewModel();
             };
 
-            //SetIsShowingUser();
+            SetIsShowingUser();
 
-            //map.MoveToRegion(MapSpan.FromCenterAndRadius(
-            //    new Xamarin.Forms.GoogleMaps.Position(45.496080, -73.769532), Distance.FromKilometers(200)));
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(
+                new Xamarin.Forms.GoogleMaps.Position(45.496080, -73.769532), Distance.FromKilometers(200)));
 
-            //LoadMapPinsFromViewModel();
+            LoadMapPinsFromViewModel();
 
             //var stack = new StackLayout { Spacing = 0 }; 
 
@@ -73,37 +73,37 @@ namespace Linehaul_Helper.Views
             //Content = new Label() { Text = "Not done yet." };
         }
 
-        //private void LoadMapPinsFromViewModel()
-        //{
-        //    map.Pins.Clear();
-        //    List<WarehouseLocation> dicomWarehouseLocations = _warehouseLocationPageViewModel.WarehouseLocations.ToList();
-        //    foreach (var location in dicomWarehouseLocations)
-        //    {
-        //        map.Pins.Add(new Pin
-        //        {
-        //            Type = PinType.Place,
-        //            Position = new Xamarin.Forms.GoogleMaps.Position(location.Position.Latitude, location.Position.Longitude),
-        //            Label = location.Name,
-        //            Address = location.Address,
-        //            Tag = "Tag:" + location.Name
-        //        });
-        //    }
-        //}
+        private void LoadMapPinsFromViewModel()
+        {
+            map.Pins.Clear();
+            List<WarehouseLocation> dicomWarehouseLocations = _warehouseLocationPageViewModel.WarehouseLocations.ToList();
+            foreach (var location in dicomWarehouseLocations)
+            {
+                map.Pins.Add(new Pin
+                {
+                    Type = PinType.Place,
+                    Position = new Xamarin.Forms.GoogleMaps.Position(location.Position.Latitude, location.Position.Longitude),
+                    Label = location.Name,
+                    Address = location.Address,
+                    Tag = "Tag:" + location.Name
+                });
+            }
+        }
 
-        //private void SetIsShowingUser()
-        //{
-        //    try
-        //    {
-        //        var locator = CrossGeolocator.Current;
-        //        locator.DesiredAccuracy = 50000;
-        //        var position = locator.GetPositionAsync(timeoutMilliseconds: 100).Result;
-        //        if (position != null)
-        //            map.IsShowingUser = true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Debug.WriteLine("Unable to get location, may need to increase timeout: " + ex);
-        //    }
-        //}
+        private void SetIsShowingUser()
+        {
+            try
+            {
+                var locator = CrossGeolocator.Current;
+                locator.DesiredAccuracy = 50000;
+                var position = locator.GetPositionAsync(timeoutMilliseconds: 100).Result;
+                if (position != null)
+                    map.IsShowingUser = true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Unable to get location, may need to increase timeout: " + ex);
+            }
+        }
     }
 }

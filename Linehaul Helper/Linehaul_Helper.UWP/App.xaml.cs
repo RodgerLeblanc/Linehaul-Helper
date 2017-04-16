@@ -1,7 +1,10 @@
-﻿using System;
+﻿using FFImageLoading.Forms.WinUWP;
+using Linehaul_Helper.Helpers;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -51,6 +54,8 @@ namespace Linehaul_Helper.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
+                Xamarin.FormsGoogleMaps.Init(ApiKeys.GoogleMaps);
+                CachedImageRenderer.Init();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

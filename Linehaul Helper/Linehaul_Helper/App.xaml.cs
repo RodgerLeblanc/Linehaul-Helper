@@ -17,7 +17,8 @@ namespace Linehaul_Helper
 
         public static void SetMainPage()
         {
-            Current.MainPage = new HomeMasterDetail();
+            //Current.MainPage = new HomeMasterDetail();
+            Current.MainPage = new NavigationPage(new MainPage());
         }
     }
 }

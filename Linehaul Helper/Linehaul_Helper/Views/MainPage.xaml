@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+             xmlns:controls="clr-namespace:Linehaul_Helper.CustomControls"
+             xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
+             xmlns:views="clr-namespace:Linehaul_Helper.Views"
+             x:Class="Linehaul_Helper.Views.MainPage"
+             Title="Main Page (unlocalized)"
+             BackgroundColor="{StaticResource DicomBlue}"
+             x:Name="mainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="controls:MainPageBox">
+                <Setter 
+                    Property="Command" 
+                    Value="{Binding Source={x:Reference mainPage}, Path=BindingContext.TappedCommand}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid RowSpacing="10" ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <controls:MainPageBox
+            x:Name="test"
+            Grid.Row="0"
+            Grid.Column="0"
+            ImageSource="{markup:ImageResource Source='plates_page_icon.png'}"
+            Text="{i18n:Translate PlatesPageTitle}"
+            CommandParameter="{x:Type views:PlatesPage}"/>
+        <controls:MainPageBox
+            Grid.Row="0"
+            Grid.Column="1"
+            ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
+            Text="{i18n:Translate ParcelTrackingPageTitle}"
+            CommandParameter="{x:Type views:ParcelTrackingPage}"/>
+
+        <controls:MainPageBox
+            Grid.Row="1"
+            Grid.Column="0"
+            ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
+            Text="{i18n:Translate WarehouseLocationPageTitle}"
+            CommandParameter="{x:Type views:WarehouseLocationPage}"/>
+        <controls:MainPageBox
+            Grid.Row="1"
+            Grid.Column="1"
+            ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
+            Text="{i18n:Translate SwitchLocationPageTitle}"
+            CommandParameter="{x:Type views:SwitchLocationPage}"/>
+
+        <controls:MainPageBox
+            Grid.Row="2"
+            Grid.Column="0"
+            ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
+            Text="Jobs (unlocalized)"
+            CommandParameter="{x:Type views:JobsPage}"/>
+        <controls:MainPageBox
+            Grid.Row="2"
+            Grid.Column="1"
+            ImageSource="{markup:ImageResource Source='message_page_icon.png'}"
+            Text="{i18n:Translate AboutPageTitle}"
+            CommandParameter="{x:Type views:AboutPage}"/>
+    </Grid>
+</ContentPage>

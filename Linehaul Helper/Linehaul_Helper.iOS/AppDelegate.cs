@@ -1,5 +1,7 @@
 ﻿
+using FFImageLoading.Forms.Touch;
 using Foundation;
+using Linehaul_Helper.Helpers;
 using UIKit;
 
 namespace Linehaul_Helper.iOS
@@ -11,7 +13,8 @@ namespace Linehaul_Helper.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
-            Xamarin.FormsGoogleMaps.Init("AIzaSyBR7pqaFMZqOgnXnmv7CD3Hf7qQoABHOqE");
+            Xamarin.FormsGoogleMaps.Init(ApiKeys.GoogleMaps);
+            CachedImageRenderer.Init();
 
             LoadApplication(new App());
 

@@ -7,16 +7,15 @@
              x:Class="Linehaul_Helper.Views.WarehouseLocationPage"
              Title="{i18n:Translate WarehouseLocationPageTitle}">
     <StackLayout>
-        <Label Text="Hello"/>
         <!--<maps:Map 
             x:Name="map"
             VerticalOptions="FillAndExpand" />-->
     </StackLayout>
-    <!--<maps:Map
+    <maps:Map
         x:Name="map"
         IsShowingUser="false"
         HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand"/>-->
+        VerticalOptions="FillAndExpand"/>
     <!--<maps2:Map
         x:Name="map1"
         IsVisible="false"

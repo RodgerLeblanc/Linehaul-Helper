@@ -7,6 +7,8 @@
     "Xam.Plugin.Geolocator": "3.0.4",
     "Xam.Plugins.Settings": "2.5.4",
     "Xam.Plugins.XamJam.Screen": "1.0.6",
+    "Xamarin.FFImageLoading.Forms": "2.2.9",
+    "Xamarin.FFImageLoading.Transformations": "2.2.9",
     "Xamarin.Forms": "2.3.4.231",
     "Xamarin.Forms.GoogleMaps": "1.7.1",
     "Xamarin.Forms.Maps": "2.3.4.231"
