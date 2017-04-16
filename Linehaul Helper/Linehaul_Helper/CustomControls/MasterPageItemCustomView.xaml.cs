@@ -13,10 +13,10 @@ namespace Linehaul_Helper.CustomControls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterPageItemCustomView : StackLayout
     {
-        public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(string), typeof(MasterPageItemCustomView), null);
-        public string ImageSource
+        public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(ImageSource), typeof(MasterPageItemCustomView), null);
+        public ImageSource ImageSource
         {
-            get { return (string)GetValue(ImageSourceProperty); }
+            get { return (ImageSource)GetValue(ImageSourceProperty); }
             set { SetValue(ImageSourceProperty, value); }
         }
 

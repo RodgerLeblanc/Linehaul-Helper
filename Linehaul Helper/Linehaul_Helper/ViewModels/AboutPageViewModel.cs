@@ -22,7 +22,7 @@ namespace Linehaul_Helper.ViewModels
             ApplicationName = "Linehaul Helper";
             ApplicationVersion = "1.0";
             AuthorName = "CellNinja (Roger Leblanc)";
-            AuthorImageSource = "roger_leblanc.jpg";
+            AuthorImageSource = ImageSource.FromResource("roger_leblanc.jpg");
             AuthorPresentation = "I'm a truck driver since 2004, working as an LCV driver for Dicom since July 2015. You can find me every week nights between Drummondville and Quebec.";
         }
 

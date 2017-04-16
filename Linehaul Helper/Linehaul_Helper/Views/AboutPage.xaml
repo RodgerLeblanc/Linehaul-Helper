@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+             xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
              x:Class="Linehaul_Helper.Views.AboutPage"
              Title="{i18n:Translate AboutPageTitle}">
     <ScrollView>
@@ -27,7 +28,7 @@
                 Text="{Binding AuthorName}"
                 HorizontalOptions="Center"/>
             <Image
-                Source="{Binding ImageSource}"
+                Source="{Binding AuthorImageSource}"
                 HorizontalOptions="Center"
                 WidthRequest="60"
                 Aspect="AspectFit"/>

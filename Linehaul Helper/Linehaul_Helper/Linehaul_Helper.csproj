@@ -80,6 +80,7 @@
     <Compile Include="Localization\ILocalize.cs" />
     <Compile Include="Localization\PlatformCulture.cs" />
     <Compile Include="Localization\TranslateExtension.cs" />
+    <Compile Include="MarkupExtensions\ImageResourceExtension.cs" />
     <Compile Include="Models\CloudantResponse.cs" />
     <Compile Include="Models\IndeedJsonModel.cs" />
     <Compile Include="Models\MasterPageItem.cs" />
@@ -308,6 +309,22 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\dicom_cube_30.png" />
+    <EmbeddedResource Include="Images\dicom_license_plate.jpg" />
+    <EmbeddedResource Include="Images\dicom_logo.png" />
+    <EmbeddedResource Include="Images\dicom_truck_dock.jpg" />
+    <EmbeddedResource Include="Images\headquarters.jpg" />
+    <EmbeddedResource Include="Images\locator_page_icon.png" />
+    <EmbeddedResource Include="Images\message_page_icon.png" />
+    <EmbeddedResource Include="Images\plates_page_icon.png" />
+    <EmbeddedResource Include="Images\profile_generic.png" />
+    <EmbeddedResource Include="Images\roger_leblanc.jpg" />
+    <EmbeddedResource Include="Images\slideout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\dicom_cube_144.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

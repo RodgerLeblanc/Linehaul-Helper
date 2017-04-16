@@ -5,9 +5,10 @@
 	x:Class="Linehaul_Helper.Views.MainMasterPage"
 	xmlns:controls="clr-namespace:Linehaul_Helper.CustomControls"
 	xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+    xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
     xmlns:views="clr-namespace:Linehaul_Helper.Views"
 	x:Name="mainMasterPage"
-	Icon="dicom_cube_144"
+	Icon="{markup:ImageResource Source='dicom_cube_30.png'}"
 	Title="Linehaul Helper"
 	BackgroundColor="{StaticResource DicomBlue}">
     <ContentPage.Padding>
@@ -24,7 +25,7 @@
             HorizontalOptions="FillAndExpand"
             Padding="0,0,0,10">
             <Image
-                Source="headquarters.jpg"
+                Source="{markup:ImageResource Source='headquarters.jpg'}"
 				Aspect="AspectFit"
 				HorizontalOptions="Center"/>
         </StackLayout>
@@ -34,31 +35,31 @@
             <StackLayout
                 HorizontalOptions="FillAndExpand">
                 <controls:MasterPageItemCustomView 
-                    ImageSource="plates_page_icon.png"
+                    ImageSource="{markup:ImageResource Source='plates_page_icon.png'}"
                     ImageSize="60"
                     Text="{i18n:Translate PlatesPageTitle}"
                     Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
                     CommandParameter="{x:Type views:PlatesPage}"/>
                 <controls:MasterPageItemCustomView
-                    ImageSource="locator_page_icon.png"
+                    ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
                     ImageSize="60"
                     Text="{i18n:Translate ParcelTrackingPageTitle}"
                     Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
                     CommandParameter="{x:Type views:ParcelTrackingPage}"/>
                 <controls:MasterPageItemCustomView
-                    ImageSource="locator_page_icon.png"
+                    ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
                     ImageSize="60"
                     Text="Jobs (unlocalized)"
                     Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
                     CommandParameter="{x:Type views:JobsPage}"/>
                 <controls:MasterPageItemCustomView 
-                    ImageSource="locator_page_icon.png"
+                    ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
                     ImageSize="60"
                     Text="{i18n:Translate WarehouseLocationPageTitle}"
                     Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
                     CommandParameter="{x:Type views:WarehouseLocationPage}"/>
                 <controls:MasterPageItemCustomView 
-                    ImageSource="locator_page_icon.png"
+                    ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
                     ImageSize="60"
                     Text="{i18n:Translate SwitchLocationPageTitle}"
                     Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"
@@ -70,7 +71,7 @@
             VerticalOptions="End">
             <controls:MasterPageItemSeparator/>
             <controls:MasterPageItemCustomView 
-                ImageSource="message_page_icon.png"
+                ImageSource="{markup:ImageResource Source='message_page_icon.png'}"
                 ImageSize="60"
                 Text="{i18n:Translate AboutPageTitle}"
                 Command="{Binding Source={x:Reference mainMasterPage}, Path=BindingContext.LoadPageCommand}"

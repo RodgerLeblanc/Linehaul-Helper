@@ -24,6 +24,12 @@ namespace Linehaul_Helper.Views
             InitializeComponent();
 
             BindingContext = new PlatesPageViewModel(new PlatesDatabaseService());
+
+            //var assembly = typeof(PlatesPage).GetTypeInfo().Assembly;
+            //foreach (var res in assembly.GetManifestResourceNames())
+            //{
+            //    Debug.WriteLine("found resource: " + res);
+            //}
         }
     }
 }

@@ -3,6 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:local="clr-namespace:Linehaul_Helper"
 	xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+    xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
 	x:Class="Linehaul_Helper.Views.PlatesPage"
 	Title="{i18n:Translate PlatesPageTitle}"
     IsBusy="{Binding IsBusy}">
@@ -32,7 +33,7 @@
 				    Command="{Binding UpdateCommand}"/>
             </StackLayout>
             <Image
-    			Source="dicom_truck_dock.jpg"
+    			Source="{markup:ImageResource Source='dicom_truck_dock.jpg'}"
 	    		HorizontalOptions="CenterAndExpand"
 		    	Aspect="AspectFill">
                 <Image.GestureRecognizers>
