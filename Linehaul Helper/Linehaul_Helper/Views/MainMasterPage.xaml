@@ -10,7 +10,7 @@
 	x:Name="mainMasterPage"
 	Icon="{markup:ImageResource Source='dicom_cube_30.png'}"
 	Title="Linehaul Helper"
-	BackgroundColor="{StaticResource DicomBlue}">
+	BackgroundColor="{StaticResource DicomOrange}">
     <ContentPage.Padding>
         <OnPlatform
 			x:TypeArguments="Thickness"

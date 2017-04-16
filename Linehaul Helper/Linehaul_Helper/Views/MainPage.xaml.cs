@@ -1,5 +1,6 @@
 ﻿using Linehaul_Helper.Helpers;
 using Linehaul_Helper.Interfaces;
+using Linehaul_Helper.Services;
 using Linehaul_Helper.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,14 @@ namespace Linehaul_Helper.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        private INavigationService _navigationService;
+
+        public MainPage(INavigationService navigationService)
         {
+            _navigationService = navigationService;
+
             NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
             BindingContext = new MainPageViewModel();
         }
@@ -31,23 +37,12 @@ namespace Linehaul_Helper.Views
         {
             base.OnAppearing();
 
-            MessagingCenter.Subscribe<MainPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, async (source, page) =>
-            {
-                var navPage = Application.Current.MainPage as NavigationPage;
-                await navPage.PushAsync(page);
-            });
-
-            MessagingCenter.Subscribe<JobsPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, async (source, page) =>
-            {
-                var navPage = Application.Current.MainPage as NavigationPage;
-                await navPage.PushAsync(page);
-            });
+            _navigationService.SubscribeToMessagingCenter();
         }
 
         protected override void OnDisappearing()
         {
-            MessagingCenter.Unsubscribe<JobsPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
-            MessagingCenter.Unsubscribe<MainPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
+            _navigationService.UnsubscribeToMessagingCenter();
 
             base.OnDisappearing();
         }

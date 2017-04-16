@@ -58,7 +58,7 @@ namespace Linehaul_Helper.ViewModels
             {
                 if (String.Equals(UnitNumber, "123"))
                 {
-                    await Commons.DetailNavigationPushAsync(new UnitInfoCreationPage(_dbService));
+                    await Commons.NavigationPagePushAsync(new UnitInfoCreationPage(_dbService));
                     UnitNumber = "";
                 }
             });
@@ -143,7 +143,7 @@ namespace Linehaul_Helper.ViewModels
                 var unitInfo = _unitInfos.SingleOrDefault(u => u.UnitNumber == unitNumber);
                 if (unitInfo != null)
                 {
-                    await Commons.DetailNavigationPushAsync(new PlateNumberPage(unitInfo));
+                    await Commons.NavigationPagePushAsync(new PlateNumberPage(unitInfo));
                     UnitNumber = "";
                 }
                 else

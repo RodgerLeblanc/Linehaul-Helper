@@ -1,4 +1,5 @@
-﻿using Linehaul_Helper.Views;
+﻿using Linehaul_Helper.Services;
+using Linehaul_Helper.Views;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -18,7 +19,9 @@ namespace Linehaul_Helper
         public static void SetMainPage()
         {
             //Current.MainPage = new HomeMasterDetail();
-            Current.MainPage = new NavigationPage(new MainPage());
+
+            var navigationService = new NavigationService();
+            Current.MainPage = new NavigationPage(new MainPage(navigationService));
         }
     }
 }

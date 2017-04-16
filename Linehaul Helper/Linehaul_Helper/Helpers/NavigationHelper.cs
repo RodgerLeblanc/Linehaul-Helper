@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Linehaul_Helper.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -29,8 +30,14 @@ namespace Linehaul_Helper.Helpers
 
         private static NavigationPage GetNavigationPage()
         {
-            MasterDetailPage mainPage = Application.Current.MainPage as MasterDetailPage;
-            return mainPage.Detail as NavigationPage;
+            var mainPage = Application.Current.MainPage;
+
+            if (mainPage is MasterDetailPage)
+                return ((MasterDetailPage)mainPage).Detail as NavigationPage;
+            else if (mainPage is NavigationPage)
+                return mainPage as NavigationPage;
+            else
+                throw new LayoutException("The application isn't a NavigationPage");
         }
     }
 }

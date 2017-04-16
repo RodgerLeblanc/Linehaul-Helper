@@ -33,6 +33,9 @@ namespace Linehaul_Helper.Helpers
 
         async public static Task DetailNavigationPushAsync(Page page)
         {
+            if (!(Application.Current?.MainPage is MasterDetailPage))
+                throw new LayoutException("The application doesn't have a MasterDetailPage");
+
             var masterDetail = Application.Current.MainPage as MasterDetailPage;
             var navPage = masterDetail.Detail as NavigationPage;
             await navPage.PushAsync(page);
@@ -45,6 +48,36 @@ namespace Linehaul_Helper.Helpers
 
             var masterDetail = Application.Current.MainPage as MasterDetailPage;
             var navPage = masterDetail.Detail as NavigationPage;
+            await navPage.PopAsync();
+        }
+
+        async public static Task NavigationPagePushAsync(Page page)
+        {
+            if (Application.Current?.MainPage is MasterDetailPage)
+            {
+                await DetailNavigationPushAsync(page);
+                return;
+            }
+
+            if (!(Application.Current?.MainPage is NavigationPage))
+                throw new LayoutException("The application isn't a NavigationPage");
+
+            var navPage = Application.Current.MainPage as NavigationPage;
+            await navPage.PushAsync(page);
+        }
+
+        public async static Task NavigationPagePopAsync()
+        {
+            if (Application.Current?.MainPage is MasterDetailPage)
+            {
+                await DetailNavigationPopAsync();
+                return;
+            }
+
+            if (!(Application.Current?.MainPage is NavigationPage))
+                throw new LayoutException("The application isn't a NavigationPage");
+
+            var navPage = Application.Current.MainPage as NavigationPage;
             await navPage.PopAsync();
         }
 

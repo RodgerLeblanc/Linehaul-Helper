@@ -7,10 +7,12 @@
              xmlns:views="clr-namespace:Linehaul_Helper.Views"
              x:Class="Linehaul_Helper.Views.MainPage"
              Title="Main Page (unlocalized)"
-             BackgroundColor="{StaticResource DicomBlue}"
+             BackgroundColor="{StaticResource DicomOrange}"
              x:Name="mainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Thickness x:Key="Padding" Left="10" Top="10" Right="10" Bottom="10" />
+            <x:Double x:Key="Spacing">10</x:Double>
             <Style TargetType="controls:MainPageBox">
                 <Setter 
                     Property="Command" 
@@ -18,9 +20,10 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <Grid RowSpacing="10" ColumnSpacing="10">
+
+    <Grid RowSpacing="{StaticResource Spacing}" ColumnSpacing="{StaticResource Spacing}" Padding="{StaticResource Padding}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -34,37 +37,40 @@
             x:Name="test"
             Grid.Row="0"
             Grid.Column="0"
+            Grid.ColumnSpan="2"
             ImageSource="{markup:ImageResource Source='plates_page_icon.png'}"
             Text="{i18n:Translate PlatesPageTitle}"
             CommandParameter="{x:Type views:PlatesPage}"/>
+        
         <controls:MainPageBox
-            Grid.Row="0"
-            Grid.Column="1"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
             ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
             Text="{i18n:Translate ParcelTrackingPageTitle}"
             CommandParameter="{x:Type views:ParcelTrackingPage}"/>
 
         <controls:MainPageBox
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="0"
             ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
             Text="{i18n:Translate WarehouseLocationPageTitle}"
             CommandParameter="{x:Type views:WarehouseLocationPage}"/>
         <controls:MainPageBox
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="1"
             ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
             Text="{i18n:Translate SwitchLocationPageTitle}"
             CommandParameter="{x:Type views:SwitchLocationPage}"/>
 
         <controls:MainPageBox
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="0"
             ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
             Text="Jobs (unlocalized)"
             CommandParameter="{x:Type views:JobsPage}"/>
         <controls:MainPageBox
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="1"
             ImageSource="{markup:ImageResource Source='message_page_icon.png'}"
             Text="{i18n:Translate AboutPageTitle}"

@@ -36,7 +36,7 @@ namespace Linehaul_Helper.ViewModels
             {
                 try
                 {
-                    await Commons.DetailNavigationPopAsync();
+                    await Commons.NavigationPagePopAsync();
                 }
                 catch (LayoutException le)
                 {
