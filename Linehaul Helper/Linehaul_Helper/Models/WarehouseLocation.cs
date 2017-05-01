@@ -17,13 +17,7 @@ namespace Linehaul_Helper.Models
 
     public class Position
     {
-        public Position(double latitude, double longitude)
-        {
-            Latitude = latitude;
-            Longitude = longitude;
-        }
-
-        public readonly double Latitude;
-        public readonly double Longitude;
+        public double Latitude;
+        public double Longitude;
     }
 }

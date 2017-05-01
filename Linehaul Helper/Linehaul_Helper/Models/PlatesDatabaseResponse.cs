@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Linehaul_Helper.Models
 {
-    public class CloudantResponse
+    public class PlatesDatabaseResponse
     {
         [JsonProperty("total_rows")]
         public int TotalRows { get; set; }

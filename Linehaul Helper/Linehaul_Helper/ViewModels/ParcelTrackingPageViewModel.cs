@@ -32,10 +32,14 @@ namespace Linehaul_Helper.ViewModels
                 IsBusy = (args as IsBusyEventArgs).IsBusy;
             };
 
-            TrackingNumber = "AA0309024";
+            TrackingNumber = Settings.GetGeneralSettingsObject().LastTrackingNumber ?? "AA0309024";
 
             TrackCommand = new Command(async () =>
             {
+                var settings = Settings.GetGeneralSettingsObject();
+                settings.LastTrackingNumber = _trackingNumber;
+                Settings.SaveGeneralSettingsObject(settings);
+
                 ParcelTrackingModel parcelTracking = null;
                 try
                 {

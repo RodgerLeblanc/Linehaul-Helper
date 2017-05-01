@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using Linehaul_Helper.Models;
+using Linehaul_Helper.Services;
 using Linehaul_Helper.ViewModels;
 using Newtonsoft.Json;
 using Plugin.Geolocator;
@@ -28,10 +29,11 @@ namespace Linehaul_Helper.Views
     public partial class WarehouseLocationPage : ContentPage
     {
         private WarehouseLocationPageViewModel _warehouseLocationPageViewModel;
+
         public WarehouseLocationPage()
         {
             InitializeComponent();
-            BindingContext = _warehouseLocationPageViewModel = new WarehouseLocationPageViewModel();
+            BindingContext = _warehouseLocationPageViewModel = new WarehouseLocationPageViewModel(new WarehouseDatabaseService());
 
             _warehouseLocationPageViewModel.WarehouseLocationsChanged += (sender, args) =>
             {
@@ -41,42 +43,15 @@ namespace Linehaul_Helper.Views
             SetIsShowingUser();
 
             map.MoveToRegion(MapSpan.FromCenterAndRadius(
-                new Xamarin.Forms.GoogleMaps.Position(45.496080, -73.769532), Distance.FromKilometers(200)));
+                new Xamarin.Forms.GoogleMaps.Position(45.496080, -73.769532), Distance.FromKilometers(1000)));
 
             LoadMapPinsFromViewModel();
-
-            //var stack = new StackLayout { Spacing = 0 }; 
-
-            //var map = new Map(
-            //    MapSpan.FromCenterAndRadius(
-            //        new Position(45.496080, -73.769532), Distance.FromMiles(100)))
-            //{
-            //    IsShowingUser = true,
-            //    HeightRequest = 100,
-            //    WidthRequest = 960,
-            //    VerticalOptions = LayoutOptions.FillAndExpand
-            //};
-            //stack.Children.Add(map);
-
-            //var pinPosition = new Position(45.877175, -72.542920); // Latitude, Longitude
-            //var pin = new Pin
-            //{
-            //    Type = PinType.Place,
-            //    Position = pinPosition,
-            //    Label = "Dicom Drummond - DRU",
-            //    Address = "330 RUE ROCHELEAU, DRUMMONDVILLE, QC, J2C7S7"
-            //};
-            //map.Pins.Add(pin);
-
-            //Content = stack;
-
-            //Content = new Label() { Text = "Not done yet." };
         }
 
         private void LoadMapPinsFromViewModel()
         {
             map.Pins.Clear();
-            List<WarehouseLocation> dicomWarehouseLocations = _warehouseLocationPageViewModel.WarehouseLocations.ToList();
+            List<WarehouseLocation> dicomWarehouseLocations = _warehouseLocationPageViewModel.WarehouseLocations?.ToList() ?? new List<WarehouseLocation>();
             foreach (var location in dicomWarehouseLocations)
             {
                 map.Pins.Add(new Pin
@@ -85,7 +60,8 @@ namespace Linehaul_Helper.Views
                     Position = new Xamarin.Forms.GoogleMaps.Position(location.Position.Latitude, location.Position.Longitude),
                     Label = location.Name,
                     Address = location.Address,
-                    Tag = "Tag:" + location.Name
+                    Tag = "Tag:" + location.Name,
+                    Icon = BitmapDescriptorFactory.FromBundle("dicom-cube-30.png")
                 });
             }
         }
@@ -104,6 +80,13 @@ namespace Linehaul_Helper.Views
             {
                 Debug.WriteLine("Unable to get location, may need to increase timeout: " + ex);
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            _warehouseLocationPageViewModel.GetWarehouseLocations();
         }
     }
 }

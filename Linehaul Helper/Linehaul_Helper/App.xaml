@@ -25,6 +25,10 @@
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
 
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{StaticResource DicomOrange}"/>
+            </Style>
+
             <Style TargetType="Entry">
                 <Setter Property="BackgroundColor" Value="{StaticResource DicomWhite}" />
             </Style>

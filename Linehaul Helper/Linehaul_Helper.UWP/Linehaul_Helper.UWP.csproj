@@ -116,6 +116,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dicom-cube-30.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

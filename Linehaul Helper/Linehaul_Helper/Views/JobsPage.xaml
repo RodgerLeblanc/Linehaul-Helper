@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:customControls="clr-namespace:Linehaul_Helper.CustomControls"
              x:Class="Linehaul_Helper.Views.JobsPage"
+             BackgroundColor="{StaticResource DicomOrange}"
              Title="Jobs (unlocalized)">
     <StackLayout>
         <ListView

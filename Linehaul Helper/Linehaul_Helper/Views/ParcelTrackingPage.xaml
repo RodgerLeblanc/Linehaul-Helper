@@ -4,8 +4,8 @@
              xmlns:vm="clr-namespace:Linehaul_Helper.ViewModels"
              xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
              x:Class="Linehaul_Helper.Views.ParcelTrackingPage"
-             Title="{i18n:Translate ParcelTrackingPageTitle}"
-             BackgroundColor="{StaticResource DicomOrange}">
+             BackgroundColor="{StaticResource DicomOrange}"
+             Title="{i18n:Translate ParcelTrackingPageTitle}">
 
     <Grid 
         ColumnSpacing="{StaticResource GeneralSpacing}" 

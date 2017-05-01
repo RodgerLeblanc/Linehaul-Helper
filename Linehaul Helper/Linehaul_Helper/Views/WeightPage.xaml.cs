@@ -15,12 +15,12 @@ namespace Linehaul_Helper.Views
 {
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AboutPage : ContentPage
+    public partial class WeightPage : ContentPage
     {
-        public AboutPage()
+        public WeightPage()
         {
             InitializeComponent();
-            BindingContext = new AboutPageViewModel();
+            BindingContext = new WeightPageViewModel();
         }
     }
 }

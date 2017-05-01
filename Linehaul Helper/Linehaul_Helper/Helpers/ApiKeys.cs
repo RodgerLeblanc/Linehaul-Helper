@@ -15,8 +15,8 @@ namespace Linehaul_Helper.Helpers
         public static String FretPlatesP = "e9f63107fe1ce3b2ea4fb0fd4d9d030fdd730309";
         public static String FretPlatesDbName = "fretplates";
 
-        public static String WarehouseLocationsK = "andsondetwevereentlyince";
-        public static String WarehouseLocationsP = "e9f63107fe1ce3b2ea4fb0fd4d9d030fdd730309";
+        public static String WarehouseLocationsK = "aingerandinglemangrevers";
+        public static String WarehouseLocationsP = "e350957324f7f1b9998f49e8bf9937bdf414259d";
         public static String WarehouseLocationsDbName = "warehouselocations";
 
         public static String GoogleMaps = "AIzaSyBR7pqaFMZqOgnXnmv7CD3Hf7qQoABHOqE";

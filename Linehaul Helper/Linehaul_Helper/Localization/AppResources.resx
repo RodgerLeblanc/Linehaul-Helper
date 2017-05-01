@@ -169,12 +169,24 @@ Contact info@cellninja.ca to add this unit.</value>
     <value>About</value>
   </data>
   <data name="ParcelTrackingPageEntryPlaceholder" xml:space="preserve">
-    <value>Enter your tracking number (ie: V58764602)</value>
+    <value>Enter your tracking number (ie: AA0309024)</value>
   </data>
   <data name="ParcelTrackingPageButtonText" xml:space="preserve">
     <value>Track</value>
   </data>
   <data name="ParcelTrackingPageTitle" xml:space="preserve">
     <value>Tracking</value>
+  </data>
+  <data name="JobsPageTitle" xml:space="preserve">
+    <value>Jobs</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Linehaul Helper</value>
+  </data>
+  <data name="WeightPageTitle" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="TrackingBaseUrl" xml:space="preserve">
+    <value>https://www.dicom.com/en/dicom/tracking/result</value>
   </data>
 </root>

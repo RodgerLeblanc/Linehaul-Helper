@@ -74,5 +74,6 @@ namespace Linehaul_Helper.Helpers
     {
         public Type LastDetailPageType { get; set; }
         public DateTime UnitInfoListDateTime { get; set; }
+        public string LastTrackingNumber { get; set; }
     }
 }

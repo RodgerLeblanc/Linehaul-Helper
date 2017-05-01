@@ -2,6 +2,7 @@
 using Linehaul_Helper.CustomEventArgs;
 using Linehaul_Helper.Exceptions;
 using Linehaul_Helper.Interfaces;
+using Linehaul_Helper.Localization;
 using Linehaul_Helper.Models;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Linehaul_Helper.Services
 {
     public class ParcelTrackingService : IParcelTrackingService
     {
-        private string _baseUrl = "https://www.dicom.com/fr/express/suivi/resultat?__RequestVerificationToken=Ehzl_I2u_ZDWuhkwyC623Mgd2niOtqUlt2CspjLTi8aRh_9iTYT3_nDzVh1N9KhLlQ9y9QiNrKcHpc2pQaRx9NL8Qr81&ReqTrackIds=";
+        private string _baseUrl = AppResources.TrackingBaseUrl + "?__RequestVerificationToken=Ehzl_I2u_ZDWuhkwyC623Mgd2niOtqUlt2CspjLTi8aRh_9iTYT3_nDzVh1N9KhLlQ9y9QiNrKcHpc2pQaRx9NL8Qr81&ReqTrackIds=";
         private string _httpAsString;
         private bool _isBusy = false;
 

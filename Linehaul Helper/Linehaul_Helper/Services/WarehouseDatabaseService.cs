@@ -17,9 +17,8 @@ namespace Linehaul_Helper.Services
 {
     class WarehouseDatabaseService : IWarehouseDatabaseService
     {
-        private String _baseUrl = ApiKeys.CloudantDbUrl + ApiKeys.FretPlatesDbName + "/";
+        private String _baseUrl = ApiKeys.CloudantDbUrl + ApiKeys.WarehouseLocationsDbName + "/";
         private HttpClient _client = new HttpClient();
-        private IList<WarehouseLocation> _warehouseLocations;
         private bool _isBusy;
 
         public bool IsBusy
@@ -30,12 +29,47 @@ namespace Linehaul_Helper.Services
 
         public WarehouseDatabaseService()
         {
-            var authData = string.Format($"{ApiKeys.FretPlatesK}:{ApiKeys.FretPlatesP}");
+            var authData = string.Format($"{ApiKeys.WarehouseLocationsK}:{ApiKeys.WarehouseLocationsP}");
             var authorization = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authorization);
         }
 
         public event EventHandler IsBusyChanged;
+
+        public List<WarehouseLocation> GetDefaultWarehouseLocations()
+        {
+            return new List<WarehouseLocation>
+            {
+                new WarehouseLocation
+                {
+                    Name = "Dicom Drummondville",
+                    Description = "DRU",
+                    Position = new Position { Latitude = 45.877198, Longitude = -72.543418 },
+                    Address = "330 RUE ROCHELEAU, DRUMMONDVILLE, QC, J2C7S7"
+                },
+                new WarehouseLocation
+                {
+                    Name = "Dicom Trois-Rivieres",
+                    Description = "TRS",
+                    Position = new Position { Latitude = 46.345096, Longitude = -72.638812 },
+                    Address = "3700 L-P NORMAND, TROIS-RIVIERES, QC"
+                },
+                new WarehouseLocation
+                {
+                    Name = "Dicom Quebec",
+                    Description = "QUE",
+                    Position = new Position { Latitude = 46.792657, Longitude = -71.323205 },
+                    Address = "5150 JOHN-MOLSON, QUEBEC, QC, G1X3X4"
+                },
+                new WarehouseLocation
+                {
+                    Name = "Dicom Cote-De-Liesse",
+                    Description = "CDL",
+                    Position = new Position { Latitude = 45.463108, Longitude = -73.722380 },
+                    Address = "10755 COTE DE LIESSE OUEST, MONTREAL, QC, H9P1A7"
+                }
+            };
+        }
 
         public async Task<List<WarehouseLocation>> GetWarehouseLocations()
         {
@@ -49,22 +83,19 @@ namespace Linehaul_Helper.Services
                 Debug.WriteLine("Get docs online");
                 var url = _baseUrl + "_all_docs?include_docs=true";
                 var response = await _client.GetAsync(url);
-                //Debug.WriteLine($"response: {JsonConvert.SerializeObject(response)}");
 
                 if ((response != null) && (response.StatusCode == HttpStatusCode.OK))
                 {
                     allDocsAsString = await response.Content.ReadAsStringAsync();
-                    //Debug.WriteLine($"allDocsAsString: {allDocsAsString}");
                 }
 
-                var cloudantResponse = JsonConvert.DeserializeObject<CloudantResponse>(allDocsAsString) as CloudantResponse;
-                //Debug.WriteLine($"cloudantResponse: {JsonConvert.SerializeObject(cloudantResponse)}");
+                var cloudantResponse = JsonConvert.DeserializeObject<WarehouseDatabaseResponse.RootObject>(allDocsAsString) as WarehouseDatabaseResponse.RootObject;
 
                 if (cloudantResponse != null)
                 {
-                    foreach (var row in cloudantResponse.Rows)
+                    foreach (var row in cloudantResponse.rows)
                     {
-                        //warehouses.Add(row.RowDoc.UnitInfo);
+                        warehouses.Add(row.doc);
                     }
                     Debug.WriteLine($"Number of docs: {warehouses.Count}");
                 }
@@ -78,7 +109,7 @@ namespace Linehaul_Helper.Services
                 IsBusy = false;
             }
 
-            return (List<WarehouseLocation>)_warehouseLocations ?? new List<WarehouseLocation>();
+            return warehouses ?? new List<WarehouseLocation>();
         }
 
         protected virtual void OnIsBusyChanged(bool value)

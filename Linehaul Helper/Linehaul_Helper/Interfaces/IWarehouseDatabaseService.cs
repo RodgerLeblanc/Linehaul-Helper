@@ -14,5 +14,6 @@ namespace Linehaul_Helper.Interfaces
         bool IsBusy { get; }
 
         Task<List<WarehouseLocation>> GetWarehouseLocations();
+        List<WarehouseLocation> GetDefaultWarehouseLocations();
     }
 }

@@ -91,7 +91,7 @@
     <Compile Include="Localization\PlatformCulture.cs" />
     <Compile Include="Localization\TranslateExtension.cs" />
     <Compile Include="MarkupExtensions\ImageResourceExtension.cs" />
-    <Compile Include="Models\CloudantResponse.cs" />
+    <Compile Include="Models\PlatesDatabaseResponse.cs" />
     <Compile Include="Models\IndeedJsonModel.cs" />
     <Compile Include="Models\MasterPageItem.cs" />
     <Compile Include="Models\ParcelTrackingModel.cs" />
@@ -99,6 +99,7 @@
     <Compile Include="Models\PlatesPageModel.cs" />
     <Compile Include="Models\SwitchLocation.cs" />
     <Compile Include="Models\UnitInfo.cs" />
+    <Compile Include="Models\WarehouseDatabaseResponse.cs" />
     <Compile Include="Models\WarehouseLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\JobsRetrievalService.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="ViewModels\SwitchLocationPageViewModel.cs" />
     <Compile Include="ViewModels\UnitDefectReportPageViewModel.cs" />
     <Compile Include="ViewModels\WarehouseLocationPageViewModel.cs" />
+    <Compile Include="ViewModels\WeightPageViewModel.cs" />
     <Compile Include="Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
@@ -159,6 +161,9 @@
     </Compile>
     <Compile Include="Views\WarehouseLocationPage.xaml.cs">
       <DependentUpon>WarehouseLocationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeightPage.xaml.cs">
+      <DependentUpon>WeightPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
@@ -366,6 +371,21 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\WeightPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\weight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\jobs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\tracking.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

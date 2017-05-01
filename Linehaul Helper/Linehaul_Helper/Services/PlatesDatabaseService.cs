@@ -99,7 +99,7 @@ namespace Linehaul_Helper.Services
                     //Debug.WriteLine($"allDocsAsString: {allDocsAsString}");
                 }
 
-                var cloudantResponse = JsonConvert.DeserializeObject<CloudantResponse>(allDocsAsString) as CloudantResponse;
+                var cloudantResponse = JsonConvert.DeserializeObject<PlatesDatabaseResponse>(allDocsAsString) as PlatesDatabaseResponse;
                 //Debug.WriteLine($"cloudantResponse: {JsonConvert.SerializeObject(cloudantResponse)}");
 
                 if (cloudantResponse != null)

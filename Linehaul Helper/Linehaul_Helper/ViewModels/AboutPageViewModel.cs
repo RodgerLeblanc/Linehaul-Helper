@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Linehaul_Helper.ViewModels
@@ -23,7 +24,8 @@ namespace Linehaul_Helper.ViewModels
             ApplicationVersion = "1.0";
             AuthorName = "CellNinja (Roger Leblanc)";
             AuthorImageSource = ImageSource.FromResource("roger_leblanc.jpg");
-            AuthorPresentation = "I'm a truck driver since 2004, working as an LCV driver for Dicom since July 2015. You can find me every week nights between Drummondville and Quebec.";
+            AuthorPresentation = "https://github.com/RodgerLeblanc";
+            //AuthorPresentation = "I'm a truck driver since 2004, working as an LCV driver for Dicom since July 2015. You can find me every week nights between Drummondville and Quebec.";
         }
 
         public string ApplicationName
@@ -54,6 +56,17 @@ namespace Linehaul_Helper.ViewModels
         {
             get { return _authorPresentation; }
             set { _authorPresentation = value; OnPropertyChanged(); }
+        }
+
+        public ICommand LabelTappedCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    Device.OpenUri(new Uri("https://github.com/RodgerLeblanc"));
+                });
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

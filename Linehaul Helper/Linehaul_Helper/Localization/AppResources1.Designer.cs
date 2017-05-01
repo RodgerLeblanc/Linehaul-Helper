@@ -71,11 +71,29 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Linehaul Helper.
+        /// </summary>
+        internal static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jobs.
+        /// </summary>
+        internal static string JobsPageTitle {
+            get {
+                return ResourceManager.GetString("JobsPageTitle", resourceCulture);
             }
         }
         
@@ -89,7 +107,7 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter your tracking number (ie: V58764602).
+        ///   Looks up a localized string similar to Enter your tracking number (ie: AA0309024).
         /// </summary>
         internal static string ParcelTrackingPageEntryPlaceholder {
             get {
@@ -217,6 +235,15 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://www.dicom.com/en/dicom/tracking/result.
+        /// </summary>
+        internal static string TrackingBaseUrl {
+            get {
+                return ResourceManager.GetString("TrackingBaseUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a new unit.
         /// </summary>
         internal static string UnitInfoCreationPageTitle {
@@ -231,6 +258,15 @@ namespace Linehaul_Helper.Localization {
         internal static string WarehouseLocationPageTitle {
             get {
                 return ResourceManager.GetString("WarehouseLocationPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight.
+        /// </summary>
+        internal static string WeightPageTitle {
+            get {
+                return ResourceManager.GetString("WeightPageTitle", resourceCulture);
             }
         }
     }

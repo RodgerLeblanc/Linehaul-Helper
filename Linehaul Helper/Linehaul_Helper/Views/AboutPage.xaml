@@ -4,37 +4,66 @@
              xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
              xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
              x:Class="Linehaul_Helper.Views.AboutPage"
+             BackgroundColor="{StaticResource DicomOrange}"
              Title="{i18n:Translate AboutPageTitle}">
-    <ScrollView>
+
+    <Grid 
+        ColumnSpacing="{StaticResource GeneralSpacing}" 
+        RowSpacing="{StaticResource GeneralSpacing}" 
+        Padding="{StaticResource GeneralPadding}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
         <StackLayout 
-            Padding="10"
-            HorizontalOptions="Center"
-            VerticalOptions="Center">
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Center">
-                <Label 
-                    Text="{Binding ApplicationTitle}" 
-                    FontSize="40"
-                    VerticalOptions="Center"/>
-                <Label 
-                    Text="{Binding ApplicationVersion}" 
-                    FontSize="40"
-                    VerticalOptions="Center"/>
+            Grid.Row="0"
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="FillAndExpand" 
+            BackgroundColor="{StaticResource DicomBlue}">
+            <StackLayout 
+                HorizontalOptions="Center" 
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    Text="{Binding ApplicationName}"
+                    FontSize="Large"
+		        	HorizontalOptions="Center"/>
+                <Label
+                    Text="{Binding ApplicationVersion}"
+                    FontSize="Medium"
+		        	HorizontalOptions="Center"/>
             </StackLayout>
-            
-            <Label
-                Margin="30"
-                Text="{Binding AuthorName}"
-                HorizontalOptions="Center"/>
-            <Image
-                Source="{Binding AuthorImageSource}"
-                HorizontalOptions="Center"
-                WidthRequest="60"
-                Aspect="AspectFit"/>
-            <Label
-                Text="{Binding AuthorPresentation}"
-                HorizontalOptions="Center"/>
         </StackLayout>
-    </ScrollView>
+
+        <StackLayout 
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="FillAndExpand" 
+            BackgroundColor="{StaticResource DicomBlue}">
+            <StackLayout 
+                HorizontalOptions="Center" 
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    Text="{Binding AuthorName}"
+                    HorizontalOptions="Center" 
+                    FontSize="Medium"/>
+                <Label
+                    Text="{Binding AuthorPresentation}"
+                    HorizontalOptions="Center" 
+                    TextColor="{StaticResource DicomWhite}"
+                    FontSize="Micro">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding LabelTappedCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image
+                    Source="{markup:ImageResource Source='roger_leblanc.jpg'}"
+                    WidthRequest="300"
+                    HorizontalOptions="Center" 
+            		VerticalOptions="Center"
+                    Aspect="AspectFill"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
 </ContentPage>

@@ -25,9 +25,13 @@ namespace Linehaul_Helper
         public static void SetMainPage()
         {
             //Current.MainPage = new HomeMasterDetail();
+            
+            var navigationPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = (Color)Application.Current.Resources["DicomBlue"]
+            };
 
-            var navigationPage = new NavigationPage(new MainPage());
-            Current.MainPage = navigationPage;
+            Current.MainPage   = navigationPage;
 
             //navigationPage.Pushed += HandleNavigationPagePushPop;
             //navigationPage.Popped += HandleNavigationPagePushPop;

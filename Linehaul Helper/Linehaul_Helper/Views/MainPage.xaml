@@ -32,7 +32,6 @@
         </Grid.ColumnDefinitions>
 
         <controls:MainPageBox
-            x:Name="test"
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2"
@@ -44,10 +43,10 @@
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
+            ImageSource="{markup:ImageResource Source='tracking.png'}"
             Text="{i18n:Translate ParcelTrackingPageTitle}"
             CommandParameter="{x:Type views:ParcelTrackingPage}"/>
-
+        
         <controls:MainPageBox
             Grid.Row="2"
             Grid.Column="0"
@@ -57,15 +56,15 @@
         <controls:MainPageBox
             Grid.Row="2"
             Grid.Column="1"
-            ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
-            Text="{i18n:Translate SwitchLocationPageTitle}"
-            CommandParameter="{x:Type views:SwitchLocationPage}"/>
+            ImageSource="{markup:ImageResource Source='weight.png'}"
+            Text="{i18n:Translate WeightPageTitle}"
+            CommandParameter="{x:Type views:WeightPage}"/>
 
         <controls:MainPageBox
             Grid.Row="3"
             Grid.Column="0"
-            ImageSource="{markup:ImageResource Source='locator_page_icon.png'}"
-            Text="Jobs (unlocalized)"
+            ImageSource="{markup:ImageResource Source='jobs.png'}"
+            Text="{i18n:Translate JobsPageTitle}"
             CommandParameter="{x:Type views:JobsPage}"/>
         <controls:MainPageBox
             Grid.Row="3"
