@@ -10,70 +10,58 @@ using Xamarin.Forms;
 
 namespace Linehaul_Helper.Helpers
 {
-  /// <summary>
-  /// This is the Settings static class that can be used in your Core solution or in any
-  /// of your client applications. All settings are laid out the same exact way with getters
-  /// and setters. 
-  /// </summary>
-  public static class Settings
-  {
-    private static ISettings AppSettings
+    /// <summary>
+    /// This is the Settings static class that can be used in your Core solution or in any
+    /// of your client applications. All settings are laid out the same exact way with getters  
+    /// and setters. 
+    /// </summary>
+    public static class Settings
     {
-      get
-      {
-        return CrossSettings.Current;
-      }
-    }
-
-    #region Setting Constants
-
-    private const string SettingsKey = "settings_key";
-    private static readonly string SettingsDefault = String.Empty;
-
-    #endregion
-
-
-    private static string GeneralSettings
-    {
-      get
-      {
-        return AppSettings.GetValueOrDefault<string>(SettingsKey, SettingsDefault);
-      }
-      set
-      {
-        AppSettings.AddOrUpdateValue<string>(SettingsKey, value);
-      }
-    }
-
-        public static GeneralSettingsObject GetGeneralSettingsObject()
+        private static ISettings AppSettings
         {
-            try
+            get
             {
-                return JsonConvert.DeserializeObject<GeneralSettingsObject>(GeneralSettings);
-            }
-            catch
-            {
-                return new GeneralSettingsObject();
+                return CrossSettings.Current;
             }
         }
 
-        public static void SaveGeneralSettingsObject(GeneralSettingsObject settings)
+        #region Setting Constants
+
+        private const string UnitInfoListDateTimeKey = "unitInfoListDateTime_key";
+        private static readonly DateTime UnitInfoListDateTimeDefault = new DateTime(1970, 1, 1);
+        private const string LastTrackingNumberKey = "lastTrackingNumber_key";
+        private static readonly string LastTrackingNumberDefault = "AA0309024";
+
+        #endregion
+
+        public static DateTime UnitInfoListDateTime
         {
-            try
+            get
             {
-                GeneralSettings = JsonConvert.SerializeObject(settings);
+                return AppSettings.GetValueOrDefault<DateTime>(UnitInfoListDateTimeKey, UnitInfoListDateTimeDefault);
             }
-            catch(Exception ex)
+            set
             {
-                Debug.WriteLine("Exception while SaveGeneralSettingsObject: " + ex.Message);
+                AppSettings.AddOrUpdateValue<DateTime>(UnitInfoListDateTimeKey, value);
             }
         }
+
+        public static string LastTrackingNumber
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault<string>(LastTrackingNumberKey, LastTrackingNumberDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(LastTrackingNumberKey, value);
+            }
+        }
+
   }
 
     public class GeneralSettingsObject
     {
-        public Type LastDetailPageType { get; set; }
         public DateTime UnitInfoListDateTime { get; set; }
-        public string LastTrackingNumber { get; set; }
     }
 }

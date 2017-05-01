@@ -62,9 +62,7 @@ namespace Linehaul_Helper.Services
                 var unitInfoAsString = JsonConvert.SerializeObject(_unitInfos);
                 await Helpers.PCLStorage.PCLStorageSave(Commons.Strings.UnitInfosFolderName, Commons.Strings.UnitInfosFileName, unitInfoAsString);
 
-                GeneralSettingsObject settings = Settings.GetGeneralSettingsObject();
-                settings.UnitInfoListDateTime = unitInfoListDateTime;
-                Settings.SaveGeneralSettingsObject(settings);
+                Settings.UnitInfoListDateTime = unitInfoListDateTime;
             }
             catch (Exception ex)
             {
@@ -80,8 +78,7 @@ namespace Linehaul_Helper.Services
         {
             IsBusy = true;
 
-            GeneralSettingsObject settings = Settings.GetGeneralSettingsObject();
-            UnitInfoListDateTime = settings?.UnitInfoListDateTime ?? DateTime.Now.AddYears(-1);
+            UnitInfoListDateTime = Settings.UnitInfoListDateTime;
 
             List<UnitInfo> documents = new List<UnitInfo>();
             var allDocsAsString = String.Empty;
@@ -134,8 +131,7 @@ namespace Linehaul_Helper.Services
                 var unitInfosFileContent = await Helpers.PCLStorage.PCLStorageLoad(Commons.Strings.UnitInfosFolderName, Commons.Strings.UnitInfosFileName);
                 _unitInfos = JsonConvert.DeserializeObject<List<UnitInfo>>(unitInfosFileContent);
 
-                GeneralSettingsObject settings = Settings.GetGeneralSettingsObject();
-                UnitInfoListDateTime = settings?.UnitInfoListDateTime ?? DateTime.Now.AddYears(-1);
+                UnitInfoListDateTime = Settings.UnitInfoListDateTime;
             }
             catch (Exception ex)
             {

@@ -89,6 +89,15 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Job description.
+        /// </summary>
+        internal static string IndeedJobWebViewPageTitle {
+            get {
+                return ResourceManager.GetString("IndeedJobWebViewPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Jobs.
         /// </summary>
         internal static string JobsPageTitle {

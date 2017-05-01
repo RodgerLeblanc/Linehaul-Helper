@@ -42,7 +42,8 @@
             BackgroundColor="{StaticResource DicomBlue}">
             <StackLayout 
                 HorizontalOptions="Center" 
-                VerticalOptions="CenterAndExpand">
+                VerticalOptions="CenterAndExpand"
+                Padding="{StaticResource GeneralPadding}">
                 <Label
                     Text="{Binding AuthorName}"
                     HorizontalOptions="Center" 
@@ -50,7 +51,7 @@
                 <Label
                     Text="{Binding AuthorPresentation}"
                     HorizontalOptions="Center" 
-                    TextColor="{StaticResource DicomWhite}"
+                    TextColor="{StaticResource DicomLightGray}"
                     FontSize="Micro">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer
@@ -59,9 +60,8 @@
                 </Label>
                 <Image
                     Source="{markup:ImageResource Source='roger_leblanc.jpg'}"
-                    WidthRequest="300"
-                    HorizontalOptions="Center" 
-            		VerticalOptions="Center"
+                    HorizontalOptions="CenterAndExpand"
+            		VerticalOptions="CenterAndExpand"
                     Aspect="AspectFill"/>
             </StackLayout>
         </StackLayout>

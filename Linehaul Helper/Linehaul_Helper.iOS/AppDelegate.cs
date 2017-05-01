@@ -3,6 +3,7 @@ using FFImageLoading.Forms.Touch;
 using Foundation;
 using Linehaul_Helper.Helpers;
 using UIKit;
+using Xamarin.Forms;
 
 namespace Linehaul_Helper.iOS
 {
@@ -20,5 +21,18 @@ namespace Linehaul_Helper.iOS
 
 			return base.FinishedLaunching(app, options);
 		}
-	}
+
+        public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations(UIApplication application, UIWindow forWindow)
+        {
+            switch (Device.Idiom)
+            {
+                case TargetIdiom.Phone:
+                    return UIInterfaceOrientationMask.Portrait;
+                case TargetIdiom.Tablet:
+                    return UIInterfaceOrientationMask.Landscape;
+                default:
+                    return UIInterfaceOrientationMask.Portrait;
+            }
+        }
+    }
 }

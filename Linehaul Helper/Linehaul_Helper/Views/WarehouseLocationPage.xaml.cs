@@ -40,10 +40,8 @@ namespace Linehaul_Helper.Views
                 LoadMapPinsFromViewModel();
             };
 
-            SetIsShowingUser();
-
             map.MoveToRegion(MapSpan.FromCenterAndRadius(
-                new Xamarin.Forms.GoogleMaps.Position(45.496080, -73.769532), Distance.FromKilometers(1000)));
+                new Xamarin.Forms.GoogleMaps.Position(45.496080, -73.769532), Distance.FromKilometers(800)));
 
             LoadMapPinsFromViewModel();
         }
@@ -61,18 +59,18 @@ namespace Linehaul_Helper.Views
                     Label = location.Name,
                     Address = location.Address,
                     Tag = "Tag:" + location.Name,
-                    Icon = BitmapDescriptorFactory.FromBundle("dicom-cube-30.png")
+                    Icon = BitmapDescriptorFactory.FromBundle("dicom_cube_44.png")
                 });
             }
         }
 
-        private void SetIsShowingUser()
+        private async Task SetIsShowingUser()
         {
             try
             {
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50000;
-                var position = locator.GetPositionAsync(timeoutMilliseconds: 100).Result;
+                var position = await locator.GetPositionAsync(timeoutMilliseconds: 3000);
                 if (position != null)
                     map.IsShowingUser = true;
             }
@@ -82,11 +80,13 @@ namespace Linehaul_Helper.Views
             }
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
             _warehouseLocationPageViewModel.GetWarehouseLocations();
+
+            await SetIsShowingUser();
         }
     }
 }

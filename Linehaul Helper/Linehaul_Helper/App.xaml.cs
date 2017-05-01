@@ -24,8 +24,6 @@ namespace Linehaul_Helper
 
         public static void SetMainPage()
         {
-            //Current.MainPage = new HomeMasterDetail();
-            
             var navigationPage = new NavigationPage(new MainPage())
             {
                 BarBackgroundColor = (Color)Application.Current.Resources["DicomBlue"]

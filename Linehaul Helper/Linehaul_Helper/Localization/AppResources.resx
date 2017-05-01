@@ -189,4 +189,7 @@ Contact info@cellninja.ca to add this unit.</value>
   <data name="TrackingBaseUrl" xml:space="preserve">
     <value>https://www.dicom.com/en/dicom/tracking/result</value>
   </data>
+  <data name="IndeedJobWebViewPageTitle" xml:space="preserve">
+    <value>Job description</value>
+  </data>
 </root>

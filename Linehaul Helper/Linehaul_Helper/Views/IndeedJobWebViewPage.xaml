@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
              x:Class="Linehaul_Helper.Views.IndeedJobWebViewPage"
-             Title="Job WebView Page (not localized)">
+             BackgroundColor="{StaticResource DicomOrange}"
+             Title="{i18n:Translate IndeedJobWebViewPageTitle}">
     <StackLayout
         HorizontalOptions="FillAndExpand"
         VerticalOptions="FillAndExpand">

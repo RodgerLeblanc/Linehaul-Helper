@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:customControls="clr-namespace:Linehaul_Helper.CustomControls"
+             xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
              x:Class="Linehaul_Helper.Views.JobsPage"
              BackgroundColor="{StaticResource DicomOrange}"
-             Title="Jobs (unlocalized)">
+             Title="{i18n:Translate JobsPageTitle}">
     <StackLayout>
         <ListView
             SeparatorVisibility="None"

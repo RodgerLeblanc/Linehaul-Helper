@@ -187,4 +187,7 @@
   <data name="TrackingBaseUrl" xml:space="preserve">
     <value>https://www.dicom.com/fr/express/suivi/resultat</value>
   </data>
+  <data name="IndeedJobWebViewPageTitle" xml:space="preserve">
+    <value>Description de l'emploi</value>
+  </data>
 </root>
