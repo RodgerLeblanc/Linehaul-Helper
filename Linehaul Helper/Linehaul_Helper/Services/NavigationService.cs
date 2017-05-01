@@ -17,13 +17,11 @@ namespace Linehaul_Helper.Services
         {
             MessagingCenter.Subscribe<MainPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, async (source, page) =>
             {
-                Debug.WriteLine("NavigationService received a message from MainPageViewModel");
                 await NavigationHelper.NavigationPushAsync(page);
             });
 
             MessagingCenter.Subscribe<JobsPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, async (source, page) =>
             {
-                Debug.WriteLine("NavigationService received a message from JobsPageViewModel");
                 await NavigationHelper.NavigationPushAsync(page);
             });
         }

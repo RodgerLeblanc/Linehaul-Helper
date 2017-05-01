@@ -4,35 +4,44 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:local="clr-namespace:Linehaul_Helper"
 	xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
-	x:Class="Linehaul_Helper.Views.PlateNumberPage">
+	x:Class="Linehaul_Helper.Views.PlateNumberPage"
+    BackgroundColor="{StaticResource DicomOrange}">
+    
 	<ContentPage.Padding>
 		<OnPlatform x:TypeArguments="Thickness"
         	iOS="0, 20, 0, 0"
             Android="0, 0, 0, 0"
             WinPhone="0, 0, 0, 0" />
 	</ContentPage.Padding>
-	
+
 	<StackLayout
-		HorizontalOptions="Center"
-		VerticalOptions="Center">
-		<Label
-			Text="{Binding PlateNumberPageModel.UnitNumber}"
-			FontSize="{Binding FontSizeLarge}"
-			HorizontalOptions="Center"/>
-		<Label
-			Text="{Binding PlateNumberPageModel.PlateNumber}"
-			FontSize="{Binding FontSizeXLarge}"
-			FontAttributes="Bold"
-			HorizontalOptions="Center"/>
-		<Button
-			Text="{i18n:Translate PlateNumberPageButtonOk}"
-            Command="{Binding DoneCommand}"
-			HorizontalOptions="Center"/>
-		<Button
-			Margin="0, 50, 0 ,0"
-			Text="{i18n:Translate PlateNumberPageButtonReportError}"
-            Command="{Binding ReportErrorCommand}"
-			IsVisible="false"
-			HorizontalOptions="Center"/>
+		HorizontalOptions="FillAndExpand"
+		VerticalOptions="FillAndExpand"
+        BackgroundColor="{StaticResource DicomBlue}"
+        Margin="{StaticResource GeneralPadding}">
+        <StackLayout
+    		HorizontalOptions="Center"
+	    	VerticalOptions="CenterAndExpand"
+            Spacing="{StaticResource GeneralSpacing}">
+            <Label
+    			Text="{Binding PlateNumberPageModel.UnitNumber}"
+	    		FontSize="{Binding FontSizeLarge}"
+		    	HorizontalOptions="Center"/>
+            <Label
+			    Text="{Binding PlateNumberPageModel.PlateNumber}"
+    			FontSize="{Binding FontSizeXLarge}"
+	    		FontAttributes="Bold"
+		    	HorizontalOptions="Center"/>
+            <Button
+			    Text="{i18n:Translate PlateNumberPageButtonOk}"
+                Command="{Binding DoneCommand}"
+	    		HorizontalOptions="Center"/>
+            <Button
+		    	Margin="0, 50, 0 ,0"
+			    Text="{i18n:Translate PlateNumberPageButtonReportError}"
+                Command="{Binding ReportErrorCommand}"
+	    		IsVisible="false"
+		    	HorizontalOptions="Center"/>
+        </StackLayout>
 	</StackLayout>
 </ContentPage>

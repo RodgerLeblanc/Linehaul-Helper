@@ -5,6 +5,7 @@
 	xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
     xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
 	x:Class="Linehaul_Helper.Views.PlatesPage"
+    BackgroundColor="{StaticResource DicomOrange}"
 	Title="{i18n:Translate PlatesPageTitle}"
     IsBusy="{Binding IsBusy}">
     <ContentPage.Padding>
@@ -14,38 +15,60 @@
 			WinPhone="0, 0, 0, 0" />
     </ContentPage.Padding>
 
-    <ScrollView		
-		HorizontalOptions="Center"
-		VerticalOptions="Center">
+    <Grid 
+        ColumnSpacing="{StaticResource GeneralSpacing}" 
+        RowSpacing="{StaticResource GeneralSpacing}" 
+        Padding="{StaticResource GeneralPadding}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
         <StackLayout
-    		HorizontalOptions="Center"
-	    	VerticalOptions="Center">
+            Grid.Row="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="{StaticResource DicomBlue}">
             <StackLayout
-		    	Orientation="Horizontal"
-			    HorizontalOptions="Center">
-                <Label
-    				Text="{Binding UnitInfoListDateTime, StringFormat={i18n:Translate PlatesPageLastUpdated}}"
-	    			VerticalOptions="Center"/>
-                <Button
-		    		Text="{i18n:Translate PlatesPageUpdateButtonText}"
-			    	VerticalOptions="Center"
-				    IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}"
-				    Command="{Binding UpdateCommand}"/>
-            </StackLayout>
-            <Image
-    			Source="{markup:ImageResource Source='dicom_truck_dock.jpg'}"
+    		    Orientation="Horizontal"
 	    		HorizontalOptions="CenterAndExpand"
-		    	Aspect="AspectFill">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer
-                        Command="{Binding AddUnitCommand}"
-				    	NumberOfTapsRequired="2" />
-                </Image.GestureRecognizers>
-            </Image>
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    Text="{Binding UnitInfoListDateTime, StringFormat={i18n:Translate PlatesPageLastUpdated}}"
+    	    		VerticalOptions="Center"/>
+                <Button
+                    Text="{i18n:Translate PlatesPageUpdateButtonText}"
+    			    VerticalOptions="Center"
+                    BackgroundColor="{StaticResource DicomLightGray}"
+		    		IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}"
+			    	Command="{Binding UpdateCommand}"/>
+            </StackLayout>
+        </StackLayout>
+        
+        <Image
+            Grid.Row="1"
+            Source="{markup:ImageResource Source='dicom_truck_dock.jpg'}"
+	    	HorizontalOptions="CenterAndExpand"
+		    VerticalOptions="Center"
+            Aspect="AspectFill">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding AddUnitCommand}"
+				    NumberOfTapsRequired="2" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <StackLayout 
+            Grid.Row="2" 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="{StaticResource DicomBlue}">
             <Entry
                 Keyboard="Numeric"
-		    	Placeholder="{i18n:Translate PlatesPageEntryPlaceholder}"
-			    HorizontalOptions="Center"
+	    	    Placeholder="{i18n:Translate PlatesPageEntryPlaceholder}"
+		    	HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
 			    WidthRequest="400"
                 Text="{Binding UnitNumber, Mode=TwoWay, Converter={StaticResource StringToUnitConverter}}">
             </Entry>
@@ -54,7 +77,8 @@
 	    		Text="{i18n:Translate PlatesPageButtonText}"
 		    	IsEnabled="{Binding UnitNumber, Converter={StaticResource UnitNumberValidConverter}}"
                 Command="{Binding FindUnitCommand}"
-			    HorizontalOptions="Center"/>
+			    HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"/>
         </StackLayout>
-    </ScrollView>
+    </Grid>
 </ContentPage>

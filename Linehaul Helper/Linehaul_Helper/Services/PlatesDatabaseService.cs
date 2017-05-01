@@ -19,9 +19,9 @@ namespace Linehaul_Helper.Services
 {
     public class PlatesDatabaseService : IPlatesDatabaseService
     {
-        private String _baseCloudantUrl = ApiKeys.FretPlatesDbUrl + ApiKeys.FretPlatesDbName + "/";
+        private String _baseUrl = ApiKeys.CloudantDbUrl + ApiKeys.FretPlatesDbName + "/";
         private HttpClient _client = new HttpClient();
-        private IEnumerable<UnitInfo> _unitInfos;
+        private IList<UnitInfo> _unitInfos;
         private DateTime _unitInfoListDateTime;
         private bool _isBusy;
 
@@ -89,7 +89,7 @@ namespace Linehaul_Helper.Services
             try
             {
                 Debug.WriteLine("Get docs online");
-                var url = _baseCloudantUrl + "_all_docs?include_docs=true";
+                var url = _baseUrl + "_all_docs?include_docs=true";
                 var response = await _client.GetAsync(url);
                 //Debug.WriteLine($"response: {JsonConvert.SerializeObject(response)}");
 
@@ -159,7 +159,7 @@ namespace Linehaul_Helper.Services
         {
             IsBusy = true;
 
-            var url = _baseCloudantUrl + document.Id;
+            var url = _baseUrl + document.Id;
 
             JObject documentToSend = new JObject();
             documentToSend["_id"] = document.Id;

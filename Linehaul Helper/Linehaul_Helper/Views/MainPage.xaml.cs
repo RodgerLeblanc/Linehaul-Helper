@@ -21,30 +21,12 @@ namespace Linehaul_Helper.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        private INavigationService _navigationService;
-
-        public MainPage(INavigationService navigationService)
+        public MainPage()
         {
-            _navigationService = navigationService;
-
             NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
             BindingContext = new MainPageViewModel();
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            _navigationService.SubscribeToMessagingCenter();
-        }
-
-        protected override void OnDisappearing()
-        {
-            _navigationService.UnsubscribeToMessagingCenter();
-
-            base.OnDisappearing();
         }
 
         protected override bool OnBackButtonPressed()

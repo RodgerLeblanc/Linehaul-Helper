@@ -1,4 +1,5 @@
 ﻿using Linehaul_Helper.CustomEventArgs;
+using Linehaul_Helper.Helpers;
 using Linehaul_Helper.Interfaces;
 using Linehaul_Helper.Models;
 using Linehaul_Helper.Services;
@@ -35,19 +36,27 @@ namespace Linehaul_Helper.ViewModels
 
             TrackCommand = new Command(async () =>
             {
-                ParcelTrackingModel parcelTracking = await _parcelTrackingService.Track(_trackingNumber);
+                ParcelTrackingModel parcelTracking = null;
+                try
+                {
+                    parcelTracking = await _parcelTrackingService.Track(_trackingNumber);
 
-                string title = parcelTracking.TrackingNumber;
-                string message = $"Tracking: {parcelTracking.TrackingNumber}\n" +
-                    (!String.IsNullOrWhiteSpace(parcelTracking.Status)
-                        ? $"Status: {parcelTracking.Status}\n" : "") +
-                    (!String.IsNullOrWhiteSpace(parcelTracking.Division)
-                        ? $"Division: {parcelTracking.Division}\n" : "") +
-                    (!String.IsNullOrWhiteSpace(parcelTracking.LastUpdateString)
-                        ? $"Last update: {parcelTracking.LastUpdateString}\n" : "") +
-                    (!String.IsNullOrWhiteSpace(parcelTracking.Status)
-                        ? $"Notes: {parcelTracking.Notes}" : "");
-                await Application.Current.MainPage.DisplayAlert(title, message, "Ok");
+                    string title = parcelTracking.TrackingNumber;
+                    string message = $"Tracking: {parcelTracking.TrackingNumber}\n" +
+                        (!String.IsNullOrWhiteSpace(parcelTracking.Status)
+                            ? $"Status: {parcelTracking.Status}\n" : "") +
+                        (!String.IsNullOrWhiteSpace(parcelTracking.Division)
+                            ? $"Division: {parcelTracking.Division}\n" : "") +
+                        (!String.IsNullOrWhiteSpace(parcelTracking.LastUpdateString)
+                            ? $"Last update: {parcelTracking.LastUpdateString}\n" : "") +
+                        (!String.IsNullOrWhiteSpace(parcelTracking.Status)
+                            ? $"Notes: {parcelTracking.Notes}" : "");
+                    await Application.Current.MainPage.DisplayAlert(title, message, "Ok");
+                }
+                catch (Exception ex)
+                {
+                    await Commons.DisplayAlert("Error", ex.Message, "Ok");
+                }
             });
         }
 

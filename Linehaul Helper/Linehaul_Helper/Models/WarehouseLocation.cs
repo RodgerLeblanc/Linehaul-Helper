@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Linehaul_Helper.Models
 {
-    class WarehouseLocation
+    public class WarehouseLocation
     {
         public string Name;
         public string Description;
@@ -15,7 +15,7 @@ namespace Linehaul_Helper.Models
         public Position Position;
     }
 
-    class Position
+    public class Position
     {
         public Position(double latitude, double longitude)
         {

@@ -55,11 +55,13 @@
     </Compile>
     <Compile Include="CustomEventArgs\IsBusyEventArgs.cs" />
     <Compile Include="CustomEventArgs\UnitInfoListDateTimeEventArgs.cs" />
+    <Compile Include="CustomEventArgs\WarehouseListDateTimeEventArgs.cs" />
     <Compile Include="Exceptions\IndeedJobsNotFoundException.cs" />
     <Compile Include="Exceptions\LayoutException.cs" />
     <Compile Include="Exceptions\TrackingNotFoundException.cs" />
     <Compile Include="Helpers\ApiKeys.cs" />
     <Compile Include="Helpers\Commons.cs" />
+    <Compile Include="Helpers\SqlDatabase.cs" />
     <Compile Include="Helpers\FormsMessenger.cs" />
     <Compile Include="Helpers\MessengingCenterAlert.cs" />
     <Compile Include="Helpers\NavigationHelper.cs" />
@@ -68,11 +70,13 @@
     <Compile Include="Helpers\PCLStorage.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Interfaces\IApplicationInfo.cs" />
+    <Compile Include="Interfaces\IFileHelper.cs" />
     <Compile Include="Interfaces\IJobsRetrievalService.cs" />
     <Compile Include="Interfaces\IMessenger.cs" />
     <Compile Include="Interfaces\INavigationHelper.cs" />
     <Compile Include="Interfaces\INavigationService.cs" />
     <Compile Include="Interfaces\IParcelTrackingService.cs" />
+    <Compile Include="Interfaces\IWarehouseDatabaseService.cs" />
     <Compile Include="Localization\AppResources.fr.Designer.cs">
       <DependentUpon>AppResources.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -102,6 +106,7 @@
     <Compile Include="Services\ParcelTrackingService.cs" />
     <Compile Include="Services\PlatesDatabaseService.cs" />
     <Compile Include="Interfaces\IPlatesDatabaseService.cs" />
+    <Compile Include="Services\WarehouseDatabaseService.cs" />
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
     <Compile Include="ViewModels\JobsPageViewModel.cs" />
     <Compile Include="ViewModels\MainMasterPageViewModel.cs" />
@@ -127,7 +132,7 @@
     <Compile Include="Views\MainMasterPage.xaml.cs">
       <DependentUpon>MainMasterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\MasterPageItemCustomView.xaml.cs">
+    <Compile Include="MasterPageItemCustomView.xaml.cs">
       <DependentUpon>MasterPageItemCustomView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\MasterPageItemSeparator.xaml.cs">
@@ -236,6 +241,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\HomeMasterDetail.xaml">
@@ -250,7 +256,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CustomControls\MasterPageItemCustomView.xaml">
+    <EmbeddedResource Include="MasterPageItemCustomView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

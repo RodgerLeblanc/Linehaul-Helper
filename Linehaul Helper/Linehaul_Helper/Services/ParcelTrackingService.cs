@@ -36,9 +36,20 @@ namespace Linehaul_Helper.Services
 
             SetIsBusy(true);
 
-            var response = await GetResponseFromServer(trackingNumber);
+            HttpResponseMessage response = null;
+            try
+            {
+                response = await GetResponseFromServer(trackingNumber);
+            }
+            catch (TrackingNotFoundException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                SetIsBusy(false);
+            }
 
-            SetIsBusy(false);
             return await GetTrackingInfos(response);
         }
 

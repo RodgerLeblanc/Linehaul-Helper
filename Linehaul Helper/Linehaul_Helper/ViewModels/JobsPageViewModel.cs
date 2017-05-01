@@ -32,16 +32,6 @@ namespace Linehaul_Helper.ViewModels
                 IsBusy = (args as IsBusyEventArgs).IsBusy;
             };
 
-            GetJobsCommand = new Command(async () =>
-            {
-                Jobs = await _jobsRetrievalService.GetJobsAsync();
-            });
-
-            DisplayJob = new Command<IndeedJob>((j) =>
-            {
-                MessagingCenter.Send<JobsPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, new IndeedJobWebViewPage(j));
-            });
-
             if (GetJobsCommand.CanExecute(null))
                 GetJobsCommand.Execute(null);
         }
@@ -52,8 +42,33 @@ namespace Linehaul_Helper.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand GetJobsCommand { get; }
-        public ICommand DisplayJob { get; }
+        public ICommand GetJobsCommand {
+            get
+            {
+                return new Command(async () =>
+                {
+                    try
+                    {
+                        Jobs = await _jobsRetrievalService.GetJobsAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        await Commons.DisplayAlert("Error", ex.Message, "Ok");
+                    }
+                });
+            }
+        }
+
+        public ICommand DisplayJob
+        {
+            get
+            {
+                return new Command<IndeedJob>((j) =>
+                {
+                    MessagingCenter.Send<JobsPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, new IndeedJobWebViewPage(j));
+                });
+            }
+        }
 
         public List<IndeedJob> Jobs
         {

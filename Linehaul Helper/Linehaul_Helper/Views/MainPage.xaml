@@ -11,8 +11,6 @@
              x:Name="mainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Thickness x:Key="Padding" Left="10" Top="10" Right="10" Bottom="10" />
-            <x:Double x:Key="Spacing">10</x:Double>
             <Style TargetType="controls:MainPageBox">
                 <Setter 
                     Property="Command" 
@@ -21,7 +19,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid RowSpacing="{StaticResource Spacing}" ColumnSpacing="{StaticResource Spacing}" Padding="{StaticResource Padding}">
+    <Grid RowSpacing="{StaticResource GeneralSpacing}" ColumnSpacing="{StaticResource GeneralSpacing}" Padding="{StaticResource GeneralPadding}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
