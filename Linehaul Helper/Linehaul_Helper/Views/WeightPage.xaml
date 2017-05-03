@@ -2,12 +2,55 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+             xmlns:controls="clr-namespace:Linehaul_Helper.CustomControls"
              x:Class="Linehaul_Helper.Views.WeightPage"
              BackgroundColor="{StaticResource DicomOrange}"
              Title="{i18n:Translate WeightPageTitle}">
 
-    <Label
-        Text="Coming soon..."
-        HorizontalOptions="CenterAndExpand"
-        VerticalOptions="CenterAndExpand"/>
+    <Grid
+        RowSpacing="{StaticResource GeneralSpacing}" 
+        ColumnSpacing="{StaticResource GeneralSpacing}" 
+        Padding="{StaticResource GeneralPadding}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Blue background, implicit style -->
+        <BoxView Grid.Row="0" Grid.Column="0"/>
+        <BoxView Grid.Row="0" Grid.Column="1"/>
+        <BoxView Grid.Row="1" Grid.Column="0"/>
+        <BoxView Grid.Row="1" Grid.Column="1"/>
+        <BoxView Grid.Row="2" Grid.Column="0"/>
+        <BoxView Grid.Row="2" Grid.Column="1"/>
+
+        <Label 
+            Grid.Row="0" Grid.Column="0"
+            Text="2 Axles (Unlocalized)"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"/>
+        <Label 
+            Grid.Row="0" Grid.Column="1"
+            Text="3 Axles (Unlocalized)"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"/>
+
+        <controls:WeightDeclarations
+            Grid.Row="1" Grid.Column="0"
+            LightPsi="20"
+            LightWeight="20000"
+            HeavyPsi="50"
+            HeavyWeight="50000"/>
+        <controls:WeightDeclarations
+            Grid.Row="1" Grid.Column="1"
+            LightPsi="20"
+            LightWeight="20000"
+            HeavyPsi="50"
+            HeavyWeight="50000"/>
+    </Grid>
 </ContentPage>

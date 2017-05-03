@@ -16,7 +16,7 @@ namespace Linehaul_Helper.Services
 {
     public class JobsRetrievalService : IJobsRetrievalService
     {
-        private string _baseUrl = "http://api.indeed.com/ads/apisearch?publisher=480667076757286&q=company:dicom&format=json&latlong=1&co=ca&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2";
+        private string _baseUrl = "http://api.indeed.com/ads/apisearch?publisher=480667076757286&q=company:dicom&format=json&latlong=1&co=ca&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&limit=100&sort=date";
         private bool _isBusy = false;
 
         public JobsRetrievalService()

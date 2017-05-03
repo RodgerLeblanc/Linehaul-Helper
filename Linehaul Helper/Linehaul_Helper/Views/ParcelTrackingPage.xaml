@@ -15,28 +15,26 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!-- Blue background, implicit style -->
+        <BoxView Grid.Row="0"/>
+
         <StackLayout 
             Grid.Row="0"
-            HorizontalOptions="FillAndExpand" 
-            VerticalOptions="FillAndExpand" 
-            BackgroundColor="{StaticResource DicomBlue}">
-            <StackLayout 
                 HorizontalOptions="Center" 
                 VerticalOptions="CenterAndExpand"
                 IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}"
                 Opacity="{Binding IsBusy, Converter={StaticResource IsBusyToOpacityConverter}}">
-                <Entry
-        		    Placeholder="{i18n:Translate ParcelTrackingPageEntryPlaceholder}"
-		        	HorizontalOptions="Center"
-        			WidthRequest="200"
-                    Text="{Binding TrackingNumber, Mode=TwoWay}"/>
-                <Button
-        	    	Text="{i18n:Translate ParcelTrackingPageButtonText}"
-		            IsEnabled="{Binding TrackingNumber, Converter={StaticResource TrackingNumberValidConverter}}"
-                    Command="{Binding TrackCommand}"
-		        	HorizontalOptions="Center"/>
-            </StackLayout>
-        </StackLayout>
+			<Entry
+				Placeholder="{i18n:Translate ParcelTrackingPageEntryPlaceholder}"
+                HorizontalOptions="Center"
+				WidthRequest="200"
+				Text="{Binding TrackingNumber, Mode=TwoWay}"/>
+			<Button
+				Text="{i18n:Translate ParcelTrackingPageButtonText}"
+				IsEnabled="{Binding TrackingNumber, Converter={StaticResource TrackingNumberValidConverter}}"
+				Command="{Binding TrackCommand}"
+				HorizontalOptions="Center"/>
+		</StackLayout>
 
         <StackLayout
             Grid.Row="0"

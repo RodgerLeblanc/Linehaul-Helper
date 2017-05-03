@@ -20,8 +20,6 @@ namespace Linehaul_Helper.ViewModels
         public WarehouseLocationPageViewModel(IWarehouseDatabaseService dbService)
         {
             _dbService = dbService ?? throw new ArgumentNullException();
-
-            //WarehouseLocations = _dbService.GetDefaultWarehouseLocations();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

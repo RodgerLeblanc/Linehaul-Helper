@@ -26,5 +26,13 @@ namespace Linehaul_Helper.Views
             _jobsViewModel = new JobsPageViewModel(new JobsRetrievalService());
             BindingContext = _jobsViewModel;
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (_jobsViewModel.GetJobsCommand.CanExecute(null))
+                _jobsViewModel.GetJobsCommand.Execute(null);
+        }
     }
 }

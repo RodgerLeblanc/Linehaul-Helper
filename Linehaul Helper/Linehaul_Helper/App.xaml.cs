@@ -29,7 +29,7 @@ namespace Linehaul_Helper
                 BarBackgroundColor = (Color)Application.Current.Resources["DicomBlue"]
             };
 
-            Current.MainPage   = navigationPage;
+            Current.MainPage = navigationPage;
 
             //navigationPage.Pushed += HandleNavigationPagePushPop;
             //navigationPage.Popped += HandleNavigationPagePushPop;
@@ -50,6 +50,13 @@ namespace Linehaul_Helper
         protected override void OnStart()
         {
             base.OnStart();
+
+            _navigationService.SubscribeToMessagingCenter();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
 
             _navigationService.SubscribeToMessagingCenter();
         }

@@ -42,8 +42,6 @@ namespace Linehaul_Helper.Views
 
             map.MoveToRegion(MapSpan.FromCenterAndRadius(
                 new Xamarin.Forms.GoogleMaps.Position(45.496080, -73.769532), Distance.FromKilometers(800)));
-
-            LoadMapPinsFromViewModel();
         }
 
         private void LoadMapPinsFromViewModel()
@@ -70,9 +68,13 @@ namespace Linehaul_Helper.Views
             {
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50000;
-                var position = await locator.GetPositionAsync(timeoutMilliseconds: 3000);
+                var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
                 if (position != null)
+                {
                     map.IsShowingUser = true;
+                    map.MoveToRegion(MapSpan.FromCenterAndRadius(
+                        new Xamarin.Forms.GoogleMaps.Position(position.Latitude, position.Longitude), Distance.FromKilometers(50)));
+                }
             }
             catch (Exception ex)
             {
@@ -83,6 +85,8 @@ namespace Linehaul_Helper.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
+            LoadMapPinsFromViewModel();
 
             _warehouseLocationPageViewModel.GetWarehouseLocations();
 

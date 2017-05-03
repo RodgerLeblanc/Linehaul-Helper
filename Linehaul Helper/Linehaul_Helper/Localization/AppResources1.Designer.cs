@@ -208,7 +208,7 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last updated on {0:d} {0:t}.
+        ///   Looks up a localized string similar to Updated {0:d} {0:t}.
         /// </summary>
         internal static string PlatesPageLastUpdated {
             get {
@@ -262,7 +262,7 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Warehouse Location.
+        ///   Looks up a localized string similar to Warehouses.
         /// </summary>
         internal static string WarehouseLocationPageTitle {
             get {

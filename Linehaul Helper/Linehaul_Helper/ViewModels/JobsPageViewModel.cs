@@ -31,13 +31,6 @@ namespace Linehaul_Helper.ViewModels
             {
                 IsBusy = (args as IsBusyEventArgs).IsBusy;
             };
-
-            if (GetJobsCommand.CanExecute(null))
-                GetJobsCommand.Execute(null);
-        }
-
-        public JobsPageViewModel()
-        {
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -98,6 +91,14 @@ namespace Linehaul_Helper.ViewModels
         {
             get { return _isBusy; }
             private set { _isBusy = value; OnPropertyChanged(); }
+        }
+
+        public HtmlWebViewSource WebViewSource
+        {
+            get
+            {
+                return new HtmlWebViewSource { Html = "<html><div><span id=\"indeed_at\"><a title=\"Job Search\" href=\"https://ca.indeed.com\" rel=\"nofollow\" >jobs by <img alt=Indeed src=\"https://www.indeed.com/p/jobsearch.gif\" style=\"border: 0; vertical-align: middle;\"></a></span></div></html>" };
+            }
         }
 
         void OnPropertyChanged([CallerMemberName]string propertyName = "") =>

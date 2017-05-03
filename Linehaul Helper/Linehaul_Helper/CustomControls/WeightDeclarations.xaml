@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Linehaul_Helper.CustomControls.WeightDeclarations"
+    Spacing="20"
+    HorizontalOptions="Center"
+    VerticalOptions="CenterAndExpand">
+
+    <Label
+        Text="Light Weight (Unlocalized)"
+        HorizontalOptions="Center"/>
+
+    <StackLayout
+        Orientation="Horizontal"
+        Spacing="10"
+        HorizontalOptions="Center">
+        <StackLayout>
+            <Stepper
+                x:Name="lightStepper"
+                Value="{Binding LightPsi}"/>
+            <Label
+                BindingContext="{x:Reference lightStepper}"
+                Text="{Binding Value, StringFormat='{0} PSI'}"
+                HorizontalOptions="Center"/>
+        </StackLayout>
+        <Entry
+            Text="{Binding LightWeight}"
+            Keyboard="Numeric"
+            VerticalOptions="Center"/>
+    </StackLayout>
+
+    <Label
+        Text="Heavy Weight (Unlocalized)"
+        HorizontalOptions="Center"/>
+    <StackLayout
+        Orientation="Horizontal"
+        Spacing="10"
+        HorizontalOptions="Center">
+        <StackLayout>
+            <Stepper
+                x:Name="heavyStepper"
+                Value="{Binding HeavyPsi}"/>
+            <Label
+                BindingContext="{x:Reference heavyStepper}"
+                Text="{Binding Value, StringFormat='{0} PSI'}"
+                HorizontalOptions="Center"/>
+        </StackLayout>
+        <Entry
+            Text="{Binding HeavyWeight}"
+            Keyboard="Numeric"
+            VerticalOptions="Center"/>
+    </StackLayout>
+</StackLayout>

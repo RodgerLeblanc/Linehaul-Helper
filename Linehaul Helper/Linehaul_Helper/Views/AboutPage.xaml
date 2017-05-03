@@ -16,54 +16,48 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
+        <!-- Blue background, implicit style -->
+        <BoxView Grid.Row="0"/>
+        <BoxView Grid.Row="1"/>
+
         <StackLayout 
             Grid.Row="0"
-            HorizontalOptions="FillAndExpand" 
-            VerticalOptions="FillAndExpand" 
-            BackgroundColor="{StaticResource DicomBlue}">
-            <StackLayout 
-                HorizontalOptions="Center" 
-                VerticalOptions="CenterAndExpand">
-                <Label
-                    Text="{Binding ApplicationName}"
-                    FontSize="Large"
-		        	HorizontalOptions="Center"/>
-                <Label
-                    Text="{Binding ApplicationVersion}"
-                    FontSize="Medium"
-		        	HorizontalOptions="Center"/>
+            HorizontalOptions="Center" 
+            VerticalOptions="CenterAndExpand">
+            <Label
+                Text="{Binding ApplicationName}"
+                FontSize="Large"
+		        HorizontalOptions="Center"/>
+            <Label
+                Text="{Binding ApplicationVersion}"
+                FontSize="Medium"
+		        HorizontalOptions="Center"/>
             </StackLayout>
-        </StackLayout>
 
         <StackLayout 
             Grid.Row="1"
-            HorizontalOptions="FillAndExpand" 
-            VerticalOptions="FillAndExpand" 
-            BackgroundColor="{StaticResource DicomBlue}">
-            <StackLayout 
+            HorizontalOptions="Center" 
+            VerticalOptions="CenterAndExpand"
+            Padding="{StaticResource GeneralPadding}">
+            <Label
+                Text="{Binding AuthorName}"
                 HorizontalOptions="Center" 
-                VerticalOptions="CenterAndExpand"
-                Padding="{StaticResource GeneralPadding}">
-                <Label
-                    Text="{Binding AuthorName}"
-                    HorizontalOptions="Center" 
-                    FontSize="Medium"/>
-                <Label
-                    Text="{Binding AuthorPresentation}"
-                    HorizontalOptions="Center" 
-                    TextColor="{StaticResource DicomLightGray}"
-                    FontSize="Micro">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer
-                            Command="{Binding LabelTappedCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
-                <Image
-                    Source="{markup:ImageResource Source='roger_leblanc.jpg'}"
-                    HorizontalOptions="CenterAndExpand"
-            		VerticalOptions="CenterAndExpand"
-                    Aspect="AspectFill"/>
-            </StackLayout>
+                FontSize="Medium"/>
+            <Label
+                Text="{Binding AuthorPresentation}"
+                HorizontalOptions="Center" 
+                TextColor="{StaticResource DicomLightGray}"
+                FontSize="Micro">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding LabelTappedCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Image
+                Source="{markup:ImageResource Source='roger_leblanc.jpg'}"
+                HorizontalOptions="CenterAndExpand"
+            	VerticalOptions="CenterAndExpand"
+                Aspect="AspectFill"/>
         </StackLayout>
     </Grid>
 </ContentPage>

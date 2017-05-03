@@ -6,19 +6,9 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="Linehaul_Helper.Views.WarehouseLocationPage"
              Title="{i18n:Translate WarehouseLocationPageTitle}">
-    <StackLayout>
-        <!--<maps:Map 
-            x:Name="map"
-            VerticalOptions="FillAndExpand" />-->
-    </StackLayout>
     <maps:Map
         x:Name="map"
         IsShowingUser="false"
         HorizontalOptions="FillAndExpand"
         VerticalOptions="FillAndExpand"/>
-    <!--<maps2:Map
-        x:Name="map1"
-        IsVisible="false"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand"/>-->
 </ContentPage>

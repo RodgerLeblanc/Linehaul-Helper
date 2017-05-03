@@ -21,6 +21,17 @@ namespace Linehaul_Helper.Views
         {
             InitializeComponent();
             BindingContext = new WeightPageViewModel();
+
+            //string text = "";
+            //if (Application.Current.Properties.ContainsKey("test"))
+            //    text = Application.Current.Properties["test"] as string;
+            //entryxxx.Text = text;
         }
+
+        //private async void Entry_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    Application.Current.Properties["test"] = e.NewTextValue;
+        //    await Application.Current.SavePropertiesAsync();
+        //}
     }
 }

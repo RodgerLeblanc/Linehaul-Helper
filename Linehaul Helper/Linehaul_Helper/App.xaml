@@ -40,6 +40,12 @@
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource DicomWhite}" />
             </Style>
+            
+            <Style TargetType="BoxView">
+                <Setter Property="Color" Value="{StaticResource DicomBlue}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
 
             <converter:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
             <converter:StringToUnitConverter x:Key="StringToUnitConverter"/>

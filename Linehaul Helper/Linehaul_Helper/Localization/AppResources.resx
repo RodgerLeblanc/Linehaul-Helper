@@ -148,10 +148,10 @@ Contact info@cellninja.ca to add this unit.</value>
     <value>License Plates</value>
   </data>
   <data name="WarehouseLocationPageTitle" xml:space="preserve">
-    <value>Warehouse Location</value>
+    <value>Warehouses</value>
   </data>
   <data name="PlatesPageLastUpdated" xml:space="preserve">
-    <value>Last updated on {0:d} {0:t}</value>
+    <value>Updated {0:d} {0:t}</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
