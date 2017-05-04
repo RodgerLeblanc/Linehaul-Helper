@@ -190,4 +190,7 @@
   <data name="IndeedJobWebViewPageTitle" xml:space="preserve">
     <value>Description de l'emploi</value>
   </data>
+  <data name="WeightWarning" xml:space="preserve">
+    <value>Cet outil est utile pour estimer le poids d'un essieu selon la pression d'air (PSI), les données ne peuvent être considérées valides comme celles d'une balance officielle.</value>
+  </data>
 </root>

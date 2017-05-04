@@ -192,4 +192,7 @@ Contact info@cellninja.ca to add this unit.</value>
   <data name="IndeedJobWebViewPageTitle" xml:space="preserve">
     <value>Job description</value>
   </data>
+  <data name="WeightWarning" xml:space="preserve">
+    <value>This tool is provided to estimate the weight of an axle given its air pressure (PSI), it's not intended to replace an official scale.</value>
+  </data>
 </root>

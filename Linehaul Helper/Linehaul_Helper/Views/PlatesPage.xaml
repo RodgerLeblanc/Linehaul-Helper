@@ -48,8 +48,8 @@
         <Image Grid.Row="1"
             Source="{markup:ImageResource Source='dicom_truck_dock.jpg'}"
             Margin="{StaticResource GeneralPadding}"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
             Aspect="AspectFill">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer

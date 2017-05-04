@@ -6,7 +6,8 @@
              xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
              xmlns:views="clr-namespace:Linehaul_Helper.Views"
              x:Class="Linehaul_Helper.Views.MainPage"
-             Title="Main Page (unlocalized)"
+             Title="{i18n:Translate AppName}"
+             Icon="dicom_cube_44.png"
              BackgroundColor="{StaticResource DicomOrange}"
              x:Name="mainPage">
     <ContentPage.Resources>

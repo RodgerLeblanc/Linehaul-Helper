@@ -26,7 +26,8 @@ namespace Linehaul_Helper
         {
             var navigationPage = new NavigationPage(new MainPage())
             {
-                BarBackgroundColor = (Color)Application.Current.Resources["DicomBlue"]
+                BarBackgroundColor = (Color)Application.Current.Resources["DicomBlue"],
+                Icon = "dicom_cube_44.png"
             };
 
             Current.MainPage = navigationPage;

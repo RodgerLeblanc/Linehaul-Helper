@@ -23,7 +23,8 @@ namespace Linehaul_Helper.Views
     {
         public MainPage()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetTitleIcon(this, "dicom_cube_44.png");
 
             InitializeComponent();
             BindingContext = new MainPageViewModel();

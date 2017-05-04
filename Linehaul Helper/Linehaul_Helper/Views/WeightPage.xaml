@@ -13,44 +13,46 @@
         Padding="{StaticResource GeneralPadding}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="3*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
         <!-- Blue background, implicit style -->
-        <BoxView Grid.Row="0" Grid.Column="0"/>
-        <BoxView Grid.Row="0" Grid.Column="1"/>
-        <BoxView Grid.Row="1" Grid.Column="0"/>
-        <BoxView Grid.Row="1" Grid.Column="1"/>
-        <BoxView Grid.Row="2" Grid.Column="0"/>
-        <BoxView Grid.Row="2" Grid.Column="1"/>
+        <BoxView Grid.Row="0"/>
+        <BoxView Grid.Row="1"/>
 
-        <Label 
-            Grid.Row="0" Grid.Column="0"
-            Text="2 Axles (Unlocalized)"
+        <StackLayout 
+            Grid.Row="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Margin="{StaticResource GeneralPadding}">
+            <StackLayout 
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand">
+                <Slider
+                    Maximum="100"
+                    Minimum="16"
+                    Value="{Binding Psi, Mode=TwoWay}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
+                <Label
+                    Text="{Binding Psi, StringFormat='{0} PSI'}"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Label
+                Text="{Binding WeightTwoAxle, StringFormat='2 axle: {0} kg'}"
+                HorizontalOptions="Center"
+                FontSize="Large"/>
+            <Label
+                Text="{Binding WeightThreeAxle, StringFormat='3 axle: {0} kg'}"
+                HorizontalOptions="Center"
+                FontSize="Large"/>
+        </StackLayout>
+        <Label
+            Grid.Row="1"
+            Text="{i18n:Translate WeightWarning}"
+            FontSize="Micro"
+            HorizontalTextAlignment="Center"
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand"/>
-        <Label 
-            Grid.Row="0" Grid.Column="1"
-            Text="3 Axles (Unlocalized)"
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand"/>
-
-        <controls:WeightDeclarations
-            Grid.Row="1" Grid.Column="0"
-            LightPsi="20"
-            LightWeight="20000"
-            HeavyPsi="50"
-            HeavyWeight="50000"/>
-        <controls:WeightDeclarations
-            Grid.Row="1" Grid.Column="1"
-            LightPsi="20"
-            LightWeight="20000"
-            HeavyPsi="50"
-            HeavyWeight="50000"/>
     </Grid>
 </ContentPage>

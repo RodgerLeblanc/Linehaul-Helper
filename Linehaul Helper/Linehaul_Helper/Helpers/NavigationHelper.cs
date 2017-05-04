@@ -15,7 +15,7 @@ namespace Linehaul_Helper.Helpers
         {
             try
             {
-                await GetNavigationPage().PushAsync(page);
+                await GetNavigationPage().PushAsync(page, false);
             }
             catch (Exception ex)
             {
@@ -25,7 +25,7 @@ namespace Linehaul_Helper.Helpers
 
         public static async Task NavigationPopAsync()
         {
-            await GetNavigationPage().PopAsync();
+            await GetNavigationPage().PopAsync(false);
         }
 
         private static NavigationPage GetNavigationPage()

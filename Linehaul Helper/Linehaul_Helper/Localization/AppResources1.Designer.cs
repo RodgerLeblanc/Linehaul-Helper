@@ -278,5 +278,14 @@ namespace Linehaul_Helper.Localization {
                 return ResourceManager.GetString("WeightPageTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This tool is provided to estimate the weight of an axle given its air pressure (PSI), it&apos;s not intended to replace an official scale..
+        /// </summary>
+        internal static string WeightWarning {
+            get {
+                return ResourceManager.GetString("WeightWarning", resourceCulture);
+            }
+        }
     }
 }
