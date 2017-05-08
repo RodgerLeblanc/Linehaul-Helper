@@ -16,11 +16,11 @@ namespace Linehaul_Helper.Localization
 
 		public TranslateExtension()
 		{
-			if (Xamarin.Forms.Device.OS == TargetPlatform.iOS || Xamarin.Forms.Device.OS == TargetPlatform.Android)
-			{
-				ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
-			}
-		}
+            if (Xamarin.Forms.Device.OS == TargetPlatform.iOS || Xamarin.Forms.Device.OS == TargetPlatform.Android)
+            {
+                ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+            }
+        }
 
 		public string Text { get; set; }
 

@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Linehaul_Helper\Linehaul_Helper.csproj">
-      <Project>{fd710ef5-f7eb-4eca-85fa-b7e9f2938931}</Project>
+      <Project>{338141d1-8ba3-436e-9994-c75441d5a58e}</Project>
       <Name>Linehaul_Helper</Name>
     </ProjectReference>
   </ItemGroup>

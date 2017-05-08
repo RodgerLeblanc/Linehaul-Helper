@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Linehaul_Helper.Helpers;
+using Linehaul_Helper.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,6 +18,8 @@ namespace Linehaul_Helper.ViewModels
         private int _psi;
         private int _weightTwoAxle;
         private int _weightThreeAxle;
+        private ICommand _truckSelectedCommand;
+
         private Dictionary<int, int> _psiToKilos = new Dictionary<int, int>()
         {
             { 16, 2268 }, { 25, 3175 }, { 34, 4082 },
@@ -30,6 +34,12 @@ namespace Linehaul_Helper.ViewModels
                 Psi = (int)Application.Current.Properties[_lastPsiValueKey];
             else
                 Psi = 50;
+
+            TruckSelectedCommand = new Command<string>((c) => 
+            {
+                var page = new WeightPageForCombination(c);
+                MessagingCenter.Send<WeightPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, page);
+            });
         }
 
         public int Psi
@@ -73,6 +83,18 @@ namespace Linehaul_Helper.ViewModels
             private set
             {
                 _weightThreeAxle = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand TruckSelectedCommand {
+            get
+            {
+                return _truckSelectedCommand;
+            }
+            private set
+            {
+                _truckSelectedCommand = value;
                 OnPropertyChanged();
             }
         }

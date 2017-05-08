@@ -24,10 +24,16 @@ namespace Linehaul_Helper.Services
             {
                 await NavigationHelper.NavigationPushAsync(page);
             });
+
+            MessagingCenter.Subscribe<WeightPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, async (source, page) =>
+            {
+                await NavigationHelper.NavigationPushAsync(page);
+            });
         }
 
         public void UnsubscribeToMessagingCenter()
         {
+            MessagingCenter.Unsubscribe<WeightPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
             MessagingCenter.Unsubscribe<JobsPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
             MessagingCenter.Unsubscribe<MainPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
         }

@@ -236,12 +236,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\profile_generic.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Linehaul_Helper\Linehaul_Helper.csproj">
-      <Project>{261eb6bd-bb48-483d-9a86-2bea62a99085}</Project>
-      <Name>Linehaul_Helper</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +267,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_splashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Linehaul_Helper\Linehaul_Helper.csproj">
+      <Project>{338141d1-8ba3-436e-9994-c75441d5a58e}</Project>
+      <Name>Linehaul_Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

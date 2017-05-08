@@ -53,6 +53,9 @@
     <Compile Include="CustomControls\MainPageBox.xaml.cs">
       <DependentUpon>MainPageBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\TruckCombination.xaml.cs">
+      <DependentUpon>TruckCombination.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\WeightDeclarations.xaml.cs">
       <DependentUpon>WeightDeclarations.xaml</DependentUpon>
     </Compile>
@@ -94,12 +97,12 @@
     <Compile Include="Localization\PlatformCulture.cs" />
     <Compile Include="Localization\TranslateExtension.cs" />
     <Compile Include="MarkupExtensions\ImageResourceExtension.cs" />
+    <Compile Include="MarkupExtensions\TestExtension.cs" />
     <Compile Include="Models\PlatesDatabaseResponse.cs" />
     <Compile Include="Models\IndeedJsonModel.cs" />
     <Compile Include="Models\ParcelTrackingModel.cs" />
     <Compile Include="Models\PlateNumberPageModel.cs" />
     <Compile Include="Models\PlatesPageModel.cs" />
-    <Compile Include="Models\SwitchLocation.cs" />
     <Compile Include="Models\UnitInfo.cs" />
     <Compile Include="Models\WarehouseDatabaseResponse.cs" />
     <Compile Include="Models\WarehouseLocation.cs" />
@@ -116,7 +119,6 @@
     <Compile Include="ViewModels\ParcelTrackingPageViewModel.cs" />
     <Compile Include="ViewModels\PlateNumberPageViewModel.cs" />
     <Compile Include="ViewModels\PlatesPageViewModel.cs" />
-    <Compile Include="ViewModels\SwitchLocationPageViewModel.cs" />
     <Compile Include="ViewModels\UnitDefectReportPageViewModel.cs" />
     <Compile Include="ViewModels\WarehouseLocationPageViewModel.cs" />
     <Compile Include="ViewModels\WeightPageViewModel.cs" />
@@ -145,8 +147,8 @@
     <Compile Include="Views\PlatesPage.xaml.cs">
       <DependentUpon>PlatesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SwitchLocationPage.xaml.cs">
-      <DependentUpon>SwitchLocationPage.xaml</DependentUpon>
+    <Compile Include="Views\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UnitDefectReportPage.xaml.cs">
       <DependentUpon>UnitDefectReportPage.xaml</DependentUpon>
@@ -159,6 +161,9 @@
     </Compile>
     <Compile Include="Views\WeightPage.xaml.cs">
       <DependentUpon>WeightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeightPageForCombination.xaml.cs">
+      <DependentUpon>WeightPageForCombination.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
@@ -274,12 +279,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\SwitchLocationPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\WarehouseLocationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -329,16 +328,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images\dicom_cube_30.png" />
-    <EmbeddedResource Include="Images\dicom_license_plate.jpg" />
-    <EmbeddedResource Include="Images\dicom_logo.png" />
     <EmbeddedResource Include="Images\dicom_truck_dock.jpg" />
-    <EmbeddedResource Include="Images\headquarters.jpg" />
     <EmbeddedResource Include="Images\locator_page_icon.png" />
     <EmbeddedResource Include="Images\message_page_icon.png" />
     <EmbeddedResource Include="Images\plates_page_icon.png" />
-    <EmbeddedResource Include="Images\profile_generic.png" />
     <EmbeddedResource Include="Images\roger_leblanc.jpg" />
-    <EmbeddedResource Include="Images\slideout.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images\dicom_cube_144.png" />
@@ -382,14 +376,34 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\combo_truck_2axle.png" />
+    <EmbeddedResource Include="Images\combo_truck_2axle_2axle.png" />
+    <EmbeddedResource Include="Images\combo_truck_2axle_3axle.png" />
+    <EmbeddedResource Include="Images\combo_truck_3axle.png" />
+    <EmbeddedResource Include="Images\combo_truck_3axle_2axle.png" />
+    <EmbeddedResource Include="Images\combo_truck_3axle_3axle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomControls\TruckCombination.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\WeightPageForCombination.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -107,16 +107,16 @@
     <Compile Include="Tests\PlateNumberPageViewModelUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Linehaul Helper\Linehaul_Helper\Linehaul_Helper.csproj">
-      <Project>{338141d1-8ba3-436e-9994-c75441d5a58e}</Project>
-      <Name>Linehaul_Helper</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Linehaul Helper\Linehaul_Helper\Linehaul_Helper.csproj">
+      <Project>{338141d1-8ba3-436e-9994-c75441d5a58e}</Project>
+      <Name>Linehaul_Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

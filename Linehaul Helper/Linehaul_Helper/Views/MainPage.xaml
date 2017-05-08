@@ -39,6 +39,14 @@
             ImageSource="{markup:ImageResource Source='plates_page_icon.png'}"
             Text="{i18n:Translate PlatesPageTitle}"
             CommandParameter="{x:Type views:PlatesPage}"/>
+        
+        <!--<controls:MainPageBox
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            ImageSource="{markup:ImageResource Source='plates_page_icon.png'}"
+            Text="{markup:TestExtension Text='plates_page_icon.png'}"
+            CommandParameter="{x:Type views:PlatesPage}"/>-->
 
         <controls:MainPageBox
             Grid.Row="1"
