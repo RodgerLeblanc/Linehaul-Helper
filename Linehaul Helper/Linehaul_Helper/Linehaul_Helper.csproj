@@ -56,8 +56,11 @@
     <Compile Include="CustomControls\TruckCombination.xaml.cs">
       <DependentUpon>TruckCombination.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\WeightDeclarations.xaml.cs">
-      <DependentUpon>WeightDeclarations.xaml</DependentUpon>
+    <Compile Include="CustomControls\TruckSingleCombination.xaml.cs">
+      <DependentUpon>TruckSingleCombination.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\AxleWeight.xaml.cs">
+      <DependentUpon>AxleWeight.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomEventArgs\IsBusyEventArgs.cs" />
     <Compile Include="CustomEventArgs\UnitInfoListDateTimeEventArgs.cs" />
@@ -66,7 +69,9 @@
     <Compile Include="Exceptions\LayoutException.cs" />
     <Compile Include="Exceptions\TrackingNotFoundException.cs" />
     <Compile Include="Helpers\ApiKeys.cs" />
+    <Compile Include="Helpers\ApplicationPropertiesHelper.cs" />
     <Compile Include="Helpers\Commons.cs" />
+    <Compile Include="Helpers\ImageSourceHelper.cs" />
     <Compile Include="Helpers\SqlDatabase.cs" />
     <Compile Include="Helpers\FormsMessenger.cs" />
     <Compile Include="Helpers\MessengingCenterAlert.cs" />
@@ -97,7 +102,6 @@
     <Compile Include="Localization\PlatformCulture.cs" />
     <Compile Include="Localization\TranslateExtension.cs" />
     <Compile Include="MarkupExtensions\ImageResourceExtension.cs" />
-    <Compile Include="MarkupExtensions\TestExtension.cs" />
     <Compile Include="Models\PlatesDatabaseResponse.cs" />
     <Compile Include="Models\IndeedJsonModel.cs" />
     <Compile Include="Models\ParcelTrackingModel.cs" />
@@ -114,6 +118,8 @@
     <Compile Include="Interfaces\IPlatesDatabaseService.cs" />
     <Compile Include="Services\WarehouseDatabaseService.cs" />
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
+    <Compile Include="ViewModels\AxleWeightViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\JobsPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\ParcelTrackingPageViewModel.cs" />
@@ -121,6 +127,7 @@
     <Compile Include="ViewModels\PlatesPageViewModel.cs" />
     <Compile Include="ViewModels\UnitDefectReportPageViewModel.cs" />
     <Compile Include="ViewModels\WarehouseLocationPageViewModel.cs" />
+    <Compile Include="ViewModels\WeightPageForSingleCombinationViewModel.cs" />
     <Compile Include="ViewModels\WeightPageViewModel.cs" />
     <Compile Include="Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
@@ -147,9 +154,6 @@
     <Compile Include="Views\PlatesPage.xaml.cs">
       <DependentUpon>PlatesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestPage.xaml.cs">
-      <DependentUpon>TestPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\UnitDefectReportPage.xaml.cs">
       <DependentUpon>UnitDefectReportPage.xaml</DependentUpon>
     </Compile>
@@ -162,11 +166,8 @@
     <Compile Include="Views\WeightPage.xaml.cs">
       <DependentUpon>WeightPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WeightPageForCombination.xaml.cs">
-      <DependentUpon>WeightPageForCombination.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WelcomePage.xaml.cs">
-      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    <Compile Include="Views\WeightPageForSingleCombination.xaml.cs">
+      <DependentUpon>WeightPageForSingleCombination.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -256,12 +257,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomControls\MasterPageItemSeparator.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\WelcomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -365,7 +360,7 @@
     <EmbeddedResource Include="Images\tracking.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CustomControls\WeightDeclarations.xaml">
+    <EmbeddedResource Include="CustomControls\AxleWeight.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -391,13 +386,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\WeightPageForCombination.xaml">
+    <EmbeddedResource Include="Views\WeightPageForSingleCombination.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\TestPage.xaml">
+    <EmbeddedResource Include="CustomControls\TruckSingleCombination.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

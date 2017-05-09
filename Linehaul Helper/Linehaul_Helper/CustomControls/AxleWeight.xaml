@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Linehaul_Helper.CustomControls.AxleWeight"
+    HorizontalOptions="CenterAndExpand"
+    VerticalOptions="CenterAndExpand"
+    Orientation="Horizontal">
+
+    <Label 
+        Text="{Binding AxlePosition, StringFormat='{0}:'}"
+        VerticalOptions="Center"/>
+    <Entry
+        Text="{Binding Psi}"
+        Keyboard="Numeric"
+        VerticalOptions="Center"/>
+    <Label 
+        Text="PSI = "
+        VerticalOptions="Center"/>
+    <Label 
+        Text="{Binding TotalWeight}"
+        VerticalOptions="Center"/>
+    <Label 
+        Text="kg"
+        VerticalOptions="Center"/>
+</StackLayout>

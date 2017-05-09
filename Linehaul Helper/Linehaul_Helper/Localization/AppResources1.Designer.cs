@@ -235,6 +235,15 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Steer = 5000 kg.
+        /// </summary>
+        internal static string SteeringAxleWeight {
+            get {
+                return ResourceManager.GetString("SteeringAxleWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Switch Location.
         /// </summary>
         internal static string SwitchLocationPageTitle {

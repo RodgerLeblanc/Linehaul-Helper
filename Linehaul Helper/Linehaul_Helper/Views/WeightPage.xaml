@@ -6,7 +6,8 @@
              xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
              x:Class="Linehaul_Helper.Views.WeightPage"
              BackgroundColor="{StaticResource DicomOrange}"
-             Title="{i18n:Translate WeightPageTitle}">
+             Title="{i18n:Translate WeightPageTitle}"
+             x:Name="weightPage">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,7 +16,7 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="Aspect" Value="AspectFit" />
-                <Setter Property="Command" Value="{Binding TruckSelectedCommand}" />
+                <Setter Property="Command" Value="{Binding Source={x:Reference weightPage}, Path=BindingContext.TruckSelectedCommand}" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -59,63 +60,5 @@
         <controls:TruckCombination Grid.Row="5"
             Source="{markup:ImageResource Source='combo_truck_3axle_3axle.png'}"
             CommandParameter="33"/>
-
-        <!--<Image Grid.Row="0"
-            Source="{markup:ImageResource Source='combo_truck_2axle.png'}">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer
-                    Command="{Binding TruckSelectedCommand}"
-                    CommandParameter="2" />
-            </Image.GestureRecognizers>
-        </Image>-->
     </Grid>
-
-    <!--<Grid
-        RowSpacing="{StaticResource GeneralSpacing}" 
-        ColumnSpacing="{StaticResource GeneralSpacing}" 
-        Padding="{StaticResource GeneralPadding}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        --><!-- Blue background, implicit style --><!--
-        <BoxView Grid.Row="0"/>
-        <BoxView Grid.Row="1"/>
-
-        <StackLayout 
-            Grid.Row="0"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="CenterAndExpand"
-            Margin="{StaticResource GeneralPadding}">
-            <StackLayout 
-                Orientation="Horizontal"
-                HorizontalOptions="FillAndExpand">
-                <Slider
-                    Maximum="100"
-                    Minimum="16"
-                    Value="{Binding Psi, Mode=TwoWay}"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center"/>
-                <Label
-                    Text="{Binding Psi, StringFormat='{0} PSI'}"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Label
-                Text="{Binding WeightTwoAxle, StringFormat='2 axle: {0} kg'}"
-                HorizontalOptions="Center"
-                FontSize="Large"/>
-            <Label
-                Text="{Binding WeightThreeAxle, StringFormat='3 axle: {0} kg'}"
-                HorizontalOptions="Center"
-                FontSize="Large"/>
-        </StackLayout>
-        <Label
-            Grid.Row="1"
-            Text="{i18n:Translate WeightWarning}"
-            FontSize="Micro"
-            HorizontalTextAlignment="Center"
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand"/>
-    </Grid>-->
 </ContentPage>

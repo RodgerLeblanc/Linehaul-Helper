@@ -195,4 +195,7 @@ Contact info@cellninja.ca to add this unit.</value>
   <data name="WeightWarning" xml:space="preserve">
     <value>This tool is provided to estimate the weight of an axle given its air pressure (PSI), it's not intended to replace an official scale.</value>
   </data>
+  <data name="SteeringAxleWeight" xml:space="preserve">
+    <value>Steer = 5000 kg</value>
+  </data>
 </root>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Linehaul_Helper.CustomControls"
+    xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+    x:Class="Linehaul_Helper.CustomControls.TruckSingleCombination">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0"
+                Source="{Binding ImageSource}"
+                Margin="{StaticResource GeneralPadding}"
+                HorizontalOptions="Center"
+                Aspect="AspectFit"/>
+
+            <StackLayout Grid.Row="1">
+                <StackLayout 
+                    Orientation="Horizontal"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <Label Text="{i18n:Translate SteeringAxleWeight}"/>
+                </StackLayout>
+                
+                <controls:AxleWeight
+                    NumberOfAxle="2">
+                    <x:Arguments>
+                        <x:String>A</x:String>
+                    </x:Arguments>
+                </controls:AxleWeight>
+
+                <controls:AxleWeight
+                    NumberOfAxle="2">
+                    <x:Arguments>
+                        <x:String>B</x:String>
+                    </x:Arguments>
+                </controls:AxleWeight>
+
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</Frame>
