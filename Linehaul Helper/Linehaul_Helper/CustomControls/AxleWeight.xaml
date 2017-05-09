@@ -4,21 +4,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Linehaul_Helper.CustomControls.AxleWeight"
     HorizontalOptions="CenterAndExpand"
-    VerticalOptions="CenterAndExpand"
-    Orientation="Horizontal">
+    Orientation="Horizontal"
+    x:Name="axleWeight">
 
-    <Label 
-        Text="{Binding AxlePosition, StringFormat='{0}:'}"
+    <Label
+        Text="{Binding Source={x:Reference axleWeight}, Path=Position, StringFormat='{0}:'}"
         VerticalOptions="Center"/>
     <Entry
-        Text="{Binding Psi}"
+        Text="{Binding Source={x:Reference axleWeight}, Path=Psi}"
         Keyboard="Numeric"
+        MinimumWidthRequest="200"
         VerticalOptions="Center"/>
     <Label 
         Text="PSI = "
         VerticalOptions="Center"/>
     <Label 
-        Text="{Binding TotalWeight}"
+        Text="{Binding Source={x:Reference axleWeight}, Path=Weight}"
         VerticalOptions="Center"/>
     <Label 
         Text="kg"

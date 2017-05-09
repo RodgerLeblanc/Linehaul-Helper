@@ -15,12 +15,12 @@ namespace Linehaul_Helper.Views
 {
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WeightPageForSingleCombination : ContentPage
+    public partial class WeightPageTruckCombinationSelection : ContentPage
     {
-        public WeightPageForSingleCombination(string combination)
+        public WeightPageTruckCombinationSelection()
         {
             InitializeComponent();
-            BindingContext = new WeightPageForSingleCombinationViewModel(combination);
+            BindingContext = new WeightPageTruckCombinationSelectionViewModel();
         }
     }
 }

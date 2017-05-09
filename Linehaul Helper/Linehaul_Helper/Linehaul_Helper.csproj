@@ -127,8 +127,8 @@
     <Compile Include="ViewModels\PlatesPageViewModel.cs" />
     <Compile Include="ViewModels\UnitDefectReportPageViewModel.cs" />
     <Compile Include="ViewModels\WarehouseLocationPageViewModel.cs" />
-    <Compile Include="ViewModels\WeightPageForSingleCombinationViewModel.cs" />
-    <Compile Include="ViewModels\WeightPageViewModel.cs" />
+    <Compile Include="ViewModels\WeightPageForCombinationViewModel.cs" />
+    <Compile Include="ViewModels\WeightPageTruckCombinationSelectionViewModel.cs" />
     <Compile Include="Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
@@ -163,11 +163,11 @@
     <Compile Include="Views\WarehouseLocationPage.xaml.cs">
       <DependentUpon>WarehouseLocationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WeightPage.xaml.cs">
-      <DependentUpon>WeightPage.xaml</DependentUpon>
+    <Compile Include="Views\WeightPageTruckCombinationSelection.xaml.cs">
+      <DependentUpon>WeightPageTruckCombinationSelection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WeightPageForSingleCombination.xaml.cs">
-      <DependentUpon>WeightPageForSingleCombination.xaml</DependentUpon>
+    <Compile Include="Views\WeightPageForCombination.xaml.cs">
+      <DependentUpon>WeightPageForCombination.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -345,7 +345,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\WeightPage.xaml">
+    <EmbeddedResource Include="Views\WeightPageTruckCombinationSelection.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -386,7 +386,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\WeightPageForSingleCombination.xaml">
+    <EmbeddedResource Include="Views\WeightPageForCombination.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

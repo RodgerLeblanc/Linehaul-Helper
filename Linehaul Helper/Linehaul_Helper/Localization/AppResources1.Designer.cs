@@ -282,6 +282,15 @@ namespace Linehaul_Helper.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Weight.
         /// </summary>
+        internal static string WeightPageForCombinationTitle {
+            get {
+                return ResourceManager.GetString("WeightPageForCombinationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight.
+        /// </summary>
         internal static string WeightPageTitle {
             get {
                 return ResourceManager.GetString("WeightPageTitle", resourceCulture);
@@ -294,6 +303,42 @@ namespace Linehaul_Helper.Localization {
         internal static string WeightWarning {
             get {
                 return ResourceManager.GetString("WeightWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overweight on axle {0}..
+        /// </summary>
+        internal static string WeightWarningAxleOverweight {
+            get {
+                return ResourceManager.GetString("WeightWarningAxleOverweight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overweight on gross weight for {0}..
+        /// </summary>
+        internal static string WeightWarningGrossOverweight {
+            get {
+                return ResourceManager.GetString("WeightWarningGrossOverweight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overweight on LCV gross weight..
+        /// </summary>
+        internal static string WeightWarningLCVOverweight {
+            get {
+                return ResourceManager.GetString("WeightWarningLCVOverweight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your rear trailer is heavier than your front trailer..
+        /// </summary>
+        internal static string WeightWarningLCVTrailerOrder {
+            get {
+                return ResourceManager.GetString("WeightWarningLCVTrailerOrder", resourceCulture);
             }
         }
     }

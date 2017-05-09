@@ -27,7 +27,7 @@
                     <Label Text="{i18n:Translate SteeringAxleWeight}"/>
                 </StackLayout>
                 
-                <controls:AxleWeight
+                <!--<controls:AxleWeight
                     NumberOfAxle="2">
                     <x:Arguments>
                         <x:String>A</x:String>
@@ -39,7 +39,7 @@
                     <x:Arguments>
                         <x:String>B</x:String>
                     </x:Arguments>
-                </controls:AxleWeight>
+                </controls:AxleWeight>-->
 
             </StackLayout>
         </Grid>

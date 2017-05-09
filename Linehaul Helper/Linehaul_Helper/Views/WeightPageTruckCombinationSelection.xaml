@@ -4,7 +4,7 @@
              xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
              xmlns:controls="clr-namespace:Linehaul_Helper.CustomControls"
              xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
-             x:Class="Linehaul_Helper.Views.WeightPage"
+             x:Class="Linehaul_Helper.Views.WeightPageTruckCombinationSelection"
              BackgroundColor="{StaticResource DicomOrange}"
              Title="{i18n:Translate WeightPageTitle}"
              x:Name="weightPage">
@@ -13,9 +13,9 @@
         <ResourceDictionary>
             <Style TargetType="controls:TruckCombination">
                 <Setter Property="Margin" Value="{StaticResource GeneralPadding}" />
-                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="Aspect" Value="AspectFit" />
+                <Setter Property="Aspect" Value="AspectFill" />
                 <Setter Property="Command" Value="{Binding Source={x:Reference weightPage}, Path=BindingContext.TruckSelectedCommand}" />
             </Style>
         </ResourceDictionary>
@@ -44,21 +44,21 @@
 
         <controls:TruckCombination Grid.Row="0"
             Source="{markup:ImageResource Source='combo_truck_2axle.png'}"
-            CommandParameter="2"/>
+            CommandParameter="2,0"/>
         <controls:TruckCombination Grid.Row="1"
             Source="{markup:ImageResource Source='combo_truck_3axle.png'}"
-            CommandParameter="3"/>
+            CommandParameter="3,0"/>
         <controls:TruckCombination Grid.Row="2"
             Source="{markup:ImageResource Source='combo_truck_2axle_2axle.png'}"
-            CommandParameter="22"/>
+            CommandParameter="2,2"/>
         <controls:TruckCombination Grid.Row="3"
             Source="{markup:ImageResource Source='combo_truck_2axle_3axle.png'}"
-            CommandParameter="23"/>
+            CommandParameter="2,3"/>
         <controls:TruckCombination Grid.Row="4"
             Source="{markup:ImageResource Source='combo_truck_3axle_2axle.png'}"
-            CommandParameter="32"/>
+            CommandParameter="3,2"/>
         <controls:TruckCombination Grid.Row="5"
             Source="{markup:ImageResource Source='combo_truck_3axle_3axle.png'}"
-            CommandParameter="33"/>
+            CommandParameter="3,3"/>
     </Grid>
 </ContentPage>

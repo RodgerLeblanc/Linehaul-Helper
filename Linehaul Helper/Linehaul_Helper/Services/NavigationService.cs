@@ -25,7 +25,7 @@ namespace Linehaul_Helper.Services
                 await NavigationHelper.NavigationPushAsync(page);
             });
 
-            MessagingCenter.Subscribe<WeightPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, async (source, page) =>
+            MessagingCenter.Subscribe<WeightPageTruckCombinationSelectionViewModel, Page>(this, Commons.Strings.PageSelectedMessage, async (source, page) =>
             {
                 await NavigationHelper.NavigationPushAsync(page);
             });
@@ -33,7 +33,7 @@ namespace Linehaul_Helper.Services
 
         public void UnsubscribeToMessagingCenter()
         {
-            MessagingCenter.Unsubscribe<WeightPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
+            MessagingCenter.Unsubscribe<WeightPageTruckCombinationSelectionViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
             MessagingCenter.Unsubscribe<JobsPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
             MessagingCenter.Unsubscribe<MainPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage);
         }

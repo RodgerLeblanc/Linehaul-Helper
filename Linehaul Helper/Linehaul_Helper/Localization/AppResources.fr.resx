@@ -196,4 +196,19 @@
   <data name="SteeringAxleWeight" xml:space="preserve">
     <value>Direction = 5000 kg</value>
   </data>
+  <data name="WeightPageForCombinationTitle" xml:space="preserve">
+    <value>Poids</value>
+  </data>
+  <data name="WeightWarningAxleOverweight" xml:space="preserve">
+    <value>Trop pesant sur essieu {0}.</value>
+  </data>
+  <data name="WeightWarningGrossOverweight" xml:space="preserve">
+    <value>Trop pesant sur total de {0}.</value>
+  </data>
+  <data name="WeightWarningLCVOverweight" xml:space="preserve">
+    <value>Trop pesant sur total du train routier.</value>
+  </data>
+  <data name="WeightWarningLCVTrailerOrder" xml:space="preserve">
+    <value>La remorque de queue est plus pesante que la remorque de tête.</value>
+  </data>
 </root>

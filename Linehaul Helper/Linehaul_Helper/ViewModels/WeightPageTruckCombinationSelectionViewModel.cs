@@ -13,20 +13,15 @@ using Xamarin.Forms;
 
 namespace Linehaul_Helper.ViewModels
 {
-    class WeightPageViewModel : BaseViewModel
+    class WeightPageTruckCombinationSelectionViewModel : BaseViewModel
     {
         public ICommand TruckSelectedCommand {
             get
             {
                 return new Command<string>((c) =>
                 {
-                    Page page = null;
-                    if (c.Length == 1)
-                        page = new WeightPageForSingleCombination(c);
-                    else
-                        page = new WeightPageForSingleCombination(c);
-
-                    MessagingCenter.Send<WeightPageViewModel, Page>(this, Commons.Strings.PageSelectedMessage, page);
+                    Page page = new WeightPageForCombination(c);
+                    MessagingCenter.Send<WeightPageTruckCombinationSelectionViewModel, Page>(this, Commons.Strings.PageSelectedMessage, page);
                 });
             }
         }

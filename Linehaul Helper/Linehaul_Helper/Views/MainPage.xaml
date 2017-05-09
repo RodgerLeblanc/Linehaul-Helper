@@ -54,7 +54,7 @@
             Grid.ColumnSpan="2"
             ImageSource="{markup:ImageResource Source='weight.png'}"
             Text="{i18n:Translate WeightPageTitle}"
-            CommandParameter="{x:Type views:WeightPage}"/>
+            CommandParameter="{x:Type views:WeightPageTruckCombinationSelection}"/>
         
         <controls:MainPageBox
             Grid.Row="2"

@@ -198,4 +198,19 @@ Contact info@cellninja.ca to add this unit.</value>
   <data name="SteeringAxleWeight" xml:space="preserve">
     <value>Steer = 5000 kg</value>
   </data>
+  <data name="WeightPageForCombinationTitle" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="WeightWarningAxleOverweight" xml:space="preserve">
+    <value>Overweight on axle {0}.</value>
+  </data>
+  <data name="WeightWarningGrossOverweight" xml:space="preserve">
+    <value>Overweight on gross weight for {0}.</value>
+  </data>
+  <data name="WeightWarningLCVOverweight" xml:space="preserve">
+    <value>Overweight on LCV gross weight.</value>
+  </data>
+  <data name="WeightWarningLCVTrailerOrder" xml:space="preserve">
+    <value>Your rear trailer is heavier than your front trailer.</value>
+  </data>
 </root>

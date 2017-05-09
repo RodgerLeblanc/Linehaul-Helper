@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Linehaul_Helper.CustomControls"
+             xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+             x:Class="Linehaul_Helper.Views.WeightPageForCombination"
+             Title="{i18n:Translate WeightPageForCombinationTitle}"
+             BackgroundColor="{StaticResource DicomOrange}">
+    
+    <Grid
+        RowSpacing="{StaticResource GeneralSpacing}" 
+        ColumnSpacing="{StaticResource GeneralSpacing}" 
+        Padding="{StaticResource GeneralPadding}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Blue background, implicit style -->
+        <BoxView Grid.Row="0"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0"
+                Source="{Binding ImageSource}"
+                Margin="{StaticResource GeneralPadding}"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Aspect="AspectFill"/>
+
+            <StackLayout Grid.Row="1">
+                <Label 
+                    Text="{i18n:Translate SteeringAxleWeight}"
+                    HorizontalOptions="Center"/>
+
+                <controls:AxleWeight
+                    x:Name="axleWeightA"
+                    NumberOfAxle="2"
+                    Position="A"
+                    Weight="{Binding AxleWeightA, Mode=OneWayToSource}"/>
+
+                <controls:AxleWeight
+                    NumberOfAxle="{Binding NumberOfAxles[0]}"
+                    Position="B"
+                    Weight="{Binding AxleWeightB, Mode=OneWayToSource}"/>
+
+                <Label
+                    Text="{Binding TotalWeightAB, StringFormat='A + B = {0}kg'}"
+                    HorizontalOptions="Center"
+                    FontSize="Large"/>
+
+                <StackLayout IsVisible="{Binding NumberOfAxles[1]}">
+                    <controls:AxleWeight
+                        NumberOfAxle="2"
+                        Position="C"
+                        Weight="{Binding AxleWeightC, Mode=OneWayToSource}"/>
+
+                    <controls:AxleWeight
+                        NumberOfAxle="{Binding NumberOfAxles[1]}"
+                        Position="D"
+                        Weight="{Binding AxleWeightD, Mode=OneWayToSource}"/>
+
+                    <Label
+                        Text="{Binding TotalWeightCD, StringFormat='C + D = {0}kg'}"
+                        HorizontalOptions="Center"
+                        FontSize="Large"/>
+                </StackLayout>
+
+                <Label
+                    Text="{Binding TotalWeightABCD, StringFormat='Total = {0}kg'}"
+                    HorizontalOptions="Center"
+                    FontSize="Large"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
