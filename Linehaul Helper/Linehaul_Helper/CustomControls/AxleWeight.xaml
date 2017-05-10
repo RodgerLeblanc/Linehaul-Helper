@@ -13,7 +13,8 @@
     <Entry
         Text="{Binding Source={x:Reference axleWeight}, Path=Psi}"
         Keyboard="Numeric"
-        MinimumWidthRequest="200"
+        WidthRequest="200"
+        HorizontalOptions="CenterAndExpand"
         VerticalOptions="Center"/>
     <Label 
         Text="PSI = "

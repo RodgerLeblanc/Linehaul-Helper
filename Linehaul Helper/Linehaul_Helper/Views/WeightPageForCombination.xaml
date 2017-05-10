@@ -32,21 +32,19 @@
                 VerticalOptions="CenterAndExpand"
                 Aspect="AspectFill"/>
 
-            <StackLayout Grid.Row="1">
+            <StackLayout Grid.Row="1"
+                HorizontalOptions="FillAndExpand">
                 <Label 
                     Text="{i18n:Translate SteeringAxleWeight}"
                     HorizontalOptions="Center"/>
 
                 <controls:AxleWeight
-                    x:Name="axleWeightA"
-                    NumberOfAxle="2"
                     Position="A"
-                    Weight="{Binding AxleWeightA, Mode=OneWayToSource}"/>
+                    Weight="{Binding AxleWeightA}"/>
 
                 <controls:AxleWeight
-                    NumberOfAxle="{Binding NumberOfAxles[0]}"
                     Position="B"
-                    Weight="{Binding AxleWeightB, Mode=OneWayToSource}"/>
+                    Weight="{Binding AxleWeightB}"/>
 
                 <Label
                     Text="{Binding TotalWeightAB, StringFormat='A + B = {0}kg'}"
@@ -55,14 +53,12 @@
 
                 <StackLayout IsVisible="{Binding NumberOfAxles[1]}">
                     <controls:AxleWeight
-                        NumberOfAxle="2"
                         Position="C"
-                        Weight="{Binding AxleWeightC, Mode=OneWayToSource}"/>
+                        Weight="{Binding AxleWeightC}"/>
 
                     <controls:AxleWeight
-                        NumberOfAxle="{Binding NumberOfAxles[1]}"
                         Position="D"
-                        Weight="{Binding AxleWeightD, Mode=OneWayToSource}"/>
+                        Weight="{Binding AxleWeightD}"/>
 
                     <Label
                         Text="{Binding TotalWeightCD, StringFormat='C + D = {0}kg'}"
