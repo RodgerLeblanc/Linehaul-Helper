@@ -80,6 +80,15 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PSI (or Kg per axle).
+        /// </summary>
+        internal static string AxleWeightPickerTitle {
+            get {
+                return ResourceManager.GetString("AxleWeightPickerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string Cancel {

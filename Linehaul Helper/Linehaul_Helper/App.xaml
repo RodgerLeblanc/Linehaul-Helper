@@ -53,6 +53,7 @@
             <converter:ImageSourceToIsVisibleConverter x:Key="ImageSourceToIsVisibleConverter"/>
             <converter:TrackingNumberValidConverter x:Key="TrackingNumberValidConverter"/>
             <converter:IsBusyToOpacityConverter x:Key="IsBusyToOpacityConverter"/>
+            <converter:PsiTableToListConverter x:Key="PsiTableToListConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

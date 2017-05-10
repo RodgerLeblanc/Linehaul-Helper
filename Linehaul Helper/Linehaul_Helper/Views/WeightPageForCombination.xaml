@@ -40,34 +40,42 @@
 
                 <controls:AxleWeight
                     Position="A"
-                    Weight="{Binding AxleWeightA}"/>
+                    Psi="{Binding PsiA}"
+                    Weight="{Binding AxleWeightA}"
+                    PsiTable="{Binding PsiTableTruck}"/>
 
                 <controls:AxleWeight
                     Position="B"
-                    Weight="{Binding AxleWeightB}"/>
+                    Psi="{Binding PsiB}"
+                    Weight="{Binding AxleWeightB}"
+                    PsiTable="{Binding PsiTableTrailerGeneric}"/>
 
                 <Label
-                    Text="{Binding TotalWeightAB, StringFormat='A + B = {0}kg'}"
+                    Text="{Binding TotalWeightAB, StringFormat='A + B: {0} kg'}"
                     HorizontalOptions="Center"
                     FontSize="Large"/>
 
-                <StackLayout IsVisible="{Binding NumberOfAxles[1]}">
+                <StackLayout IsVisible="{Binding NumberOfAxles[2]}">
                     <controls:AxleWeight
                         Position="C"
-                        Weight="{Binding AxleWeightC}"/>
+                        Psi="{Binding PsiC}"
+                        Weight="{Binding AxleWeightC}"
+                        PsiTable="{Binding PsiTableTrailerGeneric}"/>
 
                     <controls:AxleWeight
                         Position="D"
-                        Weight="{Binding AxleWeightD}"/>
+                        Psi="{Binding PsiD}"
+                        Weight="{Binding AxleWeightD}"
+                        PsiTable="{Binding PsiTableTrailerGeneric}"/>
 
                     <Label
-                        Text="{Binding TotalWeightCD, StringFormat='C + D = {0}kg'}"
+                        Text="{Binding TotalWeightCD, StringFormat='C + D: {0} kg'}"
                         HorizontalOptions="Center"
                         FontSize="Large"/>
                 </StackLayout>
 
                 <Label
-                    Text="{Binding TotalWeightABCD, StringFormat='Total = {0}kg'}"
+                    Text="{Binding TotalWeightABCD, StringFormat='Total: {0} kg'}"
                     HorizontalOptions="Center"
                     FontSize="Large"/>
             </StackLayout>

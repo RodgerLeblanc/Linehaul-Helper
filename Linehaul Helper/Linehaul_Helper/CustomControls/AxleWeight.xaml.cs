@@ -7,21 +7,13 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Linehaul_Helper.ViewModels;
 using Linehaul_Helper.Helpers;
+using System.ComponentModel;
+using Linehaul_Helper.Models;
 
 namespace Linehaul_Helper.CustomControls
 {
     public partial class AxleWeight : StackLayout
     {
-        //public static readonly BindableProperty NumberOfAxleProperty = BindableProperty.Create(nameof(NumberOfAxle), typeof(int), typeof(AxleWeight), default(int));
-        //public int NumberOfAxle
-        //{
-        //    get { return (int)GetValue(NumberOfAxleProperty); }
-        //    set
-        //    {
-        //        SetValue(NumberOfAxleProperty, value);
-        //    }
-        //}
-
         public static readonly BindableProperty PsiProperty = BindableProperty.Create(nameof(Psi), typeof(int), typeof(AxleWeight), default(int), BindingMode.TwoWay);
         public int Psi
         {
@@ -29,6 +21,26 @@ namespace Linehaul_Helper.CustomControls
             set
             {
                 SetValue(PsiProperty, value);
+            }
+        }
+
+        public static readonly BindableProperty PsiTableProperty = BindableProperty.Create(nameof(PsiTable), typeof(List<PsiKgPair>), typeof(AxleWeight), default(List<PsiKgPair>), BindingMode.TwoWay);
+        public List<PsiKgPair> PsiTable
+        {
+            get { return (List<PsiKgPair>)GetValue(PsiTableProperty); }
+            set
+            {
+                SetValue(PsiTableProperty, value);
+            }
+        }
+
+        public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create(nameof(SelectedItem), typeof(PsiKgPair), typeof(AxleWeight), default(PsiKgPair), BindingMode.TwoWay);
+        public PsiKgPair SelectedItem
+        {
+            get { return (PsiKgPair)GetValue(SelectedItemProperty); }
+            set
+            {
+                SetValue(SelectedItemProperty, value);
             }
         }
 

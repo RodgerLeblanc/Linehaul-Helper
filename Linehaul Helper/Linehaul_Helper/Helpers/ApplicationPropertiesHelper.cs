@@ -11,7 +11,7 @@ namespace Linehaul_Helper.Helpers
     {
         static public T GetProperty<T>(string key, T defaultValue)
         {
-            if (Application.Current.Properties.ContainsKey(key))
+            if ((Application.Current.Properties.ContainsKey(key)) && (Application.Current.Properties[key] is T))
                 return (T)Application.Current.Properties[key];
             else
                 return defaultValue;

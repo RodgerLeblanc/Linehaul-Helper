@@ -213,4 +213,7 @@ Contact info@cellninja.ca to add this unit.</value>
   <data name="WeightWarningLCVTrailerOrder" xml:space="preserve">
     <value>Your rear trailer is heavier than your front trailer.</value>
   </data>
+  <data name="AxleWeightPickerTitle" xml:space="preserve">
+    <value>PSI (or Kg per axle)</value>
+  </data>
 </root>

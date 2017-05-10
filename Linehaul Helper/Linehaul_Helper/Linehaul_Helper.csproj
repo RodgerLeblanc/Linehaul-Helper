@@ -44,6 +44,7 @@
     <Compile Include="Converters\IntToStringConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\IsBusyToOpacityConverter.cs" />
+    <Compile Include="Converters\PsiTableToListConverter.cs" />
     <Compile Include="Converters\StringToUnitConverter.cs" />
     <Compile Include="Converters\TrackingNumberValidConverter.cs" />
     <Compile Include="Converters\UnitNumberValidConverter.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="ViewModels\ParcelTrackingPageViewModel.cs" />
     <Compile Include="ViewModels\PlateNumberPageViewModel.cs" />
     <Compile Include="ViewModels\PlatesPageViewModel.cs" />
+    <Compile Include="Models\PsiKgPair.cs" />
     <Compile Include="ViewModels\UnitDefectReportPageViewModel.cs" />
     <Compile Include="ViewModels\WarehouseLocationPageViewModel.cs" />
     <Compile Include="ViewModels\WeightPageForCombinationViewModel.cs" />
