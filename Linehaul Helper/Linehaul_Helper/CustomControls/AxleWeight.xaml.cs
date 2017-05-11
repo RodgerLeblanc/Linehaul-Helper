@@ -14,33 +14,13 @@ namespace Linehaul_Helper.CustomControls
 {
     public partial class AxleWeight : StackLayout
     {
-        public static readonly BindableProperty PsiProperty = BindableProperty.Create(nameof(Psi), typeof(int), typeof(AxleWeight), default(int), BindingMode.TwoWay);
-        public int Psi
+        public static readonly BindableProperty MaxLegalWeightProperty = BindableProperty.Create(nameof(MaxLegalWeight), typeof(int), typeof(AxleWeight), default(int));
+        public int MaxLegalWeight
         {
-            get { return (int)GetValue(PsiProperty); }
-            set
+            get { return (int)GetValue(MaxLegalWeightProperty); }
+            private set
             {
-                SetValue(PsiProperty, value);
-            }
-        }
-
-        public static readonly BindableProperty PsiTableProperty = BindableProperty.Create(nameof(PsiTable), typeof(List<PsiKgPair>), typeof(AxleWeight), default(List<PsiKgPair>), BindingMode.TwoWay);
-        public List<PsiKgPair> PsiTable
-        {
-            get { return (List<PsiKgPair>)GetValue(PsiTableProperty); }
-            set
-            {
-                SetValue(PsiTableProperty, value);
-            }
-        }
-
-        public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create(nameof(SelectedItem), typeof(PsiKgPair), typeof(AxleWeight), default(PsiKgPair), BindingMode.TwoWay);
-        public PsiKgPair SelectedItem
-        {
-            get { return (PsiKgPair)GetValue(SelectedItemProperty); }
-            set
-            {
-                SetValue(SelectedItemProperty, value);
+                SetValue(MaxLegalWeightProperty, value);
             }
         }
 
@@ -51,6 +31,26 @@ namespace Linehaul_Helper.CustomControls
             set
             {
                 SetValue(PositionProperty, value);
+            }
+        }
+
+        public static readonly BindableProperty PsiTableProperty = BindableProperty.Create(nameof(PsiTable), typeof(List<PsiKgPair>), typeof(AxleWeight), default(List<PsiKgPair>));
+        public List<PsiKgPair> PsiTable
+        {
+            get { return (List<PsiKgPair>)GetValue(PsiTableProperty); }
+            set
+            {
+                SetValue(PsiTableProperty, value);
+            }
+        }
+
+        public static readonly BindableProperty SelectedIndexProperty = BindableProperty.Create(nameof(SelectedIndex), typeof(int), typeof(AxleWeight), default(int), BindingMode.TwoWay);
+        public int SelectedIndex
+        {
+            get { return (int)GetValue(SelectedIndexProperty); }
+            set
+            {
+                SetValue(SelectedIndexProperty, value);
             }
         }
 

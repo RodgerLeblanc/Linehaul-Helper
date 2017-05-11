@@ -194,7 +194,7 @@
     <value>Cet outil est utile pour estimer le poids d'un essieu selon la pression d'air (PSI), les données ne peuvent être considérées valides comme celles d'une balance officielle.</value>
   </data>
   <data name="SteeringAxleWeight" xml:space="preserve">
-    <value>Direction = 5000 kg</value>
+    <value>Direction: 5000 kg</value>
   </data>
   <data name="WeightPageForCombinationTitle" xml:space="preserve">
     <value>Poids</value>

@@ -44,10 +44,11 @@
     <Compile Include="Converters\IntToStringConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\IsBusyToOpacityConverter.cs" />
-    <Compile Include="Converters\PsiTableToListConverter.cs" />
+    <Compile Include="Converters\NumberOfAxleToMaxLegalWeightConverter.cs" />
     <Compile Include="Converters\StringToUnitConverter.cs" />
     <Compile Include="Converters\TrackingNumberValidConverter.cs" />
     <Compile Include="Converters\UnitNumberValidConverter.cs" />
+    <Compile Include="Converters\WeightToColorConverter.cs" />
     <Compile Include="CustomControls\CustomViewCell.xaml.cs">
       <DependentUpon>CustomViewCell.xaml</DependentUpon>
     </Compile>
@@ -143,8 +144,8 @@
     <Compile Include="MasterPageItemCustomView.xaml.cs">
       <DependentUpon>MasterPageItemCustomView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\MasterPageItemSeparator.xaml.cs">
-      <DependentUpon>MasterPageItemSeparator.xaml</DependentUpon>
+    <Compile Include="CustomControls\ItemSeparator.xaml.cs">
+      <DependentUpon>ItemSeparator.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -234,9 +235,6 @@
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.4.231\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.GoogleMaps, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.GoogleMaps.1.7.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Xamarin.Forms.GoogleMaps.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Maps, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.Maps.2.3.4.231\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
     </Reference>
@@ -258,7 +256,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CustomControls\MasterPageItemSeparator.xaml">
+    <EmbeddedResource Include="CustomControls\ItemSeparator.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

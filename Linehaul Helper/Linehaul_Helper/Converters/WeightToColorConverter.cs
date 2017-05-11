@@ -8,20 +8,19 @@ using Xamarin.Forms;
 
 namespace Linehaul_Helper.Converters
 {
-    public class PsiTableToListConverter : IValueConverter
+    class WeightToColorConverter : IValueConverter
     {
+        public Color LegalColor { get; set; } = (Color)Label.TextColorProperty.DefaultValue;
+        public Color IllegalColor { get; set; } = Color.Red;
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
-                return new List<string>();
+                return IllegalColor;
 
-            Dictionary<int, int> psiTable = (Dictionary<int, int>)value;
-            List<string> list = new List<string>();
-            foreach(KeyValuePair<int, int> pair in psiTable)
-            {
-                list.Add($"{pair.Key} ({pair.Value}kg)");
-            }
-            return list;
+            int weight = (int)value;
+            int maxLegalWeight = (int)parameter;
+            return (weight <= maxLegalWeight) ? LegalColor : IllegalColor;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

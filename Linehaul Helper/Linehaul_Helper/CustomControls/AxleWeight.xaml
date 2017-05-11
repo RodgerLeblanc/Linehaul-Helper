@@ -11,27 +11,24 @@
     <Label
         Text="{Binding Source={x:Reference axleWeight}, Path=Position, StringFormat='{0}:'}"
         VerticalOptions="Center"/>
-    <!--<Picker
+    
+    <Picker
         Title="{i18n:Translate AxleWeightPickerTitle}"
         ItemsSource="{Binding Source={x:Reference axleWeight}, Path=PsiTable}"
-        SelectedItem="{Binding Source={x:Reference axleWeight}, Path=SelectedItem}"
-        HorizontalOptions="CenterAndExpand"
-        VerticalOptions="Center"/>-->
-
-    <!--<Picker
-        Title="{i18n:Translate AxleWeightPickerTitle}"
-        ItemsSource="{Binding Source={x:Reference axleWeight}, Path=PsiTable, Converter={StaticResource PsiTableToListConverter}}"
-        HorizontalOptions="CenterAndExpand"
-        VerticalOptions="Center"/>-->
-
-    <Entry
-        Text="{Binding Source={x:Reference axleWeight}, Path=Psi}"
-        Keyboard="Numeric"
-        WidthRequest="200"
-        HorizontalOptions="CenterAndExpand"
+        SelectedIndex="{Binding Source={x:Reference axleWeight}, Path=SelectedIndex}"
         VerticalOptions="Center"/>
-    
+
     <Label 
         Text="{Binding Source={x:Reference axleWeight}, Path=Weight, StringFormat='= {0} kg'}"
         VerticalOptions="Center"/>
+
+    <!--<Test>
+        TextColor="{Binding Source={x:Reference axleWeight}, 
+                            Path=Weight, 
+                            Converter={StaticResource WeightToColorConverter}, 
+                            ConverterParameter={Binding Source={x:Reference axleWeight}, 
+                                                        Path=MaxLegalWeight}}"
+
+    </Test>-->
+    
 </StackLayout>

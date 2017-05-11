@@ -53,7 +53,8 @@
             <converter:ImageSourceToIsVisibleConverter x:Key="ImageSourceToIsVisibleConverter"/>
             <converter:TrackingNumberValidConverter x:Key="TrackingNumberValidConverter"/>
             <converter:IsBusyToOpacityConverter x:Key="IsBusyToOpacityConverter"/>
-            <converter:PsiTableToListConverter x:Key="PsiTableToListConverter"/>
+            <converter:WeightToColorConverter x:Key="WeightToColorConverter"/>
+            <converter:NumberOfAxleToMaxLegalWeightConverter x:Key="NumberOfAxleToMaxLegalWeightConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

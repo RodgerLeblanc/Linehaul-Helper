@@ -12,16 +12,14 @@ namespace Linehaul_Helper.ViewModels
 {
     public class WeightPageForCombinationViewModel : BaseViewModel
     {
-        private readonly string _lastPsiValueKey = "lastPsiValue";
-
         private List<PsiKgPair> _psiTableTruck;
         private Dictionary<int, int> _psiTableTruckBase = new Dictionary<int, int>()
         {
             { 0, 0 },
-            { 6, 2268 }, { 15, 3175 }, {24, 4082 },
-            { 33, 4990 }, { 42, 5897 }, { 51, 6804 },
-            { 55, 7238 }, { 61, 7711 }, { 70, 8618 },
-            { 78, 9525 }, { 85, 10433 }, { 90, 11082 }
+            { 34, 4550 }, { 38, 4950 }, { 54, 6880 },
+            { 58, 7130 }, { 61, 7600 }, { 64, 7695 },
+            { 70, 9000 }, { 78, 9525 }, { 85, 10433 },
+            { 90, 11082 }
         };
 
         private List<PsiKgPair> _psiTableTrailerGeneric;
@@ -37,15 +35,10 @@ namespace Linehaul_Helper.ViewModels
         private ImageSource _imageSource;
         private List<int> _numberOfAxles = new List<int>();
 
-        private int _psiA;
-        private int _psiB;
-        private int _psiC;
-        private int _psiD;
-
-        private PsiKgPair _selectedItemA;
-        private PsiKgPair _selectedItemB;
-        private PsiKgPair _selectedItemC;
-        private PsiKgPair _selectedItemD;
+        private int _selectedIndexA;
+        private int _selectedIndexB;
+        private int _selectedIndexC;
+        private int _selectedIndexD;
 
         private int _axleWeightA;
         private int _axleWeightB;
@@ -57,7 +50,6 @@ namespace Linehaul_Helper.ViewModels
         private int _totalWeightABCD;
 
         private string _weightMessage;
-
 
         public WeightPageForCombinationViewModel(string combination)
         {
@@ -108,12 +100,10 @@ namespace Linehaul_Helper.ViewModels
             PsiTableTruck = DictionaryToList(_psiTableTruckBase);
             PsiTableTrailerGeneric = DictionaryToList(_psiTableTrailerGenericBase);
 
-            PsiA = ApplicationPropertiesHelper.GetProperty(_lastPsiValueKey + "A", 60);
-            PsiB = ApplicationPropertiesHelper.GetProperty(_lastPsiValueKey + "B", 50);
-            PsiC = ApplicationPropertiesHelper.GetProperty(_lastPsiValueKey + "C", 50);
-            PsiD = ApplicationPropertiesHelper.GetProperty(_lastPsiValueKey + "D", 50);
-
-//            SelectedItemA = ApplicationPropertiesHelper.GetProperty(nameof(SelectedItemA), new PsiKgPair() { Psi = 0, Kilos = 0 });
+            SelectedIndexA = ApplicationPropertiesHelper.GetProperty(nameof(SelectedIndexA), -1);
+            SelectedIndexB = ApplicationPropertiesHelper.GetProperty(nameof(SelectedIndexB), -1);
+            SelectedIndexC = ApplicationPropertiesHelper.GetProperty(nameof(SelectedIndexC), -1);
+            SelectedIndexD = ApplicationPropertiesHelper.GetProperty(nameof(SelectedIndexD), -1);
         }
 
         public ImageSource ImageSource
@@ -140,58 +130,47 @@ namespace Linehaul_Helper.ViewModels
             set { SetProperty(ref _psiTableTrailerGeneric, value); }
         }
 
-        public int PsiA
+        public int SelectedIndexA
         {
-            get { return _psiA; }
+            get { return _selectedIndexA; }
             set
             {
-                SetProperty(ref _psiA, value);
-                AxleWeightA = CalculateWeight(NumberOfAxles[0], value, _psiTableTruckBase);
-                ApplicationPropertiesHelper.SetProperty(_lastPsiValueKey + "A", value);
+                SetProperty(ref _selectedIndexA, value);
+                AxleWeightA = GetAxleWeight(value, NumberOfAxles[0], PsiTableTruck);
+                ApplicationPropertiesHelper.SetProperty(nameof(SelectedIndexA), value);
             }
         }
 
-        public int PsiB
+        public int SelectedIndexB
         {
-            get { return _psiB; }
+            get { return _selectedIndexB; }
             set
             {
-                SetProperty(ref _psiB, value);
-                AxleWeightB = CalculateWeight(NumberOfAxles[1], value, _psiTableTrailerGenericBase);
-                ApplicationPropertiesHelper.SetProperty(_lastPsiValueKey + "B", value);
+                SetProperty(ref _selectedIndexB, value);
+                AxleWeightB = GetAxleWeight(value, NumberOfAxles[1], PsiTableTrailerGeneric);
+                ApplicationPropertiesHelper.SetProperty(nameof(SelectedIndexB), value);
             }
         }
 
-        public int PsiC
+        public int SelectedIndexC
         {
-            get { return _psiC; }
+            get { return _selectedIndexC; }
             set
             {
-                SetProperty(ref _psiC, value);
-                AxleWeightC = CalculateWeight(NumberOfAxles[2], value, _psiTableTrailerGenericBase);
-                ApplicationPropertiesHelper.SetProperty(_lastPsiValueKey + "C", value);
+                SetProperty(ref _selectedIndexC, value);
+                AxleWeightC = GetAxleWeight(value, NumberOfAxles[2], PsiTableTrailerGeneric);
+                ApplicationPropertiesHelper.SetProperty(nameof(SelectedIndexC), value);
             }
         }
 
-        public int PsiD
+        public int SelectedIndexD
         {
-            get { return _psiD; }
+            get { return _selectedIndexD; }
             set
             {
-                SetProperty(ref _psiD, value);
-                AxleWeightD = CalculateWeight(NumberOfAxles[3], value, _psiTableTrailerGenericBase);
-                ApplicationPropertiesHelper.SetProperty(_lastPsiValueKey + "D", value);
-            }
-        }
-
-        public PsiKgPair SelectedItemA
-        {
-            get { return _selectedItemA; }
-            set
-            {
-                SetProperty(ref _selectedItemA, value);
-                AxleWeightA = value.Kilos * NumberOfAxles[0];
-                ApplicationPropertiesHelper.SetProperty(nameof(SelectedItemA), value);
+                SetProperty(ref _selectedIndexD, value);
+                AxleWeightD = GetAxleWeight(value, NumberOfAxles[3], PsiTableTrailerGeneric);
+                ApplicationPropertiesHelper.SetProperty(nameof(SelectedIndexD), value);
             }
         }
 
@@ -241,6 +220,15 @@ namespace Linehaul_Helper.ViewModels
         {
             get { return _weightMessage; }
             set { SetProperty(ref _weightMessage, value); }
+        }
+
+        private int GetAxleWeight(int psi, int numberOfAxle, List<PsiKgPair> psiTable)
+        {
+            if ((psi < 0) || (psi >= psiTable.Count))
+                return 0;
+
+            var psiToKilos = psiTable[psi];
+            return psiToKilos.Kilos * numberOfAxle;
         }
 
         private void CalculateWeights()

@@ -2,7 +2,7 @@
 <BoxView
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Linehaul_Helper.CustomControls.MasterPageItemSeparator"
+    x:Class="Linehaul_Helper.CustomControls.ItemSeparator"
     Color="{Binding SeparatorColor}"
 	HeightRequest="2"
 	HorizontalOptions="FillAndExpand"

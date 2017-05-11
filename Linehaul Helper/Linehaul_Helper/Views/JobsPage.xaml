@@ -37,7 +37,7 @@
                         <StackLayout BackgroundColor="#eee"
                             Orientation="Vertical"
                             Padding="15,0">
-                            <customControls:MasterPageItemSeparator/>
+                            <customControls:ItemSeparator/>
                             <Label Text="{Binding jobtitle}"
                                     FontSize="Medium"
                                     TextColor="{StaticResource DicomBlue}" />
@@ -51,7 +51,7 @@
                                     TextColor="{StaticResource DicomBlue}" 
                                     HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
-                            <customControls:MasterPageItemSeparator/>
+                            <customControls:ItemSeparator/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -64,10 +64,5 @@
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand"
             Aspect="AspectFill"/>
-
-        <!--<WebView Grid.Row="1"
-            Source="{Binding WebViewSource}"
-            HorizontalOptions="Fill"
-            VerticalOptions="FillAndExpand"/>-->
     </Grid>
 </ContentPage>
