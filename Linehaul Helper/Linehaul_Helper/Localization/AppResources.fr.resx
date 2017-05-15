@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PlatesPageEntryPlaceholder" xml:space="preserve">
-    <value>Entrez le numéro d'unité (ex: 7501)</value>
+    <value>Entrez le numéro d'unité</value>
     <comment>Text shown when nothing is entered in Entry field</comment>
   </data>
   <data name="PlatesPageButtonText" xml:space="preserve">
@@ -167,7 +167,7 @@
     <value>À Propos</value>
   </data>
   <data name="ParcelTrackingPageEntryPlaceholder" xml:space="preserve">
-    <value>Entrer un numéro de suivi (ex: AA0309024)</value>
+    <value>Numéro de suivi</value>
   </data>
   <data name="ParcelTrackingPageButtonText" xml:space="preserve">
     <value>Suivre</value>

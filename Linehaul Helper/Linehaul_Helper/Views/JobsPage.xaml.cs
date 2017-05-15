@@ -31,6 +31,9 @@ namespace Linehaul_Helper.Views
         {
             base.OnAppearing();
 
+            if ((_jobsViewModel.Jobs != null) && (_jobsViewModel.Jobs.Count != 0))
+                return;
+
             if (_jobsViewModel.GetJobsCommand.CanExecute(null))
                 _jobsViewModel.GetJobsCommand.Execute(null);
         }

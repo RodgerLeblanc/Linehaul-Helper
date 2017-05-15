@@ -109,6 +109,7 @@ namespace Linehaul_Helper.Services
                 IsBusy = false;
             }
 
+//            return (warehouses.Count == 0) ? GetDefaultWarehouseLocations() : warehouses;
             return warehouses ?? new List<WarehouseLocation>();
         }
 

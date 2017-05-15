@@ -1,25 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<StackLayout 
+<Grid
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
     x:Class="Linehaul_Helper.CustomControls.AxleWeight"
-    HorizontalOptions="CenterAndExpand"
-    Orientation="Horizontal"
     x:Name="axleWeight">
 
-    <Label
-        Text="{Binding Source={x:Reference axleWeight}, Path=Position, StringFormat='{0}:'}"
-        VerticalOptions="Center"/>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="3*" />
+        <ColumnDefinition Width="2*" />
+    </Grid.ColumnDefinitions>
     
-    <Picker
+    <Label Grid.Column="0"
+        Text="{Binding Source={x:Reference axleWeight}, Path=Position, StringFormat='{0}:'}"
+        VerticalOptions="Center"
+        LineBreakMode="NoWrap"/>
+
+    <Picker Grid.Column="1"
         Title="{i18n:Translate AxleWeightPickerTitle}"
+        TextColor="{StaticResource DicomWhite}"
         ItemsSource="{Binding Source={x:Reference axleWeight}, Path=PsiTable}"
         SelectedIndex="{Binding Source={x:Reference axleWeight}, Path=SelectedIndex}"
+        HorizontalOptions="Center"
         VerticalOptions="Center"/>
 
-    <Label 
+    <Label Grid.Column="2"
         Text="{Binding Source={x:Reference axleWeight}, Path=Weight, StringFormat='= {0} kg'}"
+        LineBreakMode="NoWrap"
         VerticalOptions="Center"/>
 
     <!--<Test>
@@ -31,4 +39,4 @@
 
     </Test>-->
     
-</StackLayout>
+</Grid>

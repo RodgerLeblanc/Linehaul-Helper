@@ -15,93 +15,120 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <Grid
-        RowSpacing="{StaticResource GeneralSpacing}" 
-        ColumnSpacing="{StaticResource GeneralSpacing}" 
-        Padding="{StaticResource GeneralPadding}">
+
+    <Grid RowSpacing="{StaticResource GeneralSpacing}" 
+          ColumnSpacing="0"
+          Padding="{StaticResource GeneralPadding}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Blue background, implicit style -->
-        <BoxView Grid.Row="0"/>
-        <BoxView Grid.Row="1"/>
-        <BoxView Grid.Row="2"/>
+        <!--Blue background, implicit style-->
+        <BoxView Grid.ColumnSpan="2" Grid.RowSpan="2" />
 
-        <Image Grid.Row="0"
+        <Image Grid.Column="0" Grid.Row="0"
                 Source="{Binding ImageSource}"
-                Margin="{StaticResource GeneralPadding}"
-                HorizontalOptions="CenterAndExpand"
                 Aspect="AspectFill"/>
 
-        <StackLayout Grid.Row="1"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand">
-            <Label 
-                Text="{i18n:Translate SteeringAxleWeight}"
-                HorizontalOptions="Center"
-                VerticalOptions="CenterAndExpand"
-                FontSize="Large"/>
+        <StackLayout Grid.Column="1" Grid.Row="0"
+                     Margin="{StaticResource GeneralPadding}"
+                     VerticalOptions="FillAndExpand" >
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
 
-            <controls:ItemSeparator VerticalOptions="CenterAndExpand"/>
-            
-            <StackLayout
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="CenterAndExpand">
-                <controls:AxleWeight
-                    Position="A"
-                    PsiTable="{Binding PsiTableTruck}"
-                    Weight="{Binding AxleWeightA}"
-                    SelectedIndex="{Binding SelectedIndexA}"
-                    MaxLegalWeight="{Binding NumberOfAxles[0], Converter={StaticResource NumberOfAxleToMaxLegalWeightConverter}}"/>
+                <StackLayout Grid.Row="0"
+                       BackgroundColor="{StaticResource DicomLightGray}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Label Text="{i18n:Translate SteeringAxleWeight}"
+                           TextColor="Black"
+                           Margin="{StaticResource GeneralPadding}"
+                           LineBreakMode="NoWrap"/>
+                </StackLayout>
 
-                <controls:AxleWeight
-                    Position="B"
-                    PsiTable="{Binding PsiTableTrailerGeneric}"
-                    Weight="{Binding AxleWeightB}"
-                    SelectedIndex="{Binding SelectedIndexB}"/>
+                <controls:AxleWeight Grid.Row="1" 
+                                     VerticalOptions="Start"
+                                     Position="A"
+                                     PsiTable="{Binding PsiTableTruck}"
+                                     Weight="{Binding AxleWeightA}"
+                                     SelectedIndex="{Binding SelectedIndexA}"
+                                     MaxLegalWeight="{Binding NumberOfAxles[0], Converter={StaticResource NumberOfAxleToMaxLegalWeightConverter}}"/>
 
-                <Label
-                    Text="{Binding TotalWeightAB, StringFormat='A + B: {0} kg'}"
-                    HorizontalOptions="Center"
-                    FontSize="Large"/>
-            </StackLayout>
+                <StackLayout Grid.Row="1" Grid.RowSpan="2"
+                       BackgroundColor="{StaticResource DicomLightGray}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Label Text="{Binding TotalWeightAB, StringFormat='A + B: {0} kg'}"
+                           TextColor="Black"
+                           Margin="{StaticResource GeneralPadding}"
+                           LineBreakMode="NoWrap"/>
+                </StackLayout>
 
-            <StackLayout IsVisible="{Binding NumberOfAxles[2]}"
-                         VerticalOptions="CenterAndExpand">
-                <controls:ItemSeparator/>
-            </StackLayout>
+                <controls:AxleWeight Grid.Row="2" 
+                                     VerticalOptions="CenterAndExpand"
+                                     Position="B"
+                                     PsiTable="{Binding PsiTableTrailerGeneric}"
+                                     Weight="{Binding AxleWeightB}"
+                                     SelectedIndex="{Binding SelectedIndexB}"/>
 
-            <StackLayout 
-                IsVisible="{Binding NumberOfAxles[2]}"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="CenterAndExpand">
-                <controls:AxleWeight
-                    Position="C"
-                    PsiTable="{Binding PsiTableTrailerGeneric}"
-                    Weight="{Binding AxleWeightC}"
-                    SelectedIndex="{Binding SelectedIndexC}"/>
+            </Grid>
 
-                <controls:AxleWeight
-                    Position="D"
-                    PsiTable="{Binding PsiTableTrailerGeneric}"
-                    Weight="{Binding AxleWeightD}"
-                    SelectedIndex="{Binding SelectedIndexD}"/>
+            <Grid VerticalOptions="CenterAndExpand"
+                  IsVisible="{Binding NumberOfAxles[2]}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-                <Label
-                    Text="{Binding TotalWeightCD, StringFormat='C + D: {0} kg'}"
-                    HorizontalOptions="Center"
-                    FontSize="Large"/>
-            </StackLayout>
+                <controls:AxleWeight Grid.Row="0" 
+                                     VerticalOptions="StartAndExpand"
+                                     Position="C"
+                                     PsiTable="{Binding PsiTableTrailerGeneric}"
+                                     Weight="{Binding AxleWeightC}"
+                                     SelectedIndex="{Binding SelectedIndexC}" />
+
+
+                <StackLayout Grid.Row="0" Grid.RowSpan="2"
+                       BackgroundColor="{StaticResource DicomLightGray}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Label Text="{Binding TotalWeightCD, StringFormat='C + D: {0} kg'}"
+                           TextColor="Black"
+                           Margin="{StaticResource GeneralPadding}"
+                           LineBreakMode="NoWrap"/>
+                </StackLayout>
+
+                <controls:AxleWeight Grid.Row="1"
+                                     VerticalOptions="StartAndExpand"
+                                     Position="D"
+                                     PsiTable="{Binding PsiTableTrailerGeneric}"
+                                     Weight="{Binding AxleWeightD}"
+                                     SelectedIndex="{Binding SelectedIndexD}"/>
+
+            </Grid>
         </StackLayout>
 
-        <Label Grid.Row="2"
-            Text="{Binding TotalWeightABCD, StringFormat='Total: {0} kg'}"
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand"
-            FontSize="Large"/>
+        <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                     BackgroundColor="{StaticResource DicomLightGray}"
+                     Margin="{StaticResource GeneralPadding}"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Label Text="{Binding TotalWeightABCD, StringFormat='Total: {0} kg'}"
+                   TextColor="Black"
+                   Margin="{StaticResource GeneralPadding}"
+                   LineBreakMode="NoWrap"
+                   FontSize="Large"/>
+        </StackLayout>
     </Grid>
 </ContentPage>

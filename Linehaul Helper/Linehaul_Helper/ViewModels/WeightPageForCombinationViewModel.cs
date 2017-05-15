@@ -57,45 +57,8 @@ namespace Linehaul_Helper.ViewModels
                                     .Select((a) => Convert.ToInt32(a))
                                     .ToList();
 
-            switch(combination)
-            {
-                case "2,2,0,0":
-                    {
-                        ImageSource = ImageSourceHelper.GetFromResource("combo_truck_2axle.png");
-                        break;
-                    }
-                case "2,3,0,0":
-                    {
-                        ImageSource = ImageSourceHelper.GetFromResource("combo_truck_3axle.png");
-                        break;
-                    }
-                case "2,2,2,2":
-                    {
-                        ImageSource = ImageSourceHelper.GetFromResource("combo_truck_2axle_2axle.png");
-                        break;
-                    }
-                case "2,2,2,3":
-                    {
-                        ImageSource = ImageSourceHelper.GetFromResource("combo_truck_2axle_3axle.png");
-                        break;
-                    }
-                case "2,3,2,2":
-                    {
-                        ImageSource = ImageSourceHelper.GetFromResource("combo_truck_3axle_2axle.png");
-                        break;
-                    }
-                case "2,3,2,3":
-                    {
-                        ImageSource = ImageSourceHelper.GetFromResource("combo_truck_3axle_3axle.png");
-                        break;
-                    }
-                default:
-                    {
-                        ImageSource = ImageSourceHelper.GetFromResource("combo_truck_2axle.png");
-                        NumberOfAxles = new List<int>() { 2, 2, 0, 0 };
-                        break;
-                    }
-            }
+            string imageFile = combination.Replace(',', '_') + ".png";
+            ImageSource = ImageSourceHelper.GetFromResource(imageFile);
 
             PsiTableTruck = DictionaryToList(_psiTableTruckBase);
             PsiTableTrailerGeneric = DictionaryToList(_psiTableTrailerGenericBase);

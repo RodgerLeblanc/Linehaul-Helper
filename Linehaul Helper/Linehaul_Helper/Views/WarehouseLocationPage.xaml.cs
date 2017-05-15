@@ -19,8 +19,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 using Xamarin.Forms;
-//using Xamarin.Forms.Maps;
-using Xamarin.Forms.GoogleMaps;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace Linehaul_Helper.Views
@@ -41,7 +40,7 @@ namespace Linehaul_Helper.Views
             };
 
             map.MoveToRegion(MapSpan.FromCenterAndRadius(
-                new Xamarin.Forms.GoogleMaps.Position(45.496080, -73.769532), Distance.FromKilometers(800)));
+                new Xamarin.Forms.Maps.Position(45.496080, -73.769532), Distance.FromKilometers(800)));
         }
 
         private void LoadMapPinsFromViewModel()
@@ -53,11 +52,9 @@ namespace Linehaul_Helper.Views
                 map.Pins.Add(new Pin
                 {
                     Type = PinType.Place,
-                    Position = new Xamarin.Forms.GoogleMaps.Position(location.Position.Latitude, location.Position.Longitude),
+                    Position = new Xamarin.Forms.Maps.Position(location.Position.Latitude, location.Position.Longitude),
                     Label = location.Name,
-                    Address = location.Address,
-                    Tag = "Tag:" + location.Name,
-                    Icon = BitmapDescriptorFactory.FromBundle("dicom_cube_44.png")
+                    Address = location.Address
                 });
             }
         }
@@ -73,7 +70,7 @@ namespace Linehaul_Helper.Views
                 {
                     map.IsShowingUser = true;
                     map.MoveToRegion(MapSpan.FromCenterAndRadius(
-                        new Xamarin.Forms.GoogleMaps.Position(position.Latitude, position.Longitude), Distance.FromKilometers(50)));
+                        new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude), Distance.FromKilometers(50)));
                 }
             }
             catch (Exception ex)

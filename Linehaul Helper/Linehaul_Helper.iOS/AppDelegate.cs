@@ -14,7 +14,6 @@ namespace Linehaul_Helper.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
-            Xamarin.FormsGoogleMaps.Init(ApiKeys.GoogleMaps);
             CachedImageRenderer.Init();
 
             LoadApplication(new App());

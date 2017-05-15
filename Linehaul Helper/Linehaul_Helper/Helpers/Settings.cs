@@ -30,7 +30,7 @@ namespace Linehaul_Helper.Helpers
         private const string UnitInfoListDateTimeKey = "unitInfoListDateTime_key";
         private static readonly DateTime UnitInfoListDateTimeDefault = new DateTime(1970, 1, 1);
         private const string LastTrackingNumberKey = "lastTrackingNumber_key";
-        private static readonly string LastTrackingNumberDefault = "AA0309024";
+        private static readonly string LastTrackingNumberDefault = "";
 
         #endregion
 

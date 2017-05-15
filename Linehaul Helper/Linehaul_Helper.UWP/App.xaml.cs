@@ -55,7 +55,7 @@ namespace Linehaul_Helper.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
-                Xamarin.FormsGoogleMaps.Init(ApiKeys.BingMaps);
+                Xamarin.FormsMaps.Init(ApiKeys.BingMaps);
                 CachedImageRenderer.Init();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)

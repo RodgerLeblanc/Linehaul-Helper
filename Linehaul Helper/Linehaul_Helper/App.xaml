@@ -17,8 +17,8 @@
             <Color x:Key="DicomBlue">#FF005DAB</Color>
             <Color x:Key="DicomLightGray">#FAFAFA</Color>
 
-            <Thickness x:Key="GeneralPadding" Left="10" Top="10" Right="10" Bottom="10" />
-            <x:Double x:Key="GeneralSpacing">10</x:Double>
+            <Thickness x:Key="GeneralPadding" Left="3" Top="3" Right="3" Bottom="3" />
+            <x:Double x:Key="GeneralSpacing">3</x:Double>
 
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />

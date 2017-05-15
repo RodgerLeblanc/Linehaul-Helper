@@ -125,7 +125,7 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter your tracking number (ie: AA0309024).
+        ///   Looks up a localized string similar to Tracking number.
         /// </summary>
         internal static string ParcelTrackingPageEntryPlaceholder {
             get {
@@ -208,7 +208,7 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter truck or trailer number (ie: 7501).
+        ///   Looks up a localized string similar to Enter trailer number.
         /// </summary>
         internal static string PlatesPageEntryPlaceholder {
             get {

@@ -53,20 +53,34 @@
                 HorizontalOptions="Center" 
                 VerticalOptions="CenterAndExpand"
                 Padding="{StaticResource GeneralPadding}">
-                <Label
-                    Text="{Binding AuthorName}"
-                    HorizontalOptions="Center" 
-                    FontSize="Medium"/>
-                <Label
-                    Text="{Binding AuthorPresentation}"
-                    HorizontalOptions="Center" 
-                    TextColor="{StaticResource DicomLightGray}"
-                    FontSize="Micro">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer
-                            Command="{Binding LabelTappedCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <StackLayout HorizontalOptions="Center" 
+                                 VerticalOptions="CenterAndExpand">
+                        <Label Text="{Binding AuthorName}"
+                               HorizontalOptions="Center" 
+                               FontSize="Medium"/>
+                        <Label Text="{Binding AuthorPresentation}" 
+                               HorizontalOptions="Center" 
+                               TextColor="{StaticResource DicomLightGray}"
+                               FontSize="Micro">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenUriCommand}"
+                                                      CommandParameter="https://github.com/RodgerLeblanc" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    <Image Source="{markup:ImageResource Source='envelope.png'}" 
+                           WidthRequest="50"
+                           HeightRequest="50"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenUriCommand}"
+                                                  CommandParameter="{Binding ContactUsUri}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
             </StackLayout>
             <Image Grid.Row="1"
                 Source="{markup:ImageResource Source='roger_leblanc.jpg'}"

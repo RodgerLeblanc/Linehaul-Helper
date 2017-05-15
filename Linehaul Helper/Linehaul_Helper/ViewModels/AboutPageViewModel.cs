@@ -10,13 +10,14 @@ using Xamarin.Forms;
 
 namespace Linehaul_Helper.ViewModels
 {
-    class AboutPageViewModel : INotifyPropertyChanged
+    class AboutPageViewModel : BaseViewModel
     {
         private string _applicationName;
         private string _applicationVersion;
         private string _authorName;
         private ImageSource _authorImageSource;
         private string _authorPresentation;
+        private ICommand _openUriCommand;
 
         public AboutPageViewModel()
         {
@@ -26,52 +27,51 @@ namespace Linehaul_Helper.ViewModels
             AuthorImageSource = ImageSource.FromResource("roger_leblanc.jpg");
             AuthorPresentation = "https://github.com/RodgerLeblanc";
             //AuthorPresentation = "I'm a truck driver since 2004, working as an LCV driver for Dicom since July 2015. You can find me every week nights between Drummondville and Quebec.";
+
+            OpenUriCommand = new Command(p => Device.OpenUri(new Uri(p as string)));
         }
 
         public string ApplicationName
         {
             get { return _applicationName; }
-            set { _applicationName = value; OnPropertyChanged(); }
+            set { SetProperty(ref _applicationName, value); }
         }
 
         public string ApplicationVersion
         {
             get { return _applicationVersion; }
-            set { _applicationVersion = value; OnPropertyChanged(); }
+            set { SetProperty(ref _applicationVersion, value); }
         }
 
         public string AuthorName
         {
             get { return _authorName; }
-            set { _authorName = value; OnPropertyChanged(); }
+            set { SetProperty(ref _authorName, value); }
         }
 
         public ImageSource AuthorImageSource
         {
             get { return _authorImageSource; }
-            set { _authorImageSource = value; OnPropertyChanged(); }
+            set { SetProperty(ref _authorImageSource, value); }
         }
 
         public string AuthorPresentation
         {
             get { return _authorPresentation; }
-            set { _authorPresentation = value; OnPropertyChanged(); }
+            set { SetProperty(ref _authorPresentation, value); }
         }
 
-        public ICommand LabelTappedCommand
+        public ICommand OpenUriCommand
         {
+            get { return _openUriCommand; }
+            private set { SetProperty(ref _openUriCommand, value); }
+        }
+
+        public string ContactUsUri {
             get
             {
-                return new Command(() =>
-                {
-                    Device.OpenUri(new Uri("https://github.com/RodgerLeblanc"));
-                });
+                return $"mailto:info@cellninja.ca?subject={ApplicationName}%20{ApplicationVersion}%20Support&body=Hi%20{AuthorName},";
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

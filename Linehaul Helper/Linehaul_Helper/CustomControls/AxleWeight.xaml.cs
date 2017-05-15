@@ -12,7 +12,7 @@ using Linehaul_Helper.Models;
 
 namespace Linehaul_Helper.CustomControls
 {
-    public partial class AxleWeight : StackLayout
+    public partial class AxleWeight : Grid
     {
         public static readonly BindableProperty MaxLegalWeightProperty = BindableProperty.Create(nameof(MaxLegalWeight), typeof(int), typeof(AxleWeight), default(int));
         public int MaxLegalWeight

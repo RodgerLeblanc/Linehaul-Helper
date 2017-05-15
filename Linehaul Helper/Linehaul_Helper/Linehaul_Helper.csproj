@@ -397,6 +397,17 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\envelope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\2_2_0_0.png" />
+    <EmbeddedResource Include="Images\2_2_2_2.png" />
+    <EmbeddedResource Include="Images\2_2_2_3.png" />
+    <EmbeddedResource Include="Images\2_3_0_0.png" />
+    <EmbeddedResource Include="Images\2_3_2_2.png" />
+    <EmbeddedResource Include="Images\2_3_2_3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

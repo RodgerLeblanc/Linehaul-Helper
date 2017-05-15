@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PlatesPageEntryPlaceholder" xml:space="preserve">
-    <value>Enter truck or trailer number (ie: 7501)</value>
+    <value>Enter trailer number</value>
     <comment>Text shown when nothing is entered in Entry field</comment>
   </data>
   <data name="PlatesPageButtonText" xml:space="preserve">
@@ -169,7 +169,7 @@ Contact info@cellninja.ca to add this unit.</value>
     <value>About</value>
   </data>
   <data name="ParcelTrackingPageEntryPlaceholder" xml:space="preserve">
-    <value>Enter your tracking number (ie: AA0309024)</value>
+    <value>Tracking number</value>
   </data>
   <data name="ParcelTrackingPageButtonText" xml:space="preserve">
     <value>Track</value>
