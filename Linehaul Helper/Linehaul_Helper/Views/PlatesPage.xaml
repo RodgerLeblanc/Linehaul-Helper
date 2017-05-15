@@ -8,12 +8,6 @@
     BackgroundColor="{StaticResource DicomOrange}"
 	Title="{i18n:Translate PlatesPageTitle}"
     IsBusy="{Binding IsBusy}">
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness"
-			iOS="0, 20, 0, 0"
-			Android="0, 0, 0, 0"
-			WinPhone="0, 0, 0, 0" />
-    </ContentPage.Padding>
 
     <Grid 
         ColumnSpacing="{StaticResource GeneralSpacing}" 
