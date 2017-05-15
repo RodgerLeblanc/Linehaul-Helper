@@ -216,4 +216,10 @@ Contact info@cellninja.ca to add this unit.</value>
   <data name="AxleWeightPickerTitle" xml:space="preserve">
     <value>PSI (or Kg per axle)</value>
   </data>
+  <data name="WeightHelpMessage" xml:space="preserve">
+    <value>This tool is provided to estimate the weight of an axle given its air pressure (PSI), it's not intended to replace an official scale. The values used to calculate weight are based on official documentation given by Dicom mixed with personal data from official scales using truck number 4937 with multiple trailer combination, including LCV.</value>
+  </data>
+  <data name="WeightHelpTitle" xml:space="preserve">
+    <value>Are those values reliable?</value>
+  </data>
 </root>

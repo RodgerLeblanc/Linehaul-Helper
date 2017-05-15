@@ -4,7 +4,7 @@
   <mp:PhoneIdentity PhoneProductId="239b2c82-ce34-439e-9c62-f2383f0256b1" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Linehaul_Helper.UWP</DisplayName>
-    <PublisherDisplayName>roger</PublisherDisplayName>
+    <PublisherDisplayName>CellNinja</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -19,6 +19,9 @@
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="portrait" />
+        </uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>

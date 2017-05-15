@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Linehaul_Helper.CustomControls"
              xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
+             xmlns:markup="clr-namespace:Linehaul_Helper.MarkupExtensions"
+             xmlns:converter="clr-namespace:Linehaul_Helper.Converters"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="Linehaul_Helper.Views.WeightPageForCombination"
              Title="{i18n:Translate WeightPageForCombinationTitle}"
-             BackgroundColor="{StaticResource DicomOrange}">
+             BackgroundColor="{StaticResource DicomOrange}"
+             x:Name="weightPage">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -37,10 +41,15 @@
                 Source="{Binding ImageSource}"
                 Aspect="AspectFill"/>
 
-        <StackLayout Grid.Column="1" Grid.Row="0"
-                     Margin="{StaticResource GeneralPadding}"
-                     VerticalOptions="FillAndExpand" >
-            <Grid VerticalOptions="FillAndExpand">
+        <Grid Grid.Column="1" Grid.Row="0"
+              Margin="{StaticResource GeneralPadding}"
+              VerticalOptions="FillAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32*" />
+                <RowDefinition Height="{Binding NumberOfAxles[2], Converter={StaticResource IsVisibleToRowDefinitionHeightConverter}}"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0" VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*" />
                     <RowDefinition Height="3*" />
@@ -50,7 +59,7 @@
                 <StackLayout Grid.Row="0"
                        BackgroundColor="{StaticResource DicomLightGray}"
                        HorizontalOptions="Center"
-                       VerticalOptions="Center">
+                       VerticalOptions="Start">
                     <Label Text="{i18n:Translate SteeringAxleWeight}"
                            TextColor="Black"
                            Margin="{StaticResource GeneralPadding}"
@@ -80,29 +89,31 @@
                                      Position="B"
                                      PsiTable="{Binding PsiTableTrailerGeneric}"
                                      Weight="{Binding AxleWeightB}"
-                                     SelectedIndex="{Binding SelectedIndexB}"/>
+                                     SelectedIndex="{Binding SelectedIndexB}"
+                                     MaxLegalWeight="{Binding NumberOfAxles[1], Converter={StaticResource NumberOfAxleToMaxLegalWeightConverter}}"/>
 
             </Grid>
 
-            <Grid VerticalOptions="CenterAndExpand"
+            <Grid Grid.Row="1" VerticalOptions="FillAndExpand"
                   IsVisible="{Binding NumberOfAxles[2]}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <controls:AxleWeight Grid.Row="0" 
-                                     VerticalOptions="StartAndExpand"
+                                     VerticalOptions="Start"
                                      Position="C"
                                      PsiTable="{Binding PsiTableTrailerGeneric}"
                                      Weight="{Binding AxleWeightC}"
-                                     SelectedIndex="{Binding SelectedIndexC}" />
+                                     SelectedIndex="{Binding SelectedIndexC}" 
+                                     MaxLegalWeight="{Binding NumberOfAxles[2], Converter={StaticResource NumberOfAxleToMaxLegalWeightConverter}}"/>
 
 
                 <StackLayout Grid.Row="0" Grid.RowSpan="2"
-                       BackgroundColor="{StaticResource DicomLightGray}"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center">
+                             BackgroundColor="{StaticResource DicomLightGray}"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
                     <Label Text="{Binding TotalWeightCD, StringFormat='C + D: {0} kg'}"
                            TextColor="Black"
                            Margin="{StaticResource GeneralPadding}"
@@ -110,14 +121,14 @@
                 </StackLayout>
 
                 <controls:AxleWeight Grid.Row="1"
-                                     VerticalOptions="StartAndExpand"
+                                     VerticalOptions="End"
                                      Position="D"
                                      PsiTable="{Binding PsiTableTrailerGeneric}"
                                      Weight="{Binding AxleWeightD}"
-                                     SelectedIndex="{Binding SelectedIndexD}"/>
-
+                                     SelectedIndex="{Binding SelectedIndexD}"
+                                     MaxLegalWeight="{Binding NumberOfAxles[3], Converter={StaticResource NumberOfAxleToMaxLegalWeightConverter}}"/>
             </Grid>
-        </StackLayout>
+        </Grid>
 
         <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
                      BackgroundColor="{StaticResource DicomLightGray}"
@@ -125,10 +136,33 @@
                      HorizontalOptions="Center"
                      VerticalOptions="Center">
             <Label Text="{Binding TotalWeightABCD, StringFormat='Total: {0} kg'}"
-                   TextColor="Black"
                    Margin="{StaticResource GeneralPadding}"
                    LineBreakMode="NoWrap"
-                   FontSize="Large"/>
+                   FontSize="Large"
+                   TextColor="{Binding TotalWeightABCD, 
+                                       Converter={StaticResource GrossWeightToColorConverter}, 
+                                       ConverterParameter={x:Reference weightPage}}">
+                <Label.Resources>
+                    <ResourceDictionary>
+                        <converter:WeightToColorConverter x:Key="GrossWeightToColorConverter"
+                                                          LegalColor="Black"
+                                                          IllegalColor="Red"/>
+                    </ResourceDictionary>
+                </Label.Resources>
+            </Label>
         </StackLayout>
+        
+        <Image Grid.Column="1" Grid.Row="1"
+               Source="{markup:ImageResource Source='help.png'}" 
+               WidthRequest="30"
+               HeightRequest="30"
+               Aspect="AspectFill"
+               HorizontalOptions="End"
+               VerticalOptions="Center">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding HelpCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+
     </Grid>
 </ContentPage>

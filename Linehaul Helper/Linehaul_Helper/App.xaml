@@ -55,6 +55,7 @@
             <converter:IsBusyToOpacityConverter x:Key="IsBusyToOpacityConverter"/>
             <converter:WeightToColorConverter x:Key="WeightToColorConverter"/>
             <converter:NumberOfAxleToMaxLegalWeightConverter x:Key="NumberOfAxleToMaxLegalWeightConverter"/>
+            <converter:IsVisibleToRowDefinitionHeightConverter x:Key="IsVisibleToRowDefinitionHeightConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

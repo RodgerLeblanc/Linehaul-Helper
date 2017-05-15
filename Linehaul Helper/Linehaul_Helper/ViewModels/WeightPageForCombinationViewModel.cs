@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Linehaul_Helper.ViewModels
@@ -49,7 +50,10 @@ namespace Linehaul_Helper.ViewModels
         private int _totalWeightCD;
         private int _totalWeightABCD;
 
+        private int _maxLegalWeight;
+
         private string _weightMessage;
+        private ICommand _helpCommand;
 
         public WeightPageForCombinationViewModel(string combination)
         {
@@ -67,6 +71,12 @@ namespace Linehaul_Helper.ViewModels
             SelectedIndexB = ApplicationPropertiesHelper.GetProperty(nameof(SelectedIndexB), -1);
             SelectedIndexC = ApplicationPropertiesHelper.GetProperty(nameof(SelectedIndexC), -1);
             SelectedIndexD = ApplicationPropertiesHelper.GetProperty(nameof(SelectedIndexD), -1);
+
+            HelpCommand = new Command(async () => {
+                await Commons.DisplayAlert(AppResources.WeightHelpTitle, AppResources.WeightHelpMessage, "Ok");
+            });
+
+            MaxLegalWeight = (NumberOfAxles[2] > 0) ? 67500 : 5500 + GetMaxWeightForAxle(NumberOfAxles[0]) + GetMaxWeightForAxle(NumberOfAxles[1]);
         }
 
         public ImageSource ImageSource
@@ -179,10 +189,27 @@ namespace Linehaul_Helper.ViewModels
             set { SetProperty(ref _totalWeightABCD, value); }
         }
 
+        public int MaxLegalWeight
+        {
+            get { return _maxLegalWeight; }
+            set { SetProperty(ref _maxLegalWeight, value); }
+        }
+
         public string WeightMessage
         {
             get { return _weightMessage; }
             set { SetProperty(ref _weightMessage, value); }
+        }
+
+        public ICommand HelpCommand
+        {
+            get { return _helpCommand; }
+            set { SetProperty(ref _helpCommand, value); }
+        }
+
+        private int GetMaxWeightForAxle(int numberOfAxle)
+        {
+            return numberOfAxle == 2 ? 18000 : 26000;
         }
 
         private int GetAxleWeight(int psi, int numberOfAxle, List<PsiKgPair> psiTable)

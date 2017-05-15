@@ -214,4 +214,10 @@
   <data name="AxleWeightPickerTitle" xml:space="preserve">
     <value>PSI (ou Kg par essieu)</value>
   </data>
+  <data name="WeightHelpMessage" xml:space="preserve">
+    <value>Cet outil est utile pour estimer le poids d'un essieu selon la pression d'air (PSI), les données ne peuvent être considérées valides comme celles d'une balance officielle. Les données utilisées pour calculer le poids sont basées sur la documentation officielle de Dicom, ajouté de données personnelles récoltées aux balances officielles avec le camion 4937 et plusieurs combinaisons de remorques, incluant du train routier.</value>
+  </data>
+  <data name="WeightHelpTitle" xml:space="preserve">
+    <value>Ces données sont-elles fiables?</value>
+  </data>
 </root>

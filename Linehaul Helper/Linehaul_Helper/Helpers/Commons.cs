@@ -16,6 +16,9 @@ namespace Linehaul_Helper.Helpers
 
             public static string UnitInfosFolderName = "UnitInfos";
             public static string UnitInfosFileName = "unitinfos.json";
+
+            public static string WarehousesFolderName = "Warehouses";
+            public static string WarehousesFileName = "warehouses.json";
         }
 
         public enum TypeOfUserEnum { Caregiver, Client };

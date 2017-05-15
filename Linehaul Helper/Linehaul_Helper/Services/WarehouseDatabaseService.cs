@@ -19,6 +19,7 @@ namespace Linehaul_Helper.Services
     {
         private String _baseUrl = ApiKeys.CloudantDbUrl + ApiKeys.WarehouseLocationsDbName + "/";
         private HttpClient _client = new HttpClient();
+        private IList<WarehouseLocation> _warehouses;
         private bool _isBusy;
 
         public bool IsBusy
@@ -36,39 +37,29 @@ namespace Linehaul_Helper.Services
 
         public event EventHandler IsBusyChanged;
 
-        public List<WarehouseLocation> GetDefaultWarehouseLocations()
+        public async Task<List<WarehouseLocation>> GetDefaultWarehouseLocations()
         {
-            return new List<WarehouseLocation>
+            if (_warehouses != null)
+                return (List<WarehouseLocation>)_warehouses;
+
+            IsBusy = true;
+
+            try
             {
-                new WarehouseLocation
-                {
-                    Name = "Dicom Drummondville",
-                    Description = "DRU",
-                    Position = new Position { Latitude = 45.877198, Longitude = -72.543418 },
-                    Address = "330 RUE ROCHELEAU, DRUMMONDVILLE, QC, J2C7S7"
-                },
-                new WarehouseLocation
-                {
-                    Name = "Dicom Trois-Rivieres",
-                    Description = "TRS",
-                    Position = new Position { Latitude = 46.345096, Longitude = -72.638812 },
-                    Address = "3700 L-P NORMAND, TROIS-RIVIERES, QC"
-                },
-                new WarehouseLocation
-                {
-                    Name = "Dicom Quebec",
-                    Description = "QUE",
-                    Position = new Position { Latitude = 46.792657, Longitude = -71.323205 },
-                    Address = "5150 JOHN-MOLSON, QUEBEC, QC, G1X3X4"
-                },
-                new WarehouseLocation
-                {
-                    Name = "Dicom Cote-De-Liesse",
-                    Description = "CDL",
-                    Position = new Position { Latitude = 45.463108, Longitude = -73.722380 },
-                    Address = "10755 COTE DE LIESSE OUEST, MONTREAL, QC, H9P1A7"
-                }
-            };
+                var warehousesFileContent = await Helpers.PCLStorage.PCLStorageLoad(Commons.Strings.WarehousesFolderName, Commons.Strings.WarehousesFileName);
+                _warehouses = JsonConvert.DeserializeObject<List<WarehouseLocation>>(warehousesFileContent);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception converting file to List<WarehouseLocation>: " + ex.Message);
+                _warehouses = new List<WarehouseLocation>();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+
+            return (List<WarehouseLocation>)_warehouses;
         }
 
         public async Task<List<WarehouseLocation>> GetWarehouseLocations()
@@ -98,6 +89,8 @@ namespace Linehaul_Helper.Services
                         warehouses.Add(row.doc);
                     }
                     Debug.WriteLine($"Number of docs: {warehouses.Count}");
+
+                    await this.SaveWarehouses(warehouses);
                 }
             }
             catch (Exception ex)
@@ -109,8 +102,31 @@ namespace Linehaul_Helper.Services
                 IsBusy = false;
             }
 
-//            return (warehouses.Count == 0) ? GetDefaultWarehouseLocations() : warehouses;
-            return warehouses ?? new List<WarehouseLocation>();
+            return warehouses ?? await GetDefaultWarehouseLocations();
+        }
+
+        public async Task SaveWarehouses(List<WarehouseLocation> warehouses)
+        {
+            if (warehouses == null)
+                return;
+
+            IsBusy = true;
+
+            _warehouses = warehouses;
+            
+            try
+            {
+                var warehousesAsString = JsonConvert.SerializeObject(_warehouses);
+                await Helpers.PCLStorage.PCLStorageSave(Commons.Strings.WarehousesFolderName, Commons.Strings.WarehousesFileName, warehousesAsString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception while converting List<Warehouses> to string: " + ex.Message);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         protected virtual void OnIsBusyChanged(bool value)

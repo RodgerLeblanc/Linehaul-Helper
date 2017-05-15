@@ -47,33 +47,6 @@ namespace Linehaul_Helper.Services
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authorization);
         }
 
-        public async Task SaveUnitInfos(List<UnitInfo> unitInfos, DateTime unitInfoListDateTime)
-        {
-            if (unitInfos == null)
-                return;
-
-            IsBusy = true;
-
-            _unitInfos = unitInfos;
-            UnitInfoListDateTime = unitInfoListDateTime;
-
-            try
-            {
-                var unitInfoAsString = JsonConvert.SerializeObject(_unitInfos);
-                await Helpers.PCLStorage.PCLStorageSave(Commons.Strings.UnitInfosFolderName, Commons.Strings.UnitInfosFileName, unitInfoAsString);
-
-                Settings.UnitInfoListDateTime = unitInfoListDateTime;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Exception while converting List<UnitInfo> to string: " + ex.Message);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
-
         public async Task<List<UnitInfo>> GetUnitInfosOnline()
         {
             IsBusy = true;
@@ -120,6 +93,33 @@ namespace Linehaul_Helper.Services
             }
 
             return (List<UnitInfo>)_unitInfos ?? new List<UnitInfo>();
+        }
+
+        public async Task SaveUnitInfos(List<UnitInfo> unitInfos, DateTime unitInfoListDateTime)
+        {
+            if (unitInfos == null)
+                return;
+
+            IsBusy = true;
+
+            _unitInfos = unitInfos;
+            UnitInfoListDateTime = unitInfoListDateTime;
+
+            try
+            {
+                var unitInfoAsString = JsonConvert.SerializeObject(_unitInfos);
+                await Helpers.PCLStorage.PCLStorageSave(Commons.Strings.UnitInfosFolderName, Commons.Strings.UnitInfosFileName, unitInfoAsString);
+
+                Settings.UnitInfoListDateTime = unitInfoListDateTime;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception while converting List<UnitInfo> to string: " + ex.Message);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         public async Task<List<UnitInfo>> GetUnitInfos()

@@ -28,7 +28,23 @@
     <Label Grid.Column="2"
         Text="{Binding Source={x:Reference axleWeight}, Path=Weight, StringFormat='= {0} kg'}"
         LineBreakMode="NoWrap"
-        VerticalOptions="Center"/>
+        VerticalOptions="Center"
+        TextColor="{Binding Source={x:Reference axleWeight}, 
+                            Path=Weight, 
+                            Converter={StaticResource WeightToColorConverter}, 
+                            ConverterParameter={x:Reference axleWeight}}">
+        <!--<Label.Triggers>
+            <DataTrigger TargetType="Label" 
+                         Binding="{Binding Source={x:Reference axleWeight},
+                                           Path=Weight,
+                                           Converter={StaticResource WeightToColorConverter},
+                                           ConverterParameter={Binding Source={x:Reference axleWeight}, 
+                                                        Path=MaxLegalWeight}}}"
+                         Value="0">
+                <Setter Property="TextColor" Value="Red" />
+            </DataTrigger>
+        </Label.Triggers>-->
+    </Label>
 
     <!--<Test>
         TextColor="{Binding Source={x:Reference axleWeight}, 

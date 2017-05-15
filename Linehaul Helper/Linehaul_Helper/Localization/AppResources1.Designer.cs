@@ -289,6 +289,24 @@ namespace Linehaul_Helper.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This tool is provided to estimate the weight of an axle given its air pressure (PSI), it&apos;s not intended to replace an official scale. The values used to calculate weight are based on official documentation given by Dicom mixed with personal data from official scales using truck number 4937 with multiple trailer combination, including LCV..
+        /// </summary>
+        internal static string WeightHelpMessage {
+            get {
+                return ResourceManager.GetString("WeightHelpMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are those values reliable?.
+        /// </summary>
+        internal static string WeightHelpTitle {
+            get {
+                return ResourceManager.GetString("WeightHelpTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Weight.
         /// </summary>
         internal static string WeightPageForCombinationTitle {
