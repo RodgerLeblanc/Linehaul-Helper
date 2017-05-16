@@ -14,7 +14,7 @@ using Xamarin.Forms.Xaml;
 namespace Linehaul_Helper.Views
 {
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WeightPageTruckCombinationSelection : ContentPage
     {
         public WeightPageTruckCombinationSelection()

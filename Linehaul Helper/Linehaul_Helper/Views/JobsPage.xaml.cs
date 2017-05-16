@@ -15,7 +15,7 @@ using Xamarin.Forms.Xaml;
 namespace Linehaul_Helper.Views
 {
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class JobsPage : ContentPage
     {
         private JobsPageViewModel _jobsViewModel;

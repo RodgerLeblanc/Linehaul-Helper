@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:Linehaul_Helper.Localization"
@@ -7,7 +7,6 @@
              xmlns:views="clr-namespace:Linehaul_Helper.Views"
              x:Class="Linehaul_Helper.Views.MainPage"
              Title="{i18n:Translate AppName}"
-             Icon="dicom_cube_44.png"
              BackgroundColor="{StaticResource DicomOrange}"
              x:Name="mainPage">
     <ContentPage.Resources>

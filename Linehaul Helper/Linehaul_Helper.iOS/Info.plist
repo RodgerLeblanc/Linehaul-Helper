@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Linehaul_Helper.iOS</string>
+	<string>Linehaul Helper</string>
 	<key>CFBundleName</key>
-	<string>Linehaul_Helper.iOS</string>
+	<string>Linehaul Helper</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.CellNinja.Linehaul_Helper</string>
+	<string>com.CellNinja.iOS.LinehaulHelper</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

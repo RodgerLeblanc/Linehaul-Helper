@@ -1,12 +1,13 @@
 ﻿using Linehaul_Helper.Helpers;
 using Linehaul_Helper.Interfaces;
+using Linehaul_Helper.Localization;
 using Linehaul_Helper.Services;
 using Linehaul_Helper.Views;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+//[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Linehaul_Helper
 {
     public partial class App : Application
@@ -27,7 +28,7 @@ namespace Linehaul_Helper
             var navigationPage = new NavigationPage(new MainPage())
             {
                 BarBackgroundColor = (Color)Application.Current.Resources["DicomBlue"],
-                Icon = "dicom_cube_44.png"
+				Title = AppResources.AppName
             };
 
             Current.MainPage = navigationPage;

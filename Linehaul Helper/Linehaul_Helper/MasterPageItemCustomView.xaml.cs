@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace Linehaul_Helper.CustomControls
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterPageItemCustomView : StackLayout
     {
         public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(ImageSource), typeof(MasterPageItemCustomView), null);

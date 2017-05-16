@@ -18,13 +18,12 @@ using Xamarin.Forms.Xaml;
 namespace Linehaul_Helper.Views
 {
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
-            //NavigationPage.SetHasNavigationBar(this, false);
-            NavigationPage.SetTitleIcon(this, "dicom_cube_44.png");
+            //NavigationPage.SetTitleIcon(this, "dicom_cube_44.png");
 
             InitializeComponent();
             BindingContext = new MainPageViewModel();

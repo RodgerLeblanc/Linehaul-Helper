@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Linehaul_Helper.CustomControls
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemSeparator : BoxView
     {
         public static readonly BindableProperty SeparatorColorProperty = BindableProperty.Create(nameof(SeparatorColor), typeof(Color), typeof(ItemSeparator), (Color)Application.Current.Resources["DicomOrange"]);
