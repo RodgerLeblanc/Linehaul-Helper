@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>Linehaul Helper</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.CellNinja.iOS.LinehaulHelper</string>
+	<string>com.CellNinja.LinehaulHelper</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
