@@ -54,7 +54,11 @@ namespace Linehaul_Helper.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                Xamarin.Forms.Forms.Init(e);
+                var rendererAssemblies = new[] {
+                    typeof(Xamarin.Forms.Maps.UWP.MapRenderer).GetTypeInfo().Assembly,
+                    typeof(CachedImageRenderer).GetTypeInfo().Assembly
+                };
+                Xamarin.Forms.Forms.Init(e, rendererAssemblies);
                 Xamarin.FormsMaps.Init(ApiKeys.BingMaps);
                 CachedImageRenderer.Init();
 

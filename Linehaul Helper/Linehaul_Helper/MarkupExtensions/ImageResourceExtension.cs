@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,7 +22,7 @@ namespace Linehaul_Helper.MarkupExtensions
                 return null;
             }
 
-            var imageSource = ImageSource.FromResource("Linehaul_Helper.Images." + Source);
+            var imageSource = ImageSource.FromResource("Linehaul_Helper.Images." + Source, typeof(App).GetTypeInfo().Assembly);
 
             return imageSource;
         }

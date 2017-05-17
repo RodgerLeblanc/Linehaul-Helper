@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="239b2c82-ce34-439e-9c62-f2383f0256b1" Publisher="CN=roger" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="239b2c82-ce34-439e-9c62-f2383f0256b1" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="7996CellNinja.LinehaulHelper" Publisher="CN=20A59965-B548-4C6D-9430-C1969924E8DE" Version="1.0.1.0" />
+  <mp:PhoneIdentity PhoneProductId="62ce4f71-c52e-4969-89b7-9f909ba4cf5e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Linehaul_Helper.UWP</DisplayName>
+    <DisplayName>Linehaul Helper</DisplayName>
     <PublisherDisplayName>CellNinja</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Linehaul_Helper.UWP.App">
-      <uap:VisualElements DisplayName="Linehaul_Helper.UWP" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Linehaul_Helper.UWP" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Linehaul Helper" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Linehaul_Helper.UWP" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
