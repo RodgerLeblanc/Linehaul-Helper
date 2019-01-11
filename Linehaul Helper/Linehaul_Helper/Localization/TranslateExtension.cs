@@ -16,7 +16,7 @@ namespace Linehaul_Helper.Localization
 
 		public TranslateExtension()
 		{
-            if (Xamarin.Forms.Device.OS == TargetPlatform.iOS || Xamarin.Forms.Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
             {
                 ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
             }
